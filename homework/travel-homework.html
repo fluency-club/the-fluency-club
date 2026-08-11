@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Travel English Homework</title>
+<style>
+:root{--navy:#172554;--purple:#7c3aed;--pink:#ec4899;--cyan:#06b6d4;--orange:#f97316;--green:#22c55e;--red:#ef4444;--cream:#fffaf0}
+*{box-sizing:border-box} body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(135deg,#312e81,#0891b2,#fb7185);color:#172033;min-height:100vh}
+header{padding:34px 24px;text-align:center;color:white}h1{font-size:clamp(36px,6vw,68px);margin:0;text-shadow:0 8px 30px #0005}header p{font-size:20px;margin:10px auto;max-width:850px}
+.progressWrap{position:sticky;top:0;z-index:30;background:#ffffffdd;backdrop-filter:blur(12px);padding:10px 20px;box-shadow:0 8px 25px #0002}.progress{height:14px;background:#e5e7eb;border-radius:99px;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--pink),var(--orange));transition:.3s}.progressText{text-align:center;font-weight:900;margin-top:6px}
+main{max-width:1100px;margin:auto;padding:0 18px 80px}.card{background:#fffffff2;border:2px solid #fff;border-radius:30px;padding:26px;margin:22px 0;box-shadow:0 24px 70px #0003}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}.hero img,.banner{width:100%;height:300px;object-fit:cover;border-radius:24px;box-shadow:0 18px 45px #0003}.banner{height:230px;margin:8px 0 18px}h2{font-size:34px;margin:0 0 12px;color:#4c1d95}h3{font-size:24px}.tag{display:inline-block;padding:7px 12px;border-radius:99px;background:#ede9fe;color:#5b21b6;font-weight:900;margin:3px}.rule{background:linear-gradient(135deg,#eff6ff,#ecfeff);border-left:9px solid #2563eb;padding:18px;border-radius:20px;margin:14px 0}.wordbank{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.wordbank span{background:#fef3c7;border-radius:99px;padding:9px 13px;font-weight:800}.q{background:#fff;border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 8px 22px #0001}.q p{font-size:19px;font-weight:800;margin:0 0 12px}.options{display:grid;gap:9px}.option{border:2px solid #dbeafe;background:#f8fafc;border-radius:16px;padding:12px 14px;text-align:left;font-size:17px;font-weight:750;cursor:pointer}.option:hover{transform:translateY(-1px)}.option.selected{border-color:#7c3aed;background:#ede9fe}.option.correct{border-color:var(--green);background:#dcfce7}.option.wrong{border-color:var(--red);background:#fee2e2}.textans{width:100%;padding:12px 14px;border:3px solid #cbd5e1;border-radius:14px;font-size:18px}.textans.correct{border-color:var(--green);background:#dcfce7}.textans.wrong{border-color:var(--red);background:#fee2e2}.btn{border:0;border-radius:18px;padding:13px 18px;font-size:17px;font-weight:900;cursor:pointer;background:#172554;color:white;box-shadow:0 10px 22px #0002;margin:5px}.btn.secondary{background:#ede9fe;color:#5b21b6}.btn.audio{background:linear-gradient(135deg,#db2777,#7c3aed)}.feedback{display:none;padding:12px 16px;border-radius:16px;margin-top:10px;font-weight:800}.feedback.show{display:block}.feedback.good{background:#dcfce7}.feedback.bad{background:#fee2e2}.sectionScore{font-weight:950;font-size:20px;margin-top:12px}.audioBox{background:linear-gradient(135deg,#fdf2f8,#ede9fe);padding:20px;border-radius:24px;text-align:center}.audioBox p{font-size:18px}.note{font-size:14px;color:#64748b}.final{display:none;text-align:center}.grade{font-size:84px;font-weight:1000;margin:10px}.stars{font-size:48px}.certificate{background:linear-gradient(135deg,#fff7ed,#fef3c7);border:5px double #f59e0b;border-radius:26px;padding:24px;margin-top:18px}.miniGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.miniGrid img{width:100%;height:155px;object-fit:cover;border-radius:18px}@media(max-width:800px){.hero{grid-template-columns:1fr}.miniGrid{grid-template-columns:1fr}h2{font-size:28px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<div class="progressWrap"><div class="progress"><div id="bar"></div></div><div class="progressText" id="progressText">0 of 41 questions completed</div></div>
+<header><h1>✈️ Travel English Homework</h1><p>Vocabulary, listening practice, Present Perfect, and tense choice. Complete every section, then receive an automatic grade.</p></header>
+<main>
+<section class="card hero"><div><span class="tag">Approx. 40–50 minutes</span><span class="tag">41 graded tasks</span><h2>Your mission</h2><p style="font-size:21px">You are travelling to London. Your flight has changed, your suitcase is missing, and you have already had quite an adventure. Use English to solve every problem!</p><div class="rule"><b>How it works:</b> choose or type an answer. You can change it before pressing <b>Check this section</b>. At the end, press <b>Calculate my grade</b>.</div></div><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=85" alt="Airplane above clouds"></section>
+
+<section class="card" data-section="vocab"><h2>1. Vocabulary Check 🧳</h2><img class="banner" src="https://images.unsplash.com/photo-1515569067071-ec3b51335dd0?auto=format&fit=crop&w=1400&q=85" alt="Airport terminal"><div class="wordbank"><span>boarding pass</span><span>check-in desk</span><span>carry-on</span><span>delay</span><span>gate</span><span>layover</span><span>aisle seat</span><span>baggage claim</span></div>
+<div id="vocabQs"></div><button class="btn" onclick="checkSection('vocab')">Check vocabulary</button><div class="sectionScore" id="vocabScore"></div></section>
+
+<section class="card" data-section="listening"><h2>2. Listening 🎧</h2><div class="audioBox"><h3>Transport announcements — British Council</h3><p>Open the recording and listen to all four announcements (A, B, C, and D) carefully. Listen twice if needed, then answer every group of questions. Do not use subtitles or written support.</p><a class="btn audio" target="_blank" rel="noopener" href="https://learnenglish.britishcouncil.org/free-resources/listening/a2/transport-announcements">▶ Open Audio</a><p class="note">The recording opens in a new tab. Keep this homework page open so you can return to the questions immediately.</p></div><div id="listeningQs"></div><button class="btn" onclick="checkSection('listening')">Check listening</button><div class="sectionScore" id="listeningScore"></div></section>
+
+<section class="card" data-section="perfect"><h2>3. Present Perfect Focus 🌍</h2><div class="rule"><b>Form:</b> have/has + past participle.<br><b>Use it for:</b> life experience, a recent result, or an action connected to now.<br><b>Common words:</b> already, just, yet, ever, never, for, since.<br><b>Examples:</b> I have already checked in. She has just found her gate. Have you ever missed a flight? We haven’t boarded yet.</div><img class="banner" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1400&q=85" alt="Traveler with map"><div id="perfectQs"></div><button class="btn" onclick="checkSection('perfect')">Check Present Perfect</button><div class="sectionScore" id="perfectScore"></div></section>
+
+<section class="card" data-section="tenses"><h2>4. Choose the Right Tense ⏰</h2><div class="rule"><b>Present Simple:</b> routines and facts — “I usually fly economy.”<br><b>Present Continuous:</b> happening now or temporary — “I’m waiting at Gate 6.”<br><b>Present Perfect:</b> past action connected to now — “They have changed the gate.”</div><div class="miniGrid"><img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=700&q=85" alt="Airport"><img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=700&q=85" alt="Travel map"><img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=700&q=85" alt="Suitcase"></div><div id="tenseQs"></div><button class="btn" onclick="checkSection('tenses')">Check tense challenge</button><div class="sectionScore" id="tensesScore"></div></section>
+
+<section class="card"><h2>5. Final Travel Mission 🛫</h2><p style="font-size:20px">Complete the short message with the correct words. Spelling matters, but capitalization does not.</p><div id="missionQs"></div><button class="btn" onclick="checkSection('mission')">Check final mission</button><div class="sectionScore" id="missionScore"></div></section>
+
+<section class="card" style="text-align:center"><h2>Ready for your result?</h2><p>Make sure every question has an answer. Then calculate the final grade.</p><button class="btn" style="font-size:22px;padding:17px 28px;background:linear-gradient(135deg,#7c3aed,#ec4899)" onclick="finalGrade()">🏆 Calculate my grade</button><div class="final" id="final"><div class="grade" id="grade"></div><div class="stars" id="stars"></div><h2 id="resultTitle"></h2><p id="resultText" style="font-size:21px"></p><div class="certificate"><h3>Travel English Homework Certificate</h3><p><b>Score:</b> <span id="certScore"></span></p><p><b>Teacher:</b> Anna</p></div><button class="btn secondary" onclick="window.print()">🖨 Print / Save result</button></div></section>
+</main>
+<script>
+const sets={
+vocab:[
+['Where do you collect your checked suitcase?',['at baggage claim','at security','at the gate'],0],
+['A short stop between two flights is called a…',['layover','carry-on','boarding pass'],0],
+['Which item can you take into the cabin?',['carry-on','baggage claim','delay'],0],
+['Where do airline employees check your passport and suitcase?',['check-in desk','aisle seat','departure board'],0],
+['The place where passengers enter the plane is the…',['gate','runway','customs form'],0],
+['A flight that leaves later than planned has a…',['delay','layover','boarding pass'],0]
+],
+listening:[
+['A','Which platform will the 12:20 train arrive at?',['Platform 2','Platform 9','Platform 12'],0],
+['A','Where is the 12:20 train going?',['Bristol Temple Meads','Liverpool Street','Paris'],0],
+['A','How many places does the train call at before Bristol Temple Meads?',['Three','Two','Four'],0],
+['A','Where is first class?',['In the rear carriage','In the first carriage','In the middle carriage'],0],
+['B','How long is the train delayed?',['Approximately 8 minutes','Approximately 18 minutes','Approximately 5 minutes'],0],
+['B','Which platform will the train now depart from?',['Platform 9','Platform 2','Platform 8'],0],
+['B','Which service is affected?',['The 12:20 service to Bristol Temple Meads','The 12:30 service to Oxford','The 12:20 service to London'],0],
+['B','What should passengers do?',['Make their way to Platform 9','Wait beside Platform 2','Leave the station'],0],
+['C','What is the flight number?',['EB380','BE830','EB308'],0],
+['C','Where is the flight going?',['Paris','Bristol','London'],0],
+['C','Which gate should passengers use?',['Gate 13','Gate 30','Gate 3'],0],
+['C','What should passengers have ready?',['Passports and boarding passes','Tickets and hotel bookings','Visas and luggage labels'],0],
+['D','What is the next station?',['Liverpool Street','Redbridge','Bristol Parkway'],0],
+['D','Which doors will not open?',['The first set of doors','The rear doors','All the doors'],0],
+['D','What should customers in the first carriage do?',['Move towards the rear doors','Stay in their seats','Move towards the driver'],0],
+['D','Where does this train terminate?',['Redbridge','Liverpool Street','Oxford'],0]
+],
+perfect:[
+['She ___ already checked in.',['has','have','is'],0],
+['We have just ___ our boarding passes.',['printed','print','printing'],0],
+['___ you ever missed a connection?',['Have','Has','Are'],0],
+['He hasn’t found his suitcase ___.',['yet','already','ever'],0],
+['I have lived here ___ three years.',['for','since','yet'],0],
+['They have known each other ___ 2022.',['since','for','already'],0],
+['Choose the correct sentence.',['I have never flown business class.','I never have flew business class.','I has never flown business class.'],0],
+['The gate has just ___.',['changed','change','changing'],0]
+],
+tenses:[
+['I usually ___ online before a flight.',['check in','am checking in','have checked in'],0],
+['Please wait — I ___ to the airline employee right now.',['am talking','talk','have talked'],0],
+['We ___ our gate, so we can relax now.',['have found','find','are finding every day'],0],
+['My sister ___ by plane twice a month.',['travels','is travelling now','has travel'],0],
+['Look! The passengers ___.',['are boarding','board every Friday','have board'],0],
+['The airline ___ my flight three times today.',['has changed','changes every day','is change'],0],
+['I ___ at the airport café while I wait.',['am sitting','sit every Monday','have sat already now'],0]
+],
+missionText:[
+['I have ___ arrived at the airport.','just'],
+['I usually ___ in online.','check'],
+['Right now, I am ___ for my flight.','waiting'],
+['The airline has ___ the gate.','changed']
+]};
+let scores={};
+function renderMC(id,data,prefix){const el=document.getElementById(id);el.innerHTML=data.map((q,i)=>`<div class="q" data-q="${prefix}${i}" data-answer="${q[2]}"><p>${i+1}. ${q[0]}</p><div class="options">${q[1].map((o,j)=>`<button class="option" data-index="${j}" onclick="selectOpt(this)">${o}</button>`).join('')}</div><div class="feedback"></div></div>`).join('')}
+function renderListening(){const el=document.getElementById('listeningQs');let last='';let n=0;el.innerHTML=sets.listening.map(q=>{let heading='';if(q[0]!==last){last=q[0];heading=`<div class="rule"><b>Announcement ${q[0]}</b> — answer the questions about this part of the recording.</div>`}const html=`<div class="q" data-q="l${n}" data-answer="${q[3]}"><p>${n+1}. ${q[1]}</p><div class="options">${q[2].map((o,j)=>`<button class="option" data-index="${j}" onclick="selectOpt(this)">${o}</button>`).join('')}</div><div class="feedback"></div></div>`;n++;return heading+html}).join('')}
+function renderMission(){document.getElementById('missionQs').innerHTML=sets.missionText.map((q,i)=>`<div class="q" data-q="m${i}" data-textanswer="${q[1]}"><p>${i+1}. ${q[0].replace('___',`<input class="textans" aria-label="missing word">`)}</p><div class="feedback"></div></div>`).join('')}
+function selectOpt(btn){btn.parentElement.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');updateProgress()}
+function checkSection(name){let qs;if(name==='mission')qs=[...document.querySelectorAll('[data-q^="m"]')];else qs=[...document.querySelectorAll(`[data-q^="${name[0]}"]`)];let correct=0;qs.forEach(q=>{const fb=q.querySelector('.feedback');fb.className='feedback show';if(q.dataset.textanswer){const inp=q.querySelector('input');const ok=inp.value.trim().toLowerCase()===q.dataset.textanswer.toLowerCase();inp.classList.remove('correct','wrong');inp.classList.add(ok?'correct':'wrong');fb.classList.add(ok?'good':'bad');fb.textContent=ok?'Correct!':'Try again. Correct answer: '+q.dataset.textanswer;correct+=ok?1:0}else{const chosen=q.querySelector('.option.selected');q.querySelectorAll('.option').forEach((o,i)=>{o.classList.remove('correct','wrong');if(i==q.dataset.answer)o.classList.add('correct')});const ok=chosen&&chosen.dataset.index==q.dataset.answer;if(chosen&&!ok)chosen.classList.add('wrong');fb.classList.add(ok?'good':'bad');fb.textContent=ok?'Correct!':'Review the green answer.';correct+=ok?1:0}});scores[name]={correct,total:qs.length};document.getElementById(name+'Score').textContent=`Section score: ${correct}/${qs.length}`;updateProgress()}
+function updateProgress(){const mc=[...document.querySelectorAll('.q[data-answer]')].filter(q=>q.querySelector('.selected')).length;const text=[...document.querySelectorAll('.textans')].filter(i=>i.value.trim()).length;const done=mc+text,total=document.querySelectorAll('.q[data-answer]').length+document.querySelectorAll('.textans').length;document.getElementById('bar').style.width=Math.min(100,done/total*100)+'%';document.getElementById('progressText').textContent=`${done} of ${total} questions completed`}
+document.addEventListener('input',updateProgress);
+function finalGrade(){['vocab','listening','perfect','tenses','mission'].forEach(checkSection);let c=0,t=0;Object.values(scores).forEach(s=>{c+=s.correct;t+=s.total});let pct=Math.round(c/t*100),letter,title,text;if(pct>=90){letter='A';title='Excellent travel English!';text='You are ready to handle the airport with confidence.'}else if(pct>=80){letter='B';title='Very good work!';text='A little more Present Perfect practice will make you even stronger.'}else if(pct>=70){letter='C';title='Good progress!';text='Review the highlighted corrections and try the homework once more.'}else if(pct>=60){letter='D';title='Keep going!';text='Focus on the tense rules and vocabulary, then retake the challenge.'}else{letter='Try again';title='This is practice, not failure.';text='Review each green answer, listen again, and complete a second attempt.'}document.getElementById('grade').textContent=letter+' · '+pct+'%';document.getElementById('stars').textContent=pct>=90?'⭐⭐⭐⭐⭐':pct>=80?'⭐⭐⭐⭐':pct>=70?'⭐⭐⭐':pct>=60?'⭐⭐':'⭐';document.getElementById('resultTitle').textContent=title;document.getElementById('resultText').textContent=text;document.getElementById('certScore').textContent=`${c}/${t} (${pct}%) — Grade ${letter}`;document.getElementById('final').style.display='block';document.getElementById('final').scrollIntoView({behavior:'smooth'})}
+renderMC('vocabQs',sets.vocab,'v');renderListening();renderMC('perfectQs',sets.perfect,'p');renderMC('tenseQs',sets.tenses,'t');renderMission();
+</script>
+</body></html>
