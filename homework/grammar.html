@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B1 USA Road Trip Homework</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+  --ink:#172033;--muted:#667085;--blue:#2563eb;--purple:#7c3aed;--pink:#ec4899;
+  --orange:#f97316;--green:#22c55e;--red:#ef4444;--line:#dfe5ee;--paper:#f7f8fc;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);
+  background:linear-gradient(135deg,#eef4ff,#fff5fb 48%,#fff8ef);
+  min-height:100vh
+}
+.progressWrap{
+  position:sticky;top:0;z-index:30;background:#ffffffee;backdrop-filter:blur(12px);
+  padding:10px 20px;box-shadow:0 8px 25px #0002
+}
+.progress{height:13px;background:#e5e7eb;border-radius:99px;overflow:hidden}
+.progress>div{
+  height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));
+  transition:.3s
+}
+.progressText{text-align:center;font-weight:900;margin-top:6px}
+main{max-width:1100px;margin:auto;padding:26px 18px 90px}
+.card{
+  background:#fffffff5;border:1px solid #ffffff;border-radius:28px;padding:28px;margin:22px 0;
+  box-shadow:0 22px 55px #23395d18
+}
+.hero{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:25px;align-items:center;
+  background:linear-gradient(135deg,#153e75,#5b21b6 60%,#be185d);color:white
+}
+.hero h1{font-size:clamp(38px,6vw,65px);line-height:1;margin:9px 0 14px}
+.hero p{font-size:20px;line-height:1.5}
+.hero img{width:100%;height:340px;object-fit:cover;border-radius:24px;box-shadow:0 18px 45px #0004}
+.tag{
+  display:inline-block;padding:7px 12px;border-radius:99px;background:#ffffff22;
+  border:1px solid #ffffff44;color:white;font-weight:900;margin:3px
+}
+h2{font-size:34px;color:#4c1d95;margin:0 0 14px}
+h3{font-size:23px}
+p,li{font-size:17px;line-height:1.55}
+.recapGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.recapBox{padding:20px;border-radius:22px;border:1px solid #dfe4ee;background:#fbfcff}
+.formula{
+  background:#172554;color:white;border-radius:14px;padding:13px 15px;
+  font-size:20px;font-weight:900;margin:9px 0
+}
+.timeline{
+  margin-top:10px;background:linear-gradient(135deg,#eef6ff,#f5f3ff);border-left:6px solid var(--purple);
+  padding:13px 15px;border-radius:15px
+}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.v{
+  border-radius:18px;padding:17px;min-height:115px;display:flex;flex-direction:column;justify-content:center;
+  color:white;box-shadow:0 10px 25px #23395d20
+}
+.v:nth-child(1){background:linear-gradient(135deg,#2563eb,#06b6d4)}
+.v:nth-child(2){background:linear-gradient(135deg,#7c3aed,#ec4899)}
+.v:nth-child(3){background:linear-gradient(135deg,#f97316,#ef4444)}
+.v:nth-child(4){background:linear-gradient(135deg,#0f766e,#14b8a6)}
+.v:nth-child(5){background:linear-gradient(135deg,#4338ca,#7c3aed)}
+.v:nth-child(6){background:linear-gradient(135deg,#db2777,#f97316)}
+.v b{font-size:22px}.v span{margin-top:8px;font-size:15px}
+.banner{
+  width:100%;height:230px;object-fit:cover;border-radius:22px;margin:6px 0 18px;
+  box-shadow:0 12px 28px #0002
+}
+.q{
+  background:#fff;border:2px solid #e1e6ef;border-radius:20px;padding:18px;margin:14px 0;
+  transition:.2s
+}
+.q p{font-size:18px;font-weight:800;margin:0 0 12px}
+.options{display:grid;gap:9px}
+.option{
+  border:2px solid #dbeafe;background:#fbfdff;border-radius:15px;padding:12px 14px;
+  text-align:left;font-size:17px;font-weight:800;cursor:pointer;color:#1d4ed8
+}
+.option:hover{transform:translateY(-1px);border-color:#8b5cf6}
+.option.selected{border-color:#7c3aed;background:#ede9fe;color:#5b21b6}
+.option.correct{border-color:var(--green);background:#dcfce7;color:#166534}
+.option.wrong{border-color:var(--red);background:#fee2e2;color:#991b1b}
+.feedback{
+  display:none;padding:10px 13px;border-radius:13px;margin-top:10px;font-weight:800
+}
+.feedback.show{display:block}
+.feedback.good{background:#dcfce7;color:#166534}
+.feedback.bad{background:#fee2e2;color:#991b1b}
+.rule{
+  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
+  border-left:7px solid #6366f1;padding:17px;border-radius:18px;margin:14px 0
+}
+.wordbank{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+.bankword{
+  background:#fef3c7;border:2px solid #fde68a;padding:9px 13px;border-radius:99px;
+  font-weight:900;cursor:pointer;transition:.2s
+}
+.bankword:hover{transform:translateY(-1px);background:#fde68a}
+.bankword.used{opacity:.35;text-decoration:line-through}
+.blank{
+  display:inline-block;min-width:180px;padding:6px 10px;border:2px dashed #aab4c5;
+  border-radius:10px;background:#fbfcfe;cursor:pointer;vertical-align:middle;color:#4338ca;font-weight:900
+}
+.blank.active{border-color:#7c3aed;background:#f3e8ff}
+.blank.filled{border-style:solid}
+.story{
+  background:linear-gradient(135deg,#fff8ed,#fdf2f8);border-left:7px solid var(--orange);
+  padding:20px;border-radius:18px;font-size:17px;line-height:1.7
+}
+.sectionScore{font-size:20px;font-weight:950;margin-top:13px}
+.btn{
+  border:0;border-radius:15px;padding:14px 20px;font-size:17px;font-weight:950;
+  cursor:pointer;background:#172554;color:white;box-shadow:0 10px 22px #0002
+}
+.btn.purple{background:#7c3aed}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.final{
+  text-align:center;background:linear-gradient(135deg,#f7f7ff,#fff7fb);
+  border:2px solid #e9ddff
+}
+.bigscore{font-size:66px;font-weight:1000;margin:5px 0;color:#4c1d95}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.stat{background:white;border-radius:17px;padding:16px;border:1px solid #e3e6ee}
+.stat b{display:block;font-size:29px}
+.resultBox{display:none;margin-top:20px;padding:20px;border-radius:18px;background:white;border:1px solid #e0e5ef}
+.small{font-size:14px;color:var(--muted)}
+@media(max-width:800px){
+  .hero,.recapGrid,.vgrid,.stats{grid-template-columns:1fr}
+  .hero img{height:260px}.card{padding:19px}h2{font-size:29px}
+}
+</style>
+</head>
+<body>
+<div class="progressWrap">
+  <div class="progress"><div id="bar"></div></div>
+  <div class="progressText" id="progressText">0 of 30 questions completed</div>
+</div>
+
+<main id="homeworkRoot">
+<section class="card hero">
+  <div>
+    <span class="tag">B1 homework</span><span class="tag">USA Road Trip</span>
+    <h1>Perfect Tenses Road Trip 🇺🇸</h1>
+    <p>Review today’s lesson: <b>Present Perfect vs Past Perfect</b> and <b>Present Perfect vs Present Perfect Continuous</b>, then finish the reading challenge.</p>
+    <p><b>30 graded tasks</b> · mostly clickable · no long writing</p>
+  </div>
+  <img crossorigin="anonymous" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1300&q=85" alt="USA road trip scenery">
+</section>
+
+<section class="card">
+  <h2>📚 Lesson recap — Vocabulary</h2>
+  <p>Keep these words as your mini-reference from the lesson.</p>
+  <div class="vgrid">
+    <div class="v"><b>road trip</b><span>автопутешествие</span></div>
+    <div class="v"><b>layover</b><span>пересадка / ожидание между рейсами</span></div>
+    <div class="v"><b>jet lag</b><span>джетлаг, усталость из-за смены часовых поясов</span></div>
+    <div class="v"><b>scenic route</b><span>живописный маршрут</span></div>
+    <div class="v"><b>fully booked</b><span>всё занято / нет свободных мест</span></div>
+    <div class="v"><b>make the most of</b><span>использовать что-то по максимуму</span></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🧠 Lesson recap — Grammar</h2>
+  <div class="recapGrid">
+    <div class="recapBox">
+      <h3>Present Perfect</h3>
+      <div class="formula">have / has + V3</div>
+      <p>Use it for a past action that is connected to <b>now</b>: experience, a result now, or unfinished time.</p>
+      <div class="timeline"><b>Example:</b> We <b>have visited</b> three cities so far.</div>
+    </div>
+    <div class="recapBox">
+      <h3>Past Perfect</h3>
+      <div class="formula">had + V3</div>
+      <p>Use it for an action that happened <b>before another past action or past moment</b>.</p>
+      <div class="timeline"><b>Example:</b> By the time we reached Boston, the hotel <b>had cancelled</b> our room.</div>
+    </div>
+    <div class="recapBox">
+      <h3>Present Perfect Continuous</h3>
+      <div class="formula">have / has + been + verb-ing</div>
+      <p>Use it for an activity that started in the past and continues now, or a recent activity with a present result.</p>
+      <div class="timeline"><b>Example:</b> We <b>have been driving</b> for four hours.</div>
+    </div>
+    <div class="recapBox">
+      <h3>Present Perfect vs Continuous</h3>
+      <p><b>Present Perfect</b> = result / how many / completed result.</p>
+      <p><b>Present Perfect Continuous</b> = process / duration / repeated activity.</p>
+      <div class="timeline"><b>Compare:</b> I’ve visited 5 museums. / I’ve been sightseeing all day.</div>
+    </div>
+  </div>
+</section>
+
+<section class="card" data-section="pppast">
+  <h2>1. Present Perfect or Past Perfect? ⏰</h2>
+  <img class="banner" crossorigin="anonymous" src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1400&q=85" alt="New York skyline">
+  <div class="rule"><b>Remember:</b> connected to now → Present Perfect. Earlier than another past event → Past Perfect.</div>
+  <div id="pppastQs"></div>
+  <button class="btn" onclick="checkSection('pppast')">Check this section</button>
+  <div class="sectionScore" id="pppastScore"></div>
+</section>
+
+<section class="card" data-section="ppc">
+  <h2>2. Present Perfect or Present Perfect Continuous? 🚗</h2>
+  <div class="rule"><b>Think:</b> Do we care about the <u>result</u>, or the <u>activity/duration</u>?</div>
+  <div id="ppcQs"></div>
+  <button class="btn" onclick="checkSection('ppc')">Check this section</button>
+  <div class="sectionScore" id="ppcScore"></div>
+</section>
+
+<section class="card" data-section="vocab">
+  <h2>3. Vocabulary Check 🗺️</h2>
+  <div id="vocabQs"></div>
+  <button class="btn" onclick="checkSection('vocab')">Check vocabulary</button>
+  <div class="sectionScore" id="vocabScore"></div>
+</section>
+
+<section class="card" data-section="clickfill">
+  <h2>4. Click the Correct Word ✨</h2>
+  <p>Click a blank, then click the correct phrase. No typing needed.</p>
+  <div class="wordbank" id="wordBank">
+    <span class="bankword">layover</span>
+    <span class="bankword">scenic route</span>
+    <span class="bankword">fully booked</span>
+    <span class="bankword">make the most of</span>
+  </div>
+  <div id="clickFillQs"></div>
+  <button class="btn" onclick="checkSection('clickfill')">Check this section</button>
+  <div class="sectionScore" id="clickfillScore"></div>
+</section>
+
+<section class="card" data-section="reading">
+  <h2>5. Reading — The Long Way to California 📖</h2>
+  <div class="story">
+    Emma and her husband have been travelling across the United States for ten days. So far, they have visited New York, Washington, D.C., and Chicago. They have taken hundreds of photos, but Emma says the best part of the trip has been the unexpected moments.
+    <br><br>
+    Before they arrived in Chicago, they had planned to stay in a small hotel near the river. However, when they reached the reception desk, they discovered that the hotel had given their room to another guest. The receptionist explained that a computer problem had caused several booking mistakes. Luckily, the manager found them a room in another hotel and paid for their taxi.
+    <br><br>
+    Since leaving Chicago, they have been driving west. They have been spending most of the day on the road, but they stop whenever they see something interesting. Yesterday they took a scenic route through the mountains. Emma has already decided that she wants to return next year because they still haven’t seen California.
+  </div>
+  <div id="readingQs"></div>
+  <button class="btn" onclick="checkSection('reading')">Check reading</button>
+  <div class="sectionScore" id="readingScore"></div>
+</section>
+
+<section class="card final" id="finalResultSection">
+  <h2>🏆 Your homework results</h2>
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:16px">
+    <button class="btn" id="checkResultBtn" onclick="calculateFinalResult()" style="font-size:20px;padding:16px 24px;min-width:230px">✓ CHECK YOUR RESULTS</button>
+    <button class="btn purple" id="downloadBtn" onclick="downloadHomeworkResults()" disabled style="font-size:20px;padding:16px 24px;min-width:260px">⬇ DOWNLOAD RESULTS PDF</button>
+  </div>
+  <div class="resultBox" id="finalResult">
+    <div class="bigscore" id="finalPercent">—</div>
+    <h3 id="finalGrade">—</h3>
+    <div class="stats">
+      <div class="stat"><span>Correct</span><b id="correctCount">0</b></div>
+      <div class="stat"><span>Wrong</span><b id="wrongCount">0</b></div>
+      <div class="stat"><span>Unanswered</span><b id="unansweredCount">0</b></div>
+    </div>
+    <p id="finalMessage"></p>
+  </div>
+</section>
+</main>
+
+<script>
+const sets = {
+  pppast: [
+    ["I ___ to New York twice, so I know the subway quite well.",["have been","had been","have been going"],0],
+    ["Before last summer, I ___ never ___ across the United States.",["have / travelled","had / travelled","have been / travelling"],1],
+    ["She ___ her passport, so she can't check in now.",["has lost","had lost","has been losing"],0],
+    ["By the time we arrived at the hotel, our room ___.",["has been cancelled","had been cancelled","has been cancelling"],1],
+    ["We ___ three states so far on this trip.",["have visited","had visited","have been visiting"],0],
+    ["When we reached the airport yesterday, the plane ___.",["has already left","had already left","has been leaving"],1],
+    ["I ___ this hotel before, so I know the area.",["have stayed at","had stayed at","have been staying at yesterday"],0],
+    ["Before we checked the map, we ___ the wrong road for twenty minutes.",["have taken","had taken","have been taking"],1]
+  ],
+  ppc: [
+    ["We ___ for three hours and we still haven't reached Philadelphia.",["have driven","have been driving","had driven"],1],
+    ["We ___ four museums this week.",["have visited","have been visiting","had visited"],0],
+    ["She ___ the airline all morning, but nobody has answered.",["has called","has been calling","had called"],1],
+    ["I ___ all the hotel options, and this one is the cheapest.",["have checked","have been checking for hours","had checked"],0],
+    ["Look at your shoes! ___ you ___ in the rain?",["Have / walked","Have / been walking","Had / walked"],1],
+    ["They ___ 250 miles today.",["have driven","have been driving","had driven"],0],
+    ["I ___ for this trip since January.",["have saved","have been saving","had saved"],1],
+    ["He ___ five postcards so far.",["has written","has been writing","had written"],0]
+  ],
+  vocab: [
+    ["A journey by car with several stops is a ___.",["layover","road trip","jet lag"],1],
+    ["A waiting period between two flights is a ___.",["layover","road trip","scenic route"],0],
+    ["Tiredness after crossing several time zones is ___.",["jet lag","fully booked","a layover"],0],
+    ["A route chosen because the views are beautiful is a ___.",["scenic route","road trip","layover"],0],
+    ["If a hotel has no rooms available, it is ___.",["fully booked","scenic","jet-lagged"],0],
+    ["We only have two days in New York, so let's ___ our time.",["make the most of","fully book","take a layover"],0]
+  ],
+  reading: [
+    ["How long have Emma and her husband been travelling?",["Ten days","Three weeks","Two days"],0],
+    ["Which cities have they already visited?",["New York, Washington, D.C., and Chicago","Chicago and California","New York and Los Angeles"],0],
+    ["What had happened before they reached the hotel in Chicago?",["The hotel had given their room away","They had lost their passports","The taxi had left"],0],
+    ["Why did the booking problem happen?",["The hotel was fully booked","A computer problem caused mistakes","Emma booked the wrong city"],1],
+    ["What has the manager done to help them?",["He has paid for a taxi to another hotel","He has cancelled their trip","He has booked a flight"],0],
+    ["What have they been doing since leaving Chicago?",["They have been driving west","They have been flying west","They have been staying in Chicago"],0],
+    ["Why does Emma want to return next year?",["She wants to visit Chicago again","They still haven't seen California","She wants another layover"],1],
+    ["Which sentence from the story focuses on duration/activity?",["They have visited New York","They have been driving west","The hotel had given their room away"],1]
+  ]
+};
+
+const clickFill = [
+  ["Our flight to Los Angeles includes a three-hour","layover","in Denver."],
+  ["We had extra time, so we chose the","scenic route","through the mountains."],
+  ["Every hotel near the festival was","fully booked","."],
+  ["It's our last day in New York, so we want to","make the most of","it."]
+];
+
+let activeBlank=null;
+let sectionResults={};
+
+function renderMC(id,data,prefix){
+  const root=document.getElementById(id);
+  root.innerHTML=data.map((q,i)=>`
+    <div class="q" data-q="${prefix}${i}" data-answer="${q[2]}">
+      <p>${i+1}. ${q[0]}</p>
+      <div class="options">${q[1].map((o,j)=>`<button class="option" data-index="${j}" onclick="selectOpt(this)">${o}</button>`).join('')}</div>
+      <div class="feedback"></div>
+    </div>`).join('');
+}
+
+function renderClickFill(){
+  const root=document.getElementById('clickFillQs');
+  root.innerHTML=clickFill.map((q,i)=>`
+    <div class="q" data-q="c${i}" data-textanswer="${q[1]}">
+      <p>${i+1}. ${q[0]} <span class="blank" onclick="selectBlank(this)">click here</span> ${q[2]}</p>
+      <div class="feedback"></div>
+    </div>`).join('');
+  document.querySelectorAll('.bankword').forEach(w=>{
+    w.onclick=()=>{
+      if(!activeBlank)return;
+      activeBlank.textContent=w.textContent;
+      activeBlank.classList.add('filled');
+      activeBlank.dataset.value=w.textContent;
+      activeBlank.classList.remove('active');
+      activeBlank=null;
+      updateProgress();
+    };
+  });
+}
+
+function selectBlank(blank){
+  document.querySelectorAll('.blank').forEach(b=>b.classList.remove('active'));
+  blank.classList.add('active');
+  activeBlank=blank;
+}
+
+function selectOpt(btn){
+  btn.parentElement.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));
+  btn.classList.add('selected');
+  updateProgress();
+}
+
+function getSectionQs(name){
+  if(name==='clickfill') return [...document.querySelectorAll('[data-q^="c"]')];
+  const prefix={pppast:'a',ppc:'b',vocab:'v',reading:'r'}[name];
+  return [...document.querySelectorAll(`[data-q^="${prefix}"]`)];
+}
+
+function checkSection(name){
+  const qs=getSectionQs(name);
+  let correct=0;
+  qs.forEach(q=>{
+    const fb=q.querySelector('.feedback');
+    fb.className='feedback show';
+
+    if(q.dataset.textanswer){
+      const blank=q.querySelector('.blank');
+      const response=(blank.dataset.value||'').trim().toLowerCase();
+      const ok=response===q.dataset.textanswer.toLowerCase();
+      blank.style.borderColor=ok?'#22c55e':'#ef4444';
+      blank.style.background=ok?'#dcfce7':'#fee2e2';
+      fb.classList.add(ok?'good':'bad');
+      fb.textContent=!response?'No answer yet.':ok?'Correct!':'Correct answer: '+q.dataset.textanswer;
+      correct+=ok?1:0;
+    }else{
+      const chosen=q.querySelector('.option.selected');
+      q.querySelectorAll('.option').forEach((o,i)=>{
+        o.classList.remove('correct','wrong');
+        if(chosen && i==q.dataset.answer)o.classList.add('correct');
+      });
+      const ok=chosen&&Number(chosen.dataset.index)===Number(q.dataset.answer);
+      if(chosen&&!ok)chosen.classList.add('wrong');
+      fb.classList.add(ok?'good':'bad');
+      fb.textContent=!chosen?'No answer yet.':ok?'Correct!':'Review the green answer.';
+      correct+=ok?1:0;
+    }
+  });
+  sectionResults[name]={correct,total:qs.length};
+  document.getElementById(name+'Score').textContent=`Section score: ${correct}/${qs.length}`;
+}
+
+function updateProgress(){
+  const mc=[...document.querySelectorAll('.q[data-answer]')].filter(q=>q.querySelector('.option.selected')).length;
+  const cf=[...document.querySelectorAll('.q[data-textanswer]')].filter(q=>q.querySelector('.blank')?.dataset.value).length;
+  const total=document.querySelectorAll('.q[data-answer]').length+document.querySelectorAll('.q[data-textanswer]').length;
+  const done=mc+cf;
+  document.getElementById('bar').style.width=(done/total*100)+'%';
+  document.getElementById('progressText').textContent=`${done} of ${total} questions completed`;
+}
+
+function calculateFinalResult(){
+  ['pppast','ppc','vocab','clickfill','reading'].forEach(checkSection);
+
+  let correct=0,wrong=0,unanswered=0,total=0;
+
+  document.querySelectorAll('.q[data-answer]').forEach(q=>{
+    total++;
+    const chosen=q.querySelector('.option.selected');
+    if(!chosen){unanswered++;return;}
+    if(Number(chosen.dataset.index)===Number(q.dataset.answer))correct++;
+    else wrong++;
+  });
+
+  document.querySelectorAll('.q[data-textanswer]').forEach(q=>{
+    total++;
+    const response=(q.querySelector('.blank')?.dataset.value||'').trim().toLowerCase();
+    if(!response){unanswered++;return;}
+    if(response===q.dataset.textanswer.toLowerCase())correct++;
+    else wrong++;
+  });
+
+  const pct=Math.round(correct/total*100);
+  let grade,message;
+  if(pct>=90){grade='Excellent B1 work 🌟';message='You are using the perfect tenses very confidently. Review only the few corrections, if any.';}
+  else if(pct>=80){grade='Very good B1 result';message='Strong work. Review the red answers and pay attention to result vs duration.';}
+  else if(pct>=70){grade='Good progress';message='You understand the main differences. Review the tense timelines before the next lesson.';}
+  else if(pct>=60){grade='Keep practising';message='You are getting there. Review the recap and redo the corrected questions.';}
+  else{grade='Review recommended';message='Please review the grammar recap carefully and try the homework again.';}
+
+  document.getElementById('finalPercent').textContent=pct+'%';
+  document.getElementById('finalGrade').textContent=grade;
+  document.getElementById('correctCount').textContent=correct;
+  document.getElementById('wrongCount').textContent=wrong;
+  document.getElementById('unansweredCount').textContent=unanswered;
+  document.getElementById('finalMessage').textContent=message;
+  document.getElementById('finalResult').style.display='block';
+  document.getElementById('downloadBtn').disabled=false;
+  window.lastHomeworkResult={correct,wrong,unanswered,total,pct,grade,message};
+  document.getElementById('finalResultSection').scrollIntoView({behavior:'smooth'});
+}
+
+async function downloadHomeworkResults(){
+  if(!window.lastHomeworkResult) calculateFinalResult();
+
+  const btn=document.getElementById('downloadBtn');
+  const originalText=btn.textContent;
+  btn.disabled=true;
+  btn.textContent='Creating full PDF...';
+
+  const previousX=window.scrollX;
+  const previousY=window.scrollY;
+
+  try{
+    if(!window.html2canvas || !window.jspdf){
+      throw new Error('PDF tools are still loading. Please wait a few seconds and try again.');
+    }
+
+    const controls=[...document.querySelectorAll('#finalResultSection .btn')];
+    controls.forEach(x=>x.style.visibility='hidden');
+
+    window.scrollTo(0,0);
+    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+
+    const root=document.documentElement;
+    const body=document.body;
+    const fullWidth=Math.max(body.scrollWidth,body.offsetWidth,root.clientWidth,root.scrollWidth,root.offsetWidth);
+    const fullHeight=Math.max(body.scrollHeight,body.offsetHeight,root.clientHeight,root.scrollHeight,root.offsetHeight);
+
+    const canvas=await html2canvas(body,{
+      scale:1.35,
+      useCORS:true,
+      allowTaint:false,
+      backgroundColor:'#f7f8fc',
+      scrollX:0,scrollY:0,width:fullWidth,height:fullHeight,
+      windowWidth:fullWidth,windowHeight:fullHeight,x:0,y:0,logging:false
+    });
+
+    controls.forEach(x=>x.style.visibility='');
+
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF('p','mm','a4');
+    const pageW=210,pageH=297,margin=7;
+    const usableW=pageW-margin*2,usableH=pageH-margin*2;
+    const pxPerMm=canvas.width/usableW;
+    const sliceHeightPx=Math.floor(usableH*pxPerMm);
+
+    let sourceY=0,pageIndex=0;
+    while(sourceY<canvas.height){
+      const currentSliceHeight=Math.min(sliceHeightPx,canvas.height-sourceY);
+      const pageCanvas=document.createElement('canvas');
+      pageCanvas.width=canvas.width;
+      pageCanvas.height=currentSliceHeight;
+      const ctx=pageCanvas.getContext('2d');
+      ctx.fillStyle='#ffffff';
+      ctx.fillRect(0,0,pageCanvas.width,pageCanvas.height);
+      ctx.drawImage(canvas,0,sourceY,canvas.width,currentSliceHeight,0,0,canvas.width,currentSliceHeight);
+
+      const img=pageCanvas.toDataURL('image/jpeg',0.94);
+      if(pageIndex>0)pdf.addPage();
+      pdf.addImage(img,'JPEG',margin,margin,usableW,currentSliceHeight/pxPerMm,undefined,'FAST');
+
+      sourceY+=currentSliceHeight;
+      pageIndex++;
+    }
+
+    pdf.save('B1_USA_Road_Trip_Homework_Completed_FULL.pdf');
+  }catch(err){
+    alert(err.message||'The PDF could not be created. Please refresh the page and try again.');
+  }finally{
+    document.querySelectorAll('#finalResultSection .btn').forEach(x=>x.style.visibility='');
+    window.scrollTo(previousX,previousY);
+    btn.disabled=false;
+    btn.textContent=originalText;
+  }
+}
+
+renderMC('pppastQs',sets.pppast,'a');
+renderMC('ppcQs',sets.ppc,'b');
+renderMC('vocabQs',sets.vocab,'v');
+renderClickFill();
+renderMC('readingQs',sets.reading,'r');
+updateProgress();
+</script>
+</body>
+</html>
