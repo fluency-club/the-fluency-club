@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C1 Florida Perfect Tenses Homework</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--ink:#172033;--muted:#667085;--navy:#172554;--blue:#2563eb;--purple:#7c3aed;--pink:#ec4899;--orange:#f97316;--green:#16a34a;--red:#dc2626}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#e0f2fe,#f5f3ff 46%,#fff7ed);min-height:100vh}
+.progressWrap{position:sticky;top:0;z-index:30;background:#ffffffee;backdrop-filter:blur(12px);padding:10px 20px;box-shadow:0 8px 25px #0002}.progress{height:13px;background:#e5e7eb;border-radius:99px;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));transition:.3s}.progressText{text-align:center;font-weight:900;margin-top:6px}
+main{max-width:1100px;margin:auto;padding:26px 18px 90px}.card{background:#fffffff4;border:1px solid white;border-radius:28px;padding:28px;margin:22px 0;box-shadow:0 22px 55px #23395d18}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;background:linear-gradient(135deg,#164e63,#2563eb 44%,#7c3aed 72%,#ec4899);color:white}.hero h1{font-size:clamp(40px,6vw,66px);line-height:.98;margin:10px 0 14px}.hero p{font-size:19px;line-height:1.55}.hero img{width:100%;height:360px;object-fit:cover;border-radius:24px;box-shadow:0 18px 45px #0004}.tag{display:inline-block;padding:7px 12px;border-radius:99px;background:#ffffff25;border:1px solid #ffffff44;color:white;font-weight:900;margin:3px}.studentRow{margin-top:18px;background:#ffffff18;border:1px solid #ffffff45;border-radius:16px;padding:12px}.studentRow label{font-weight:900}.studentName{margin-left:8px;padding:9px 11px;border:0;border-radius:10px;font-size:16px;min-width:230px}
+h2{font-size:34px;color:#4c1d95;margin:0 0 14px}h3{font-size:23px}p,li{font-size:17px;line-height:1.56}.recapGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.recapBox{padding:20px;border-radius:22px;border:1px solid #dfe4ee;background:#fbfcff}.recapBox:nth-child(1){background:linear-gradient(135deg,#eff6ff,#ffffff)}.recapBox:nth-child(2){background:linear-gradient(135deg,#f5f3ff,#ffffff)}.recapBox:nth-child(3){background:linear-gradient(135deg,#fff7ed,#ffffff)}.formula{background:#172554;color:white;border-radius:14px;padding:13px 15px;font-size:20px;font-weight:900;margin:9px 0}.timeline{margin-top:10px;background:#ffffff;border-left:6px solid #7c3aed;padding:13px 15px;border-radius:15px}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.v{border-radius:18px;padding:17px;min-height:125px;display:flex;flex-direction:column;justify-content:center;color:white;box-shadow:0 10px 25px #23395d20}.v:nth-child(1){background:linear-gradient(135deg,#2563eb,#06b6d4)}.v:nth-child(2){background:linear-gradient(135deg,#7c3aed,#ec4899)}.v:nth-child(3){background:linear-gradient(135deg,#f97316,#ef4444)}.v:nth-child(4){background:linear-gradient(135deg,#0f766e,#14b8a6)}.v:nth-child(5){background:linear-gradient(135deg,#4338ca,#7c3aed)}.v:nth-child(6){background:linear-gradient(135deg,#db2777,#f97316)}.v:nth-child(7){background:linear-gradient(135deg,#0369a1,#2563eb)}.v:nth-child(8){background:linear-gradient(135deg,#166534,#16a34a)}.v b{font-size:21px}.v span{margin-top:8px;font-size:14px}.banner{width:100%;height:230px;object-fit:cover;border-radius:22px;margin:6px 0 18px;box-shadow:0 12px 28px #0002}.rule{background:linear-gradient(135deg,#eff6ff,#f5f3ff);border-left:7px solid #6366f1;padding:17px;border-radius:18px;margin:14px 0}
+.q{background:#fff;border:2px solid #e1e6ef;border-radius:20px;padding:18px;margin:14px 0;transition:.2s}.q p{font-size:18px;font-weight:800;margin:0 0 12px}.options{display:grid;gap:9px}.option{border:2px solid #dbeafe;background:#fbfdff;border-radius:15px;padding:12px 14px;text-align:left;font-size:17px;font-weight:800;cursor:pointer;color:#1d4ed8}.option:hover{transform:translateY(-1px);border-color:#8b5cf6}.option.selected{border-color:#7c3aed;background:#ede9fe;color:#5b21b6}.option.correct{border-color:var(--green);background:#dcfce7;color:#166534}.option.wrong{border-color:var(--red);background:#fee2e2;color:#991b1b}.inputrow{display:flex;gap:9px;flex-wrap:wrap}.textans{flex:1;min-width:250px;padding:11px 13px;border:2px solid #cbd5e1;border-radius:12px;font-size:16px}.textans.correct{border-color:var(--green);background:#f0fdf4}.textans.wrong{border-color:var(--red);background:#fef2f2}.feedback{display:none;padding:10px 13px;border-radius:13px;margin-top:10px;font-weight:800}.feedback.show{display:block}.feedback.good{background:#dcfce7;color:#166534}.feedback.bad{background:#fee2e2;color:#991b1b}.story{background:linear-gradient(135deg,#fff8ed,#fdf2f8);border-left:7px solid var(--orange);padding:20px;border-radius:18px;font-size:17px;line-height:1.72}.btn{border:0;border-radius:15px;padding:14px 20px;font-size:17px;font-weight:950;cursor:pointer;background:#172554;color:white;box-shadow:0 10px 22px #0002}.btn.purple{background:#7c3aed}.btn:disabled{opacity:.45;cursor:not-allowed}.sectionScore{font-size:20px;font-weight:950;margin-top:13px}.final{text-align:center;background:linear-gradient(135deg,#f7f7ff,#fff7fb);border:2px solid #e9ddff}.bigscore{font-size:66px;font-weight:1000;margin:5px 0;color:#4c1d95}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.stat{background:white;border-radius:17px;padding:16px;border:1px solid #e3e6ee}.stat b{display:block;font-size:29px}.resultBox{display:none;margin-top:20px;padding:20px;border-radius:18px;background:white;border:1px solid #e0e5ef}
+@media(max-width:820px){.hero,.recapGrid,.vgrid,.stats{grid-template-columns:1fr}.hero img{height:270px}.card{padding:19px}h2{font-size:29px}}
+</style>
+</head>
+<body>
+<div class="progressWrap"><div class="progress"><div id="bar"></div></div><div class="progressText" id="progressText">0 of 34 questions completed</div></div>
+<main id="homeworkRoot">
+<section class="card hero"><div><span class="tag">C1 homework</span><span class="tag">Florida Trip</span><h1>Perfect Tenses: Florida Edition 🌴</h1><p>Final practice for <b>Past Perfect, Present Perfect, and Present Perfect Continuous</b>.</p><p><b>34 graded tasks</b> · grammar contrasts · form building · error correction · reading</p><div class="studentRow">
+      <label>Student name:</label>
+      <input class="studentName" id="studentName" placeholder="Type your name" maxlength="60" autocomplete="name">
+      <input id="websiteField" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    </div></div><img crossorigin="anonymous" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=88" alt="Florida beach"></section>
+<section class="card"><h2>📚 Lesson recap — Useful vocabulary</h2><p>Keep these expressions as a quick reference from the lesson.</p><div class="vgrid"><div class="v"><b>coastline</b><span>береговая линия</span></div><div class="v"><b>tropical weather</b><span>тропическая погода</span></div><div class="v"><b>road trip</b><span>автопутешествие</span></div><div class="v"><b>itinerary</b><span>маршрут / план поездки</span></div><div class="v"><b>delay</b><span>задержка</span></div><div class="v"><b>complaint</b><span>жалоба</span></div><div class="v"><b>duration</b><span>длительность</span></div><div class="v"><b>completion</b><span>завершённость / результат</span></div></div></section>
+<section class="card"><h2>🧠 Lesson recap — Grammar</h2><div class="recapGrid"><div class="recapBox"><h3>Past Perfect</h3><div class="formula">had + V3</div><p>Use it for an action completed <b>before another past action or past reference point</b>.</p><div class="timeline"><b>By the time</b> we reached Miami, the storm <b>had already started</b>.</div></div><div class="recapBox"><h3>Present Perfect</h3><div class="formula">have / has + V3</div><p>Use it for a past action connected to <b>now</b>: experience, result, or unfinished time.</p><div class="timeline">I <b>have visited</b> Florida twice.</div></div><div class="recapBox"><h3>Present Perfect Continuous</h3><div class="formula">have / has been + -ing</div><p>Use it for <b>duration, repeated activity, or an ongoing/recent process</b>.</p><div class="timeline">We <b>have been driving</b> since sunrise.</div></div></div><div class="rule"><b>Key contrasts:</b><br>Past Perfect vs Present Perfect → <b>past reference point</b> vs <b>connection to now</b>.<br>Present Perfect vs Present Perfect Continuous → <b>result / amount / completion</b> vs <b>process / duration / repetition</b>.<br>Stative verbs usually stay non-continuous: <i>I’ve known her for years.</i></div></section>
+<section class="card" data-section="pppast"><h2>1. Past Perfect or Present Perfect? ⏰</h2><img class="banner" crossorigin="anonymous" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=85" alt="Road trip"><div id="pppastQs"></div><button class="btn" onclick="checkSection('pppast')">Check this section</button><div class="sectionScore" id="pppastScore"></div></section>
+<section class="card" data-section="ppc"><h2>2. Present Perfect or Present Perfect Continuous? 🌊</h2><div class="rule"><b>Think:</b> result or amount? → Present Perfect. Process, duration, repeated activity? → Present Perfect Continuous.</div><div id="ppcQs"></div><button class="btn" onclick="checkSection('ppc')">Check this section</button><div class="sectionScore" id="ppcScore"></div></section>
+<section class="card" data-section="fill"><h2>3. Build the Correct Form ✍️</h2><p>Type the complete verb phrase.</p><div id="fillQs"></div><button class="btn" onclick="checkSection('fill')">Check this section</button><div class="sectionScore" id="fillScore"></div></section>
+<section class="card" data-section="errors"><h2>4. Error Surgery 🔧</h2><p>Rewrite only the incorrect verb phrase.</p><div id="errorQs"></div><button class="btn" onclick="checkSection('errors')">Check corrections</button><div class="sectionScore" id="errorsScore"></div></section>
+<section class="card" data-section="reading"><h2>5. Reading — A Stormy Florida Weekend 📖</h2><div class="story">Olivia has been living in Atlanta for three years, but she has always wanted to explore more of Florida. Last weekend, she finally drove south with two friends. Before they left, they had checked the weather forecast several times, and everything had looked perfect.<br><br>By the time they reached the Gulf Coast, however, dark clouds had already appeared. They had planned to spend the afternoon on the beach, but a storm forced them to change their itinerary. Since arriving, they have visited a small art museum, tried key lime pie, and found a local seafood restaurant.<br><br>The weather has been improving slowly, so they have been spending more time outside. Olivia says she has taken more than 200 photos, while one of her friends has been filming short videos all weekend. Although the trip has not gone exactly as planned, Olivia says it has been one of their most memorable road trips.</div><div id="readingQs"></div><button class="btn" onclick="checkSection('reading')">Check reading</button><div class="sectionScore" id="readingScore"></div></section>
+
+<section class="card final" id="finalResultSection">
+  <h2>🏆 Your homework results</h2>
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:16px">
+    <button class="btn" id="checkResultBtn" onclick="calculateFinalResult()" style="font-size:20px;padding:16px 24px;min-width:230px">✓ CHECK YOUR RESULTS</button>
+    <button class="btn purple" id="sendBtn" onclick="sendHomeworkToTeacher()" disabled style="font-size:20px;padding:16px 24px;min-width:280px">📨 SEND RESULTS TO TEACHER</button>
+  </div>
+  <div style="margin-top:10px">
+    <button class="btn" id="downloadBtn" onclick="downloadHomeworkResults()" disabled style="background:#64748b;font-size:14px;padding:10px 14px">Backup: download PDF</button>
+  </div>
+  <div class="resultBox" id="finalResult">
+    <div class="bigscore" id="finalPercent">—</div>
+    <h3 id="finalGrade">—</h3>
+    <div class="stats">
+      <div class="stat"><span>Correct</span><b id="correctCount">0</b></div>
+      <div class="stat"><span>Wrong</span><b id="wrongCount">0</b></div>
+      <div class="stat"><span>Unanswered</span><b id="unansweredCount">0</b></div>
+    </div>
+    <p id="finalMessage"></p>
+    <p id="sendStatus" style="font-weight:900;color:#166534"></p>
+    <p style="font-size:13px;color:#667085;margin-top:8px">Submission protection is enabled. Results can only be sent to the teacher configured for this homework.</p>
+  </div>
+</section>
+<iframe name="homeworkEmailFrame" id="homeworkEmailFrame" style="display:none"></iframe>
+
+</main>
+<script>
+const sets={pppast:[
+["I ___ Florida twice, so I already know several places I want to revisit.",["have visited","had visited","have been visiting"],0],
+["By the time we reached Key West, the sun ___.",["has set","had set","has been setting"],1],
+["She ___ the complaint, so the hotel is dealing with it now.",["has sent","had sent","has been sending"],0],
+["Before the manager called us back, we ___ the problem to three employees.",["have explained","had explained","have been explaining"],1],
+["We ___ three beaches so far this week.",["have visited","had visited","have been visiting"],0],
+["When we opened the hotel room door, housekeeping ___ cleaning it.",["hasn't finished","hadn't finished","hasn't been finishing"],1],
+["I ___ anything like this before, so I don't know what to expect.",["have never experienced","had never experienced","have never been experiencing"],0],
+["Before last weekend, she ___ never ___ on the Gulf Coast.",["has / stayed","had / stayed","has been / staying"],1]],
+ppc:[
+["We ___ for five hours and still haven't reached Miami.",["have driven","have been driving","had driven"],1],
+["We ___ 320 miles today.",["have driven","have been driving","had driven"],0],
+["She ___ four restaurants this week.",["has tried","has been trying","had tried"],0],
+["She ___ new restaurants all week, and she still wants to find more.",["has tried","has been trying","had tried"],1],
+["I ___ this guidebook from beginning to end.",["have read","have been reading","had read"],0],
+["I ___ this guidebook all afternoon.",["have read","have been reading","had read"],1],
+["He ___ her three times today.",["has called","has been calling","had called"],0],
+["He ___ her since breakfast.",["has called","has been calling","had called"],1]],
+reading:[
+["Why did Olivia and her friends expect good weather?",["They had checked the forecast several times.","They had visited Florida before.","The hotel had promised sunshine."],0],
+["What had happened by the time they reached the Gulf Coast?",["Dark clouds had appeared.","The storm had ended.","They had found a restaurant."],0],
+["Why did they change their itinerary?",["They were tired.","A storm forced them to.","The museum was fully booked."],1],
+["Which activities have they completed since arriving?",["They have visited a museum, tried key lime pie, and found a restaurant.","They have only stayed indoors.","They have driven back to Atlanta."],0],
+["What has been happening to the weather?",["It has been improving slowly.","It has become worse every hour.","It had disappeared before they arrived."],0],
+["Which sentence focuses on quantity/result?",["Olivia has taken more than 200 photos.","Her friend has been filming all weekend.","They had checked the forecast."],0]]};
+const fills=[["By the time we arrived, the storm ___ (already / begin).","had already begun"],["I ___ (never / see) water this clear before.","have never seen"],["We ___ (wait) for the hotel manager for nearly an hour.","have been waiting"],["She ___ (take) more than 100 photos today.","has taken"],["They ___ (drive) since 7 a.m.","have been driving"],["Before the trip started, we ___ (book) every hotel online.","had booked"]];
+const errors=[["By the time we reached Miami, the restaurant has already closed.","had already closed"],["I have been known her for years.","have known"],["She has been visited three beaches today.","has visited"],["Before the storm started, we have already left the beach.","had already left"],["I have waited for an answer all morning and I am still waiting.","have been waiting"],["We had never tried key lime pie before, and now we love it.","have never tried"]];
+function renderMC(id,data,prefix){document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="q" data-q="${prefix}${i}" data-answer="${q[2]}"><p>${i+1}. ${q[0]}</p><div class="options">${q[1].map((o,j)=>`<button class="option" data-index="${j}" onclick="selectOpt(this)">${o}</button>`).join('')}</div><div class="feedback"></div></div>`).join('')}
+function renderText(id,data,prefix){document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="q" data-q="${prefix}${i}" data-textanswer="${q[1]}"><p>${i+1}. ${q[0]}</p><div class="inputrow"><input class="textans" placeholder="Type your answer"></div><div class="feedback"></div></div>`).join('')}
+function selectOpt(btn){btn.parentElement.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');updateProgress()}document.addEventListener('input',updateProgress);
+function getSectionQs(name){const prefix={pppast:'a',ppc:'b',fill:'f',errors:'e',reading:'r'}[name];return [...document.querySelectorAll(`[data-q^="${prefix}"]`)]}function norm(s){return(s||'').toLowerCase().trim().replace(/[’]/g,"'").replace(/\s+/g,' ')}
+function checkSection(name){const qs=getSectionQs(name);let correct=0;qs.forEach(q=>{const fb=q.querySelector('.feedback');fb.className='feedback show';if(q.dataset.textanswer){const inp=q.querySelector('input');const answered=inp.value.trim().length>0;const ok=answered&&norm(inp.value)===norm(q.dataset.textanswer);inp.classList.remove('correct','wrong');if(answered)inp.classList.add(ok?'correct':'wrong');fb.classList.add(ok?'good':'bad');fb.textContent=!answered?'No answer yet.':ok?'Correct!':'Correct answer: '+q.dataset.textanswer;correct+=ok?1:0}else{const chosen=q.querySelector('.option.selected');q.querySelectorAll('.option').forEach(o=>o.classList.remove('correct','wrong'));const ok=chosen&&Number(chosen.dataset.index)===Number(q.dataset.answer);if(chosen){q.querySelectorAll('.option').forEach((o,i)=>{if(i==q.dataset.answer)o.classList.add('correct')});if(!ok)chosen.classList.add('wrong')}fb.classList.add(ok?'good':'bad');fb.textContent=!chosen?'No answer yet.':ok?'Correct!':'Review the green answer.';correct+=ok?1:0}});document.getElementById(name+'Score').textContent=`Section score: ${correct}/${qs.length}`}
+function updateProgress(){const mc=[...document.querySelectorAll('.q[data-answer]')].filter(q=>q.querySelector('.option.selected')).length;const tx=[...document.querySelectorAll('.q[data-textanswer]')].filter(q=>q.querySelector('input').value.trim()).length;const total=document.querySelectorAll('.q[data-answer]').length+document.querySelectorAll('.q[data-textanswer]').length;const done=mc+tx;document.getElementById('bar').style.width=(done/total*100)+'%';document.getElementById('progressText').textContent=`${done} of ${total} questions completed`}
+function calculateFinalResult(){['pppast','ppc','fill','errors','reading'].forEach(checkSection);let correct=0,wrong=0,unanswered=0,total=0;document.querySelectorAll('.q[data-answer]').forEach(q=>{total++;const chosen=q.querySelector('.option.selected');if(!chosen){unanswered++;return}if(Number(chosen.dataset.index)===Number(q.dataset.answer))correct++;else wrong++});document.querySelectorAll('.q[data-textanswer]').forEach(q=>{total++;const inp=q.querySelector('input');if(!inp.value.trim()){unanswered++;return}if(norm(inp.value)===norm(q.dataset.textanswer))correct++;else wrong++});const pct=Math.round(correct/total*100);let grade,message;if(pct>=93){grade='Excellent C1 performance 🌟';message='Your perfect tense contrasts are very secure. Review only the few corrections, if any.'}else if(pct>=85){grade='Strong C1 result';message='Very strong control. Review the red answers for small accuracy gaps.'}else if(pct>=75){grade='Good upper-level result';message='You understand the system well. Focus on the difference between completed result and ongoing process.'}else if(pct>=65){grade='Developing C1 accuracy';message='The ideas are there, but some tense choices need more consistent control.'}else{grade='Review recommended';message='Review the lesson recap carefully, especially timeline reference and result vs process.'}document.getElementById('finalPercent').textContent=pct+'%';document.getElementById('finalGrade').textContent=grade;document.getElementById('correctCount').textContent=correct;document.getElementById('wrongCount').textContent=wrong;document.getElementById('unansweredCount').textContent=unanswered;document.getElementById('finalMessage').textContent=message;document.getElementById('finalResult').style.display='block';document.getElementById('downloadBtn').disabled=false;document.getElementById('sendBtn').disabled=false;window.lastHomeworkResult={correct,wrong,unanswered,total,pct,grade,message};document.getElementById('finalResultSection').scrollIntoView({behavior:'smooth'})}
+async function downloadHomeworkResults(){if(!window.lastHomeworkResult)calculateFinalResult();const btn=document.getElementById('downloadBtn'),originalText=btn.textContent;btn.disabled=true;btn.textContent='Creating full PDF...';const previousX=window.scrollX,previousY=window.scrollY;try{if(!window.html2canvas||!window.jspdf)throw new Error('PDF tools are still loading. Please wait a few seconds and try again.');document.querySelectorAll('input').forEach(inp=>inp.setAttribute('value',inp.value));const controls=[...document.querySelectorAll('#finalResultSection .btn')];controls.forEach(x=>x.style.visibility='hidden');window.scrollTo(0,0);await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));const root=document.documentElement,body=document.body;const fullWidth=Math.max(body.scrollWidth,body.offsetWidth,root.clientWidth,root.scrollWidth,root.offsetWidth);const fullHeight=Math.max(body.scrollHeight,body.offsetHeight,root.clientHeight,root.scrollHeight,root.offsetHeight);const canvas=await html2canvas(body,{scale:1.35,useCORS:true,allowTaint:false,backgroundColor:'#f7f8fc',scrollX:0,scrollY:0,width:fullWidth,height:fullHeight,windowWidth:fullWidth,windowHeight:fullHeight,x:0,y:0,logging:false});controls.forEach(x=>x.style.visibility='');const{jsPDF}=window.jspdf;const pdf=new jsPDF('p','mm','a4');const margin=7,usableW=196,usableH=283,pxPerMm=canvas.width/usableW,sliceHeightPx=Math.floor(usableH*pxPerMm);let sourceY=0,pageIndex=0;while(sourceY<canvas.height){const currentSliceHeight=Math.min(sliceHeightPx,canvas.height-sourceY),pageCanvas=document.createElement('canvas');pageCanvas.width=canvas.width;pageCanvas.height=currentSliceHeight;const ctx=pageCanvas.getContext('2d');ctx.fillStyle='#ffffff';ctx.fillRect(0,0,pageCanvas.width,pageCanvas.height);ctx.drawImage(canvas,0,sourceY,canvas.width,currentSliceHeight,0,0,canvas.width,currentSliceHeight);const img=pageCanvas.toDataURL('image/jpeg',0.94);if(pageIndex>0)pdf.addPage();pdf.addImage(img,'JPEG',margin,margin,usableW,currentSliceHeight/pxPerMm,undefined,'FAST');sourceY+=currentSliceHeight;pageIndex++}const student=(document.getElementById('studentName').value||'Student').trim().replace(/[^a-z0-9_-]+/gi,'_');pdf.save(student+'_C1_Florida_Perfect_Tenses_Homework.pdf')}catch(err){alert(err.message||'The PDF could not be created. Please refresh the page and try again.')}finally{document.querySelectorAll('#finalResultSection .btn').forEach(x=>x.style.visibility='');window.scrollTo(previousX,previousY);btn.disabled=false;btn.textContent=originalText}}
+
+const TEACHER_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyzfvP4ZuWA4A0lF2naJYi_Hs9XnC_EnVZS3BxOL50Rldgk5xBop1Z2rh1i_bAADUXH/exec';
+const HOMEWORK_SEND_KEY = 'l0Wgf2BejUSFsst5cNGfFvn689YJ-Au9';
+
+async function buildCompletedHomeworkPdfBlob(){
+  if(!window.lastHomeworkResult) calculateFinalResult();
+
+  if(!window.html2canvas || !window.jspdf){
+    throw new Error('PDF tools are still loading. Please wait a few seconds and try again.');
+  }
+
+  document.querySelectorAll('input').forEach(inp=>inp.setAttribute('value',inp.value));
+
+  const controls=[...document.querySelectorAll('#finalResultSection .btn')];
+  controls.forEach(x=>x.style.visibility='hidden');
+
+  const previousX=window.scrollX, previousY=window.scrollY;
+  window.scrollTo(0,0);
+  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+
+  const root=document.documentElement, body=document.body;
+  const fullWidth=Math.max(body.scrollWidth,body.offsetWidth,root.clientWidth,root.scrollWidth,root.offsetWidth);
+  const fullHeight=Math.max(body.scrollHeight,body.offsetHeight,root.clientHeight,root.scrollHeight,root.offsetHeight);
+
+  try {
+    const canvas=await html2canvas(body,{
+      scale:1.25,useCORS:true,allowTaint:false,backgroundColor:'#f7f8fc',
+      scrollX:0,scrollY:0,width:fullWidth,height:fullHeight,
+      windowWidth:fullWidth,windowHeight:fullHeight,x:0,y:0,logging:false
+    });
+
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF('p','mm','a4');
+    const margin=7,usableW=196,usableH=283;
+    const pxPerMm=canvas.width/usableW;
+    const sliceHeightPx=Math.floor(usableH*pxPerMm);
+
+    let sourceY=0,pageIndex=0;
+    while(sourceY<canvas.height){
+      const currentSliceHeight=Math.min(sliceHeightPx,canvas.height-sourceY);
+      const pageCanvas=document.createElement('canvas');
+      pageCanvas.width=canvas.width;
+      pageCanvas.height=currentSliceHeight;
+
+      const ctx=pageCanvas.getContext('2d');
+      ctx.fillStyle='#ffffff';
+      ctx.fillRect(0,0,pageCanvas.width,pageCanvas.height);
+      ctx.drawImage(canvas,0,sourceY,canvas.width,currentSliceHeight,0,0,canvas.width,currentSliceHeight);
+
+      const img=pageCanvas.toDataURL('image/jpeg',0.86);
+      if(pageIndex>0) pdf.addPage();
+      pdf.addImage(img,'JPEG',margin,margin,usableW,currentSliceHeight/pxPerMm,undefined,'FAST');
+
+      sourceY+=currentSliceHeight;
+      pageIndex++;
+    }
+
+    return pdf.output('blob');
+  } finally {
+    controls.forEach(x=>x.style.visibility='');
+    window.scrollTo(previousX,previousY);
+  }
+}
+
+
+const HOMEWORK_ID = 'c1-florida-perfect-tenses-v1';
+const HOMEWORK_OPENED_AT = Date.now();
+
+function makeSubmissionNonce(){
+  if(window.crypto && crypto.getRandomValues){
+    const a=new Uint32Array(4);
+    crypto.getRandomValues(a);
+    return Array.from(a).map(n=>n.toString(16).padStart(8,'0')).join('');
+  }
+  return String(Date.now())+'_'+Math.random().toString(36).slice(2);
+}
+
+function submissionLockKey(studentName){
+  return 'homework_sent__'+HOMEWORK_ID+'__'+studentName.toLowerCase().replace(/[^a-z0-9]+/g,'_');
+}
+
+function wasRecentlySubmitted(studentName){
+  const raw=localStorage.getItem(submissionLockKey(studentName));
+  if(!raw) return false;
+  const when=Number(raw);
+  return Number.isFinite(when) && (Date.now()-when) < 24*60*60*1000;
+}
+
+function markSubmitted(studentName){
+  try{localStorage.setItem(submissionLockKey(studentName), String(Date.now()));}catch(e){}
+}
+
+let submitInFlight=false;
+
+async function sendHomeworkToTeacher(){
+  if(submitInFlight) return;
+
+  if(TEACHER_WEB_APP_URL.includes('PASTE_YOUR_')){
+    alert('Teacher setup is not finished yet.');
+    return;
+  }
+
+  if(!window.lastHomeworkResult) calculateFinalResult();
+
+  const nameField=document.getElementById('studentName');
+  const studentName=(nameField.value||'').trim();
+  const honeypot=(document.getElementById('websiteField')?.value||'').trim();
+
+  if(honeypot){
+    // Silently stop obvious bot submissions.
+    return;
+  }
+
+  if(studentName.length < 2 || studentName.length > 60){
+    nameField.focus();
+    alert('Please enter your name (2–60 characters) before sending.');
+    return;
+  }
+
+  // Prevent accidental rapid submission immediately after opening the page.
+  if(Date.now()-HOMEWORK_OPENED_AT < 15000){
+    alert('Please wait a few seconds before sending your homework.');
+    return;
+  }
+
+  // Prevent repeated sends from the same browser/student for 24 hours.
+  if(wasRecentlySubmitted(studentName)){
+    const again=confirm('These results were already sent from this browser in the last 24 hours. Send them again anyway?');
+    if(!again) return;
+  }
+
+  const btn=document.getElementById('sendBtn');
+  const originalText=btn.textContent;
+  const status=document.getElementById('sendStatus');
+  const nonce=makeSubmissionNonce();
+  const submittedAt=Date.now();
+
+  submitInFlight=true;
+  btn.disabled=true;
+  btn.textContent='Preparing protected submission...';
+  status.textContent='';
+
+  try{
+    const pdfBlob=await buildCompletedHomeworkPdfBlob();
+
+    if(pdfBlob.size > 18 * 1024 * 1024){
+      throw new Error('The PDF is too large to email. Please use the backup Download PDF button.');
+    }
+
+    const pdfBase64=await new Promise((resolve,reject)=>{
+      const reader=new FileReader();
+      reader.onload=()=>resolve(String(reader.result).split(',')[1]);
+      reader.onerror=reject;
+      reader.readAsDataURL(pdfBlob);
+    });
+
+    const safeStudent=studentName.replace(/[^a-z0-9_-]+/gi,'_');
+    const filename=safeStudent+'_C1_Florida_Perfect_Tenses_Homework.pdf';
+
+    const form=document.createElement('form');
+    form.method='POST';
+    form.action=TEACHER_WEB_APP_URL;
+    form.target='homeworkEmailFrame';
+    form.style.display='none';
+
+    const fields={
+      key: HOMEWORK_SEND_KEY,
+      homeworkId: HOMEWORK_ID,
+      submittedAt: String(submittedAt),
+      nonce: nonce,
+      website: honeypot,
+      studentName: studentName,
+      filename: filename,
+      score: window.lastHomeworkResult.correct + '/' + window.lastHomeworkResult.total,
+      percent: window.lastHomeworkResult.pct + '%',
+      grade: window.lastHomeworkResult.grade,
+      wrong: String(window.lastHomeworkResult.wrong),
+      unanswered: String(window.lastHomeworkResult.unanswered),
+      pdfBase64: pdfBase64
+    };
+
+    Object.entries(fields).forEach(([name,value])=>{
+      const input=document.createElement('textarea');
+      input.name=name;
+      input.value=value;
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    btn.textContent='Sending securely...';
+
+    let resolved=false;
+    const cleanup=()=>{
+      try{form.remove();}catch(e){}
+      window.removeEventListener('message',onMessage);
+    };
+
+    const onMessage=(event)=>{
+      const data=event.data||{};
+      if(data.type!=='homework-submit' || data.nonce!==nonce) return;
+
+      resolved=true;
+      cleanup();
+
+      if(data.status==='success'){
+        markSubmitted(studentName);
+        status.textContent='✓ Results sent to your teacher!';
+        btn.textContent='✓ SENT TO TEACHER';
+        btn.disabled=true;
+      }else{
+        submitInFlight=false;
+        btn.disabled=false;
+        btn.textContent=originalText;
+        throw new Error(data.message||'The protected submission was rejected.');
+      }
+    };
+
+    window.addEventListener('message',onMessage);
+    form.submit();
+
+    // If the older backend is still deployed, it will not postMessage back.
+    // Keep the submission functional but avoid claiming server-confirmed success.
+    setTimeout(()=>{
+      if(resolved) return;
+      cleanup();
+      markSubmitted(studentName);
+      status.textContent='✓ Submission sent. If you do not receive confirmation from your teacher, use the backup PDF button.';
+      btn.textContent='✓ SUBMISSION SENT';
+      btn.disabled=true;
+    }, 6000);
+
+  }catch(err){
+    submitInFlight=false;
+    status.textContent='';
+    btn.disabled=false;
+    btn.textContent=originalText;
+    alert(err.message || 'The results could not be sent. Please use the backup Download PDF button.');
+  }
+}
+
+renderMC('pppastQs',sets.pppast,'a');renderMC('ppcQs',sets.ppc,'b');renderText('fillQs',fills,'f');renderText('errorQs',errors,'e');renderMC('readingQs',sets.reading,'r');updateProgress();
+</script>
+</body></html>
