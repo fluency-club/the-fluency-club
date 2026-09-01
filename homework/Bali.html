@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C1 Bali — Passive Voice & Articles Homework</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--ink:#172033;--muted:#667085;--navy:#172554;--blue:#2563eb;--purple:#7c3aed;--pink:#ec4899;--orange:#f97316;--green:#16a34a;--red:#dc2626}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#e5fbff,#f5f3ff 46%,#fff6e7);min-height:100vh}
+.progressWrap{position:sticky;top:0;z-index:30;background:#ffffffee;backdrop-filter:blur(12px);padding:10px 20px;box-shadow:0 8px 25px #0002}
+.progress{height:13px;background:#e5e7eb;border-radius:99px;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));transition:.3s}
+.progressText{text-align:center;font-weight:900;margin-top:6px}
+main{max-width:1100px;margin:auto;padding:26px 18px 90px}
+.card{background:#fffffff4;border:1px solid white;border-radius:28px;padding:28px;margin:22px 0;box-shadow:0 22px 55px #23395d18}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center;background:linear-gradient(135deg,#0f766e,#2563eb 45%,#7c3aed 75%,#ec4899);color:white}
+.hero h1{font-size:clamp(40px,6vw,64px);line-height:.98;margin:10px 0 14px}
+.hero p{font-size:19px;line-height:1.55}
+.hero img{width:100%;height:360px;object-fit:cover;border-radius:24px;box-shadow:0 18px 45px #0004}
+.tag{display:inline-block;padding:7px 12px;border-radius:99px;background:#ffffff25;border:1px solid #ffffff44;color:white;font-weight:900;margin:3px}
+.studentRow{margin-top:18px;background:#ffffff18;border:1px solid #ffffff45;border-radius:16px;padding:12px;position:relative}
+.studentRow label{font-weight:900}.studentName{margin-left:8px;padding:9px 11px;border:0;border-radius:10px;font-size:16px;min-width:230px}
+h2{font-size:34px;color:#4c1d95;margin:0 0 14px}h3{font-size:23px}p,li{font-size:17px;line-height:1.56}
+.recapGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.recapBox{padding:20px;border-radius:22px;border:1px solid #dfe4ee;background:#fbfcff}
+.recapBox:nth-child(1){background:linear-gradient(135deg,#eff6ff,#ffffff)}.recapBox:nth-child(2){background:linear-gradient(135deg,#f5f3ff,#ffffff)}.recapBox:nth-child(3){background:linear-gradient(135deg,#fff7ed,#ffffff)}
+.formula{background:#172554;color:white;border-radius:14px;padding:13px 15px;font-size:20px;font-weight:900;margin:9px 0}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.v{border-radius:18px;padding:17px;min-height:125px;display:flex;flex-direction:column;justify-content:center;color:white;box-shadow:0 10px 25px #23395d20}
+.v:nth-child(1){background:linear-gradient(135deg,#2563eb,#06b6d4)}.v:nth-child(2){background:linear-gradient(135deg,#7c3aed,#ec4899)}.v:nth-child(3){background:linear-gradient(135deg,#f97316,#ef4444)}.v:nth-child(4){background:linear-gradient(135deg,#0f766e,#14b8a6)}.v:nth-child(5){background:linear-gradient(135deg,#4338ca,#7c3aed)}.v:nth-child(6){background:linear-gradient(135deg,#db2777,#f97316)}.v:nth-child(7){background:linear-gradient(135deg,#0369a1,#2563eb)}.v:nth-child(8){background:linear-gradient(135deg,#166534,#16a34a)}
+.v b{font-size:21px}.v span{margin-top:8px;font-size:14px}
+.banner{width:100%;height:230px;object-fit:cover;border-radius:22px;margin:6px 0 18px;box-shadow:0 12px 28px #0002}
+.rule{background:linear-gradient(135deg,#eff6ff,#f5f3ff);border-left:7px solid #6366f1;padding:17px;border-radius:18px;margin:14px 0}
+.q{background:#fff;border:2px solid #e1e6ef;border-radius:20px;padding:18px;margin:14px 0;transition:.2s}
+.q p{font-size:18px;font-weight:800;margin:0 0 12px}
+.options{display:grid;gap:9px}.option{border:2px solid #dbeafe;background:#fbfdff;border-radius:15px;padding:12px 14px;text-align:left;font-size:17px;font-weight:800;cursor:pointer;color:#1d4ed8}
+.option:hover{transform:translateY(-1px);border-color:#8b5cf6}.option.selected{border-color:#7c3aed;background:#ede9fe;color:#5b21b6}.option.correct{border-color:var(--green);background:#dcfce7;color:#166534}.option.wrong{border-color:var(--red);background:#fee2e2;color:#991b1b}
+.inputrow{display:flex;gap:9px;flex-wrap:wrap}.textans{flex:1;min-width:250px;padding:11px 13px;border:2px solid #cbd5e1;border-radius:12px;font-size:16px}
+.textans.correct{border-color:var(--green);background:#f0fdf4}.textans.wrong{border-color:var(--red);background:#fef2f2}
+.feedback{display:none;padding:10px 13px;border-radius:13px;margin-top:10px;font-weight:800}.feedback.show{display:block}.feedback.good{background:#dcfce7;color:#166534}.feedback.bad{background:#fee2e2;color:#991b1b}
+.story{background:linear-gradient(135deg,#fff8ed,#fdf2f8);border-left:7px solid var(--orange);padding:20px;border-radius:18px;font-size:17px;line-height:1.72}
+.btn{border:0;border-radius:15px;padding:14px 20px;font-size:17px;font-weight:950;cursor:pointer;background:#172554;color:white;box-shadow:0 10px 22px #0002}.btn.purple{background:#7c3aed}.btn:disabled{opacity:.45;cursor:not-allowed}
+.sectionScore{font-size:20px;font-weight:950;margin-top:13px}
+.final{text-align:center;background:linear-gradient(135deg,#f7f7ff,#fff7fb);border:2px solid #e9ddff}
+.bigscore{font-size:66px;font-weight:1000;margin:5px 0;color:#4c1d95}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.stat{background:white;border-radius:17px;padding:16px;border:1px solid #e3e6ee}.stat b{display:block;font-size:29px}
+.resultBox{display:none;margin-top:20px;padding:20px;border-radius:18px;background:white;border:1px solid #e0e5ef}
+.speaking{background:linear-gradient(135deg,#ecfeff,#fdf4ff);border-left:7px solid #06b6d4;padding:20px;border-radius:20px}
+@media(max-width:820px){.hero,.recapGrid,.vgrid,.stats{grid-template-columns:1fr}.hero img{height:270px}.card{padding:19px}h2{font-size:29px}}
+</style>
+</head>
+<body>
+<div class="progressWrap"><div class="progress"><div id="bar"></div></div><div class="progressText" id="progressText">0 of 36 questions completed</div></div>
+<main id="homeworkRoot">
+
+<section class="card hero">
+  <div>
+    <span class="tag">C1 homework</span><span class="tag">Bali</span>
+    <h1>Passive Voice & Articles 🌴</h1>
+    <p>Homework review for <b>Passive Voice, Articles, and Present Tenses</b>.</p>
+    <p><b>36 graded tasks</b> · grammar contrasts · transformations · error correction · reading</p>
+    <div class="studentRow">
+      <label>Student name:</label>
+      <input class="studentName" id="studentName" placeholder="Type your name" maxlength="60" autocomplete="name">
+      <input id="websiteField" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    </div>
+  </div>
+  <img crossorigin="anonymous" src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=88" alt="Bali">
+</section>
+
+<section class="card">
+  <h2>📚 Lesson recap — Useful vocabulary</h2>
+  <div class="vgrid">
+    <div class="v"><b>sacred space</b><span>священное место</span></div>
+    <div class="v"><b>ceremony</b><span>церемония</span></div>
+    <div class="v"><b>renovate</b><span>ремонтировать / обновлять</span></div>
+    <div class="v"><b>itinerary</b><span>маршрут / план поездки</span></div>
+    <div class="v"><b>resort</b><span>курорт / отельный комплекс</span></div>
+    <div class="v"><b>sustainable</b><span>экологичный / устойчивый</span></div>
+    <div class="v"><b>be known for</b><span>быть известным благодаря</span></div>
+    <div class="v"><b>be included</b><span>быть включённым</span></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🧠 Lesson recap — Grammar</h2>
+  <div class="recapGrid">
+    <div class="recapBox">
+      <h3>Passive Voice</h3>
+      <div class="formula">be + V3</div>
+      <p>Use the passive when the action/result is more important than the person doing it.</p>
+      <p><b>Present:</b> is/are + V3<br><b>Past:</b> was/were + V3<br><b>Present Perfect:</b> has/have been + V3<br><b>Past Perfect:</b> had been + V3</p>
+    </div>
+    <div class="recapBox">
+      <h3>Articles</h3>
+      <div class="formula">a/an · the · —</div>
+      <p><b>a/an:</b> one non-specific singular noun.<br><b>the:</b> specific/known/unique.<br><b>—:</b> general plural/uncountable nouns, most cities/countries, meals, by + transport.</p>
+    </div>
+    <div class="recapBox">
+      <h3>Present tenses</h3>
+      <div class="formula">Simple · Continuous · Perfect · Perfect Continuous</div>
+      <p>Habit → Present Simple.<br>Now → Present Continuous.<br>Result/experience → Present Perfect.<br>Duration/process → Present Perfect Continuous.</p>
+    </div>
+  </div>
+  <div class="rule"><b>C1 reminder:</b> grammar choice is about meaning and focus, not just the formula.</div>
+</section>
+
+<section class="card" data-section="passive">
+  <h2>1. Passive Voice — choose the best form</h2>
+  <img class="banner" crossorigin="anonymous" src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1400&q=85" alt="Bali landscape">
+  <div id="passiveQs"></div>
+  <button class="btn" onclick="checkSection('passive')">Check this section</button>
+  <div class="sectionScore" id="passiveScore"></div>
+</section>
+
+<section class="card" data-section="transform">
+  <h2>2. Transform it into Passive Voice ✍️</h2>
+  <p>Type the full passive sentence.</p>
+  <div id="transformQs"></div>
+  <button class="btn" onclick="checkSection('transform')">Check transformations</button>
+  <div class="sectionScore" id="transformScore"></div>
+</section>
+
+<section class="card" data-section="articles">
+  <h2>3. Articles — a / an / the / —</h2>
+  <div class="rule"><b>Think about meaning first:</b> general or specific? first mention or known? countable or uncountable?</div>
+  <div id="articleQs"></div>
+  <button class="btn" onclick="checkSection('articles')">Check articles</button>
+  <div class="sectionScore" id="articlesScore"></div>
+</section>
+
+<section class="card" data-section="errors">
+  <h2>4. Error Surgery 🔧</h2>
+  <p>Rewrite only the incorrect part.</p>
+  <div id="errorQs"></div>
+  <button class="btn" onclick="checkSection('errors')">Check corrections</button>
+  <div class="sectionScore" id="errorsScore"></div>
+</section>
+
+<section class="card" data-section="reading">
+  <h2>5. Reading — A New Resort in Ubud 📖</h2>
+  <div class="story">
+    A new eco-resort has recently been opened outside Ubud, in an area that has traditionally been known for rice fields and small family-run guesthouses. The project was designed to use less water and electricity than a conventional hotel, and much of the furniture was made by local craftspeople.
+    <br><br>
+    Before construction began, several community meetings had been held so that local residents could discuss the plans. Some people were concerned that the area would become too commercial, while others believed that responsible tourism could create useful jobs.
+    <br><br>
+    Since the resort opened, more than half of its staff have been hired from nearby villages. Guests are encouraged to join cultural workshops, but they are also reminded that local traditions should not be treated as entertainment. The management says that new sustainability measures are still being developed and that the resort has been working closely with local organizations.
+  </div>
+  <div id="readingQs"></div>
+  <button class="btn" onclick="checkSection('reading')">Check reading</button>
+  <div class="sectionScore" id="readingScore"></div>
+</section>
+
+<section class="card">
+  <h2>🎤 Speaking recap — optional but recommended</h2>
+  <div class="speaking">
+    <p><b>60–90 seconds:</b> Imagine you are recommending Bali to someone who has never been there.</p>
+    <ul>
+      <li>Use at least <b>2 passive sentences</b>.</li>
+      <li>Use <b>a/an, the, and zero article</b> naturally.</li>
+      <li>Use at least <b>3 different present tenses</b>.</li>
+    </ul>
+    <p class="sub">This part is not graded automatically — it is for speaking fluency.</p>
+  </div>
+</section>
+
+<section class="card final" id="finalResultSection">
+  <h2>🏆 Your homework results</h2>
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:16px">
+    <button class="btn" id="checkResultBtn" onclick="calculateFinalResult()" style="font-size:20px;padding:16px 24px;min-width:230px">✓ CHECK YOUR RESULTS</button>
+    <button class="btn purple" id="sendBtn" onclick="sendHomeworkToTeacher()" disabled style="font-size:20px;padding:16px 24px;min-width:280px">📨 SEND RESULTS TO TEACHER</button>
+  </div>
+  <div style="margin-top:10px">
+    <button class="btn" id="downloadBtn" onclick="downloadHomeworkResults()" disabled style="background:#64748b;font-size:14px;padding:10px 14px">Backup: download PDF</button>
+  </div>
+  <div class="resultBox" id="finalResult">
+    <div class="bigscore" id="finalPercent">—</div>
+    <h3 id="finalGrade">—</h3>
+    <div class="stats">
+      <div class="stat"><span>Correct</span><b id="correctCount">0</b></div>
+      <div class="stat"><span>Wrong</span><b id="wrongCount">0</b></div>
+      <div class="stat"><span>Unanswered</span><b id="unansweredCount">0</b></div>
+    </div>
+    <p id="finalMessage"></p>
+    <p id="sendStatus" style="font-weight:900;color:#166534"></p>
+    <p style="font-size:13px;color:#667085;margin-top:8px">Protected submission is enabled. Results can only be sent to the teacher configured for this homework.</p>
+  </div>
+</section>
+<iframe name="homeworkEmailFrame" id="homeworkEmailFrame" style="display:none"></iframe>
+
+</main>
+
+<script>
+const sets={
+passive:[
+["By the time the guests arrived, the villa ___ completely renovated.",["had been","had been being","was"],0],
+["Several temple areas ___ to visitors during ceremonies.",["are closed","close","have closing"],0],
+["A new eco-policy ___ across several resorts over the past year.",["has introduced","has been introduced","was introducing"],1],
+["Visitors are asked to dress respectfully because sacred spaces ___ very seriously.",["take","are taken","are taking"],1],
+["The road ___ when we arrived, which explained the delay.",["was being repaired","had repaired","has been repaired"],0],
+["The final itinerary ___ before we even reached the hotel.",["had already been changed","was already changing","has already changed"],0],
+["More sustainable transport options ___ in the area in recent years.",["have been developed","have developed by","were developing"],0],
+["The ceremony ___ by local families rather than organized for tourists.",["is led","leads","has leading"],0]
+],
+articles:[
+["We stayed in ___ beautiful villa outside Ubud.",["a","the","—"],0],
+["___ villa we booked had a private pool.",["A","The","—"],1],
+["Bali is known for ___ temples, beaches, and rice fields.",["a","the","—"],2],
+["We visited ___ temple that our guide had recommended.",["a","the","—"],1],
+["She works as ___ travel photographer.",["a","the","—"],0],
+["We travelled around the island by ___ car.",["a","the","—"],2],
+["___ nature is one of the main reasons people visit the area.",["A","The","—"],2],
+["They had lunch at ___ restaurant next to their hotel.",["a","the","—"],0]
+],
+reading:[
+["Why were community meetings held before construction began?",["To allow residents to discuss the project and its possible effects","To recruit hotel guests","To decide which tourists could visit"],0],
+["What concern did some residents have?",["The area might become too commercial","The resort would use too little electricity","The hotel would employ too many local people"],0],
+["Which detail best supports the resort's claim to be environmentally responsible?",["It was designed to use less water and electricity","It has a private pool","It is located near Ubud"],0],
+["What does the text suggest about the resort's relationship with local culture?",["It is trying to involve guests while still encouraging respect","It treats local traditions only as entertainment","It avoids cultural activities completely"],0],
+["Which passive form shows an action completed before another past event?",["had been held","has been opened","are encouraged"],0],
+["What can be inferred about the sustainability program?",["It is still developing rather than completely finished","It ended when the resort opened","It has been rejected by local organizations"],0]
+]
+};
+
+const transforms=[
+["People built the temple centuries ago.","The temple was built centuries ago."],
+["The hotel has introduced a new sustainability policy.","A new sustainability policy has been introduced by the hotel."],
+["Local families organize the ceremony every year.","The ceremony is organized by local families every year."],
+["The staff had prepared the room before we arrived.","The room had been prepared by the staff before we arrived."],
+["They are repairing the road near the resort.","The road near the resort is being repaired."],
+["A local architect designed the villa.","The villa was designed by a local architect."]
+];
+
+const errors=[
+["Many new villas have built near the coast.","have been built"],
+["The Bali is famous for its temples.","Bali"],
+["The breakfast is included in price.","the price"],
+["The resort was renovate last year.","was renovated"],
+["We went to the Ubud by car.","Ubud"],
+["The room had already cleaned before we arrived.","had already been cleaned"],
+["She is a photographer who works in the travel industry.","a photographer"],
+["Rice is grown in many parts of the island.","is grown"]
+];
+
+function renderMC(id,data,prefix){
+  document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="q" data-q="${prefix}${i}" data-answer="${q[2]}"><p>${i+1}. ${q[0]}</p><div class="options">${q[1].map((o,j)=>`<button class="option" data-index="${j}" onclick="selectOpt(this)">${o}</button>`).join('')}</div><div class="feedback"></div></div>`).join('');
+}
+function renderText(id,data,prefix,placeholder){
+  document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="q" data-q="${prefix}${i}" data-textanswer="${q[1]}"><p>${i+1}. ${q[0]}</p><div class="inputrow"><input class="textans" placeholder="${placeholder}"></div><div class="feedback"></div></div>`).join('');
+}
+function selectOpt(btn){btn.parentElement.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');updateProgress()}
+document.addEventListener('input',updateProgress);
+function norm(s){return(s||'').toLowerCase().trim().replace(/[’]/g,"'").replace(/\s+/g,' ').replace(/[.]+$/,'')}
+function getSectionQs(name){const prefix={passive:'p',transform:'t',articles:'a',errors:'e',reading:'r'}[name];return [...document.querySelectorAll(`[data-q^="${prefix}"]`)]}
+function checkSection(name){
+  const qs=getSectionQs(name);let correct=0;
+  qs.forEach(q=>{
+    const fb=q.querySelector('.feedback');fb.className='feedback show';
+    if(q.dataset.textanswer){
+      const inp=q.querySelector('input');const answered=inp.value.trim().length>0;const ok=answered&&norm(inp.value)===norm(q.dataset.textanswer);
+      inp.classList.remove('correct','wrong');if(answered)inp.classList.add(ok?'correct':'wrong');
+      fb.classList.add(ok?'good':'bad');fb.textContent=!answered?'No answer yet.':ok?'Correct!':'Correct answer: '+q.dataset.textanswer;correct+=ok?1:0;
+    }else{
+      const chosen=q.querySelector('.option.selected');q.querySelectorAll('.option').forEach(o=>o.classList.remove('correct','wrong'));const ok=chosen&&Number(chosen.dataset.index)===Number(q.dataset.answer);
+      if(chosen){q.querySelectorAll('.option').forEach((o,i)=>{if(i==q.dataset.answer)o.classList.add('correct')});if(!ok)chosen.classList.add('wrong')}
+      fb.classList.add(ok?'good':'bad');fb.textContent=!chosen?'No answer yet.':ok?'Correct!':'Review the green answer.';correct+=ok?1:0;
+    }
+  });
+  document.getElementById(name+'Score').textContent=`Section score: ${correct}/${qs.length}`;
+}
+function updateProgress(){
+  const mc=[...document.querySelectorAll('.q[data-answer]')].filter(q=>q.querySelector('.option.selected')).length;
+  const tx=[...document.querySelectorAll('.q[data-textanswer]')].filter(q=>q.querySelector('input').value.trim()).length;
+  const total=document.querySelectorAll('.q[data-answer]').length+document.querySelectorAll('.q[data-textanswer]').length;
+  const done=mc+tx;document.getElementById('bar').style.width=(done/total*100)+'%';document.getElementById('progressText').textContent=`${done} of ${total} questions completed`;
+}
+function calculateFinalResult(){
+  ['passive','transform','articles','errors','reading'].forEach(checkSection);
+  let correct=0,wrong=0,unanswered=0,total=0;
+  document.querySelectorAll('.q[data-answer]').forEach(q=>{total++;const c=q.querySelector('.option.selected');if(!c){unanswered++;return}if(Number(c.dataset.index)===Number(q.dataset.answer))correct++;else wrong++});
+  document.querySelectorAll('.q[data-textanswer]').forEach(q=>{total++;const inp=q.querySelector('input');if(!inp.value.trim()){unanswered++;return}if(norm(inp.value)===norm(q.dataset.textanswer))correct++;else wrong++});
+  const pct=Math.round(correct/total*100);let grade,message;
+  if(pct>=93){grade='Excellent C1 performance 🌟';message='Very strong control of passive voice and article choice.'}
+  else if(pct>=85){grade='Strong C1 result';message='Great work. Review only the few red corrections.'}
+  else if(pct>=75){grade='Good upper-level result';message='Good understanding. Focus on article nuance and passive tense choice.'}
+  else if(pct>=65){grade='Developing C1 accuracy';message='Review the recap, especially tense choice inside the passive.'}
+  else{grade='Review recommended';message='Go back through the recap before trying the missed items again.'}
+  document.getElementById('finalPercent').textContent=pct+'%';document.getElementById('finalGrade').textContent=grade;
+  document.getElementById('correctCount').textContent=correct;document.getElementById('wrongCount').textContent=wrong;document.getElementById('unansweredCount').textContent=unanswered;document.getElementById('finalMessage').textContent=message;
+  document.getElementById('finalResult').style.display='block';document.getElementById('downloadBtn').disabled=false;document.getElementById('sendBtn').disabled=false;
+  window.lastHomeworkResult={correct,wrong,unanswered,total,pct,grade,message};document.getElementById('finalResultSection').scrollIntoView({behavior:'smooth'});
+}
+
+async function buildCompletedHomeworkPdfBlob(){
+  if(!window.lastHomeworkResult)calculateFinalResult();
+  if(!window.html2canvas||!window.jspdf)throw new Error('PDF tools are still loading. Please wait a few seconds and try again.');
+  document.querySelectorAll('input').forEach(inp=>inp.setAttribute('value',inp.value));
+  const controls=[...document.querySelectorAll('#finalResultSection .btn')];controls.forEach(x=>x.style.visibility='hidden');
+  const px=window.scrollX,py=window.scrollY;window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+  try{
+    const root=document.documentElement,body=document.body;
+    const fullWidth=Math.max(body.scrollWidth,body.offsetWidth,root.clientWidth,root.scrollWidth,root.offsetWidth);
+    const fullHeight=Math.max(body.scrollHeight,body.offsetHeight,root.clientHeight,root.scrollHeight,root.offsetHeight);
+    const canvas=await html2canvas(body,{scale:1.25,useCORS:true,allowTaint:false,backgroundColor:'#f7f8fc',scrollX:0,scrollY:0,width:fullWidth,height:fullHeight,windowWidth:fullWidth,windowHeight:fullHeight,x:0,y:0,logging:false});
+    const {jsPDF}=window.jspdf,pdf=new jsPDF('p','mm','a4'),margin=7,usableW=196,usableH=283,pxPerMm=canvas.width/usableW,sliceHeightPx=Math.floor(usableH*pxPerMm);
+    let y=0,page=0;while(y<canvas.height){const h=Math.min(sliceHeightPx,canvas.height-y),pc=document.createElement('canvas');pc.width=canvas.width;pc.height=h;const ctx=pc.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,pc.width,pc.height);ctx.drawImage(canvas,0,y,canvas.width,h,0,0,canvas.width,h);const img=pc.toDataURL('image/jpeg',0.86);if(page>0)pdf.addPage();pdf.addImage(img,'JPEG',margin,margin,usableW,h/pxPerMm,undefined,'FAST');y+=h;page++}
+    return pdf.output('blob');
+  }finally{controls.forEach(x=>x.style.visibility='');window.scrollTo(px,py)}
+}
+async function downloadHomeworkResults(){
+  const btn=document.getElementById('downloadBtn'),original=btn.textContent;btn.disabled=true;btn.textContent='Creating full PDF...';
+  try{const blob=await buildCompletedHomeworkPdfBlob();const student=(document.getElementById('studentName').value||'Student').trim().replace(/[^a-z0-9_-]+/gi,'_');const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=student+'_C1_Bali_Passive_Articles_Homework.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}catch(err){alert(err.message||'The PDF could not be created.')}finally{btn.disabled=false;btn.textContent=original}
+}
+
+const TEACHER_WEB_APP_URL='https://script.google.com/macros/s/AKfycbyzfvP4ZuWA4A0lF2naJYi_Hs9XnC_EnVZS3BxOL50Rldgk5xBop1Z2rh1i_bAADUXH/exec';
+const HOMEWORK_SEND_KEY='l0Wgf2BejUSFsst5cNGfFvn689YJ-Au9';
+const HOMEWORK_ID='c1-bali-passive-articles-v1';
+const LESSON_TITLE='C1 Bali — Passive Voice & Articles';
+const HOMEWORK_OPENED_AT=Date.now();
+
+function makeSubmissionNonce(){if(window.crypto&&crypto.getRandomValues){const a=new Uint32Array(4);crypto.getRandomValues(a);return Array.from(a).map(n=>n.toString(16).padStart(8,'0')).join('')}return String(Date.now())+'_'+Math.random().toString(36).slice(2)}
+function lockKey(name){return 'homework_sent__'+HOMEWORK_ID+'__'+name.toLowerCase().replace(/[^a-z0-9]+/g,'_')}
+function wasRecentlySubmitted(name){const raw=localStorage.getItem(lockKey(name));if(!raw)return false;const when=Number(raw);return Number.isFinite(when)&&(Date.now()-when)<24*60*60*1000}
+function markSubmitted(name){try{localStorage.setItem(lockKey(name),String(Date.now()))}catch(e){}}
+let submitInFlight=false;
+
+async function sendHomeworkToTeacher(){
+  if(submitInFlight)return;
+  if(!window.lastHomeworkResult)calculateFinalResult();
+  const nameField=document.getElementById('studentName'),studentName=(nameField.value||'').trim(),honeypot=(document.getElementById('websiteField')?.value||'').trim();
+  if(honeypot)return;
+  if(studentName.length<2||studentName.length>60){nameField.focus();alert('Please enter your name (2–60 characters) before sending.');return}
+  if(Date.now()-HOMEWORK_OPENED_AT<15000){alert('Please wait a few seconds before sending your homework.');return}
+  if(wasRecentlySubmitted(studentName)&&!confirm('These results were already sent from this browser in the last 24 hours. Send them again anyway?'))return;
+  const btn=document.getElementById('sendBtn'),original=btn.textContent,status=document.getElementById('sendStatus'),nonce=makeSubmissionNonce(),submittedAt=Date.now();
+  submitInFlight=true;btn.disabled=true;btn.textContent='Preparing protected submission...';status.textContent='';
+  try{
+    const pdfBlob=await buildCompletedHomeworkPdfBlob();if(pdfBlob.size>18*1024*1024)throw new Error('The PDF is too large to email. Please use the backup Download PDF button.');
+    const pdfBase64=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(String(reader.result).split(',')[1]);reader.onerror=reject;reader.readAsDataURL(pdfBlob)});
+    const safeStudent=studentName.replace(/[^a-z0-9_-]+/gi,'_'),filename=safeStudent+'_C1_Bali_Passive_Articles_Homework.pdf';
+    const form=document.createElement('form');form.method='POST';form.action=TEACHER_WEB_APP_URL;form.target='homeworkEmailFrame';form.style.display='none';
+    const fields={key:HOMEWORK_SEND_KEY,homeworkId:HOMEWORK_ID,lessonTitle:LESSON_TITLE,submittedAt:String(submittedAt),nonce,website:honeypot,studentName,filename,score:window.lastHomeworkResult.correct+'/'+window.lastHomeworkResult.total,percent:window.lastHomeworkResult.pct+'%',grade:window.lastHomeworkResult.grade,wrong:String(window.lastHomeworkResult.wrong),unanswered:String(window.lastHomeworkResult.unanswered),pdfBase64};
+    Object.entries(fields).forEach(([name,value])=>{const input=document.createElement('textarea');input.name=name;input.value=value;form.appendChild(input)});document.body.appendChild(form);btn.textContent='Sending securely...';
+    let resolved=false;const frame=document.getElementById('homeworkEmailFrame');
+    const cleanup=()=>{try{form.remove()}catch(e){}window.removeEventListener('message',onMessage)};
+    const onMessage=(event)=>{const data=event.data||{};if(data.type!=='homework-submit'||data.nonce!==nonce)return;resolved=true;cleanup();if(data.status==='success'){markSubmitted(studentName);status.textContent='✓ Results sent to your teacher!';btn.textContent='✓ SENT TO TEACHER';btn.disabled=true}else{submitInFlight=false;btn.disabled=false;btn.textContent=original;alert(data.message||'The submission was rejected.')}};
+    window.addEventListener('message',onMessage);form.submit();
+    setTimeout(()=>{if(resolved)return;cleanup();markSubmitted(studentName);status.textContent='✓ Submission sent. If needed, use the backup PDF button.';btn.textContent='✓ SUBMISSION SENT';btn.disabled=true},6000);
+  }catch(err){submitInFlight=false;status.textContent='';btn.disabled=false;btn.textContent=original;alert(err.message||'The results could not be sent. Please use the backup Download PDF button.')}
+}
+
+renderMC('passiveQs',sets.passive,'p');
+renderText('transformQs',transforms,'t','Type the full passive sentence');
+renderMC('articleQs',sets.articles,'a');
+renderText('errorQs',errors,'e','Type only the corrected part');
+renderMC('readingQs',sets.reading,'r');
+updateProgress();
+</script>
+</body>
+</html>
