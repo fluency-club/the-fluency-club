@@ -1,0 +1,191 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<title>B1-B2 Past Simple & Past Continuous Cheat Sheet</title><style>
+:root{--ink:#243147;--muted:#667085;--purple:#6d28d9;--pink:#db2777;--blue:#2563eb;--green:#16a34a;--orange:#f97316}
+*{box-sizing:border-box}
+body{margin:0;background:#eef1f6;font-family:Arial,sans-serif;color:var(--ink)}
+.controls{position:sticky;top:0;z-index:20;display:flex;gap:10px;justify-content:center;padding:12px;background:#ffffffee;backdrop-filter:blur(10px);border-bottom:1px solid #ddd}
+.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:900;cursor:pointer;background:#6d28d9;color:white}.btn.alt{background:#172554}
+.wrap{padding:18px 0 40px}
+.sheetPage{
+ width:210mm;height:297mm;margin:0 auto 16px;background:#fff;padding:9mm 10mm;
+ overflow:hidden;box-shadow:0 10px 30px #22304422;page-break-after:always;position:relative
+}
+.sheetPage:last-child{page-break-after:auto}
+.eyebrow{display:inline-block;background:#ede9fe;color:#5b21b6;font-weight:900;padding:5px 9px;border-radius:999px;font-size:11px}
+.title{font-size:27px;line-height:1.02;margin:7px 0 4px;color:#4c1d95}
+.sub{color:var(--muted);font-size:12px;margin:0 0 7px}
+h2{font-size:16px;margin:6px 0 5px;color:#5b21b6}
+h3{font-size:14px;margin:2px 0 4px}
+p,li{font-size:10.7px;line-height:1.33;margin:3px 0}
+ul{padding-left:16px;margin:3px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.grid4{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.card{border:1px solid #e5e7eb;border-radius:13px;padding:8px;background:#fff}
+.c1{background:linear-gradient(135deg,#eff6ff,#fff)}
+.c2{background:linear-gradient(135deg,#f5f3ff,#fff)}
+.c3{background:linear-gradient(135deg,#fff7ed,#fff)}
+.c4{background:linear-gradient(135deg,#ecfdf5,#fff)}
+.formula{background:#172554;color:#fff;border-radius:9px;padding:6px 8px;font-weight:900;font-size:11.5px;margin:4px 0}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{background:#ecfeff;color:#155e75;border:1px solid #a5f3fc;border-radius:999px;padding:3px 6px;font-weight:800;font-size:9.5px}
+.warn{background:#fff7ed;border-left:4px solid #f97316;border-radius:9px;padding:6px 8px;margin-top:5px}
+.good{background:#ecfdf5;border-left:4px solid #16a34a;border-radius:9px;padding:6px 8px;margin-top:5px}
+.table{width:100%;border-collapse:collapse;font-size:9.7px}
+.table th,.table td{border-bottom:1px solid #e5e7eb;padding:4px 5px;text-align:left;vertical-align:top}
+.table th{background:#f5f3ff;color:#5b21b6}
+.small{font-size:9.4px}
+.footer{position:absolute;bottom:4mm;left:10mm;right:10mm;color:#98a2b3;font-size:8.5px;text-align:center}
+.sectionGap{margin-top:6px}
+.dense2{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.dense3{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.fillNote{margin-top:6px;border-radius:12px;padding:7px 9px;background:linear-gradient(135deg,#eef2ff,#fff7ed);font-size:10px;font-weight:800}
+@page{size:A4;margin:0}
+@media print{
+ body{background:#fff}.controls{display:none!important}.wrap{padding:0}
+ .sheetPage{margin:0;box-shadow:none;width:210mm;height:297mm;padding:9mm 10mm;page-break-after:always;break-after:page}
+ .sheetPage:last-child{page-break-after:auto;break-after:auto}
+}
+</style></head><body>
+<div class="controls"><button class="btn" id="downloadCheatBtn" onclick="downloadCheatPdf()">⬇ Download PDF</button><button class="btn alt" id="printCheatBtn" onclick="printCheatPdf()">🖨 Print</button></div>
+<div class="wrap">
+
+<section class="sheetPage">
+<span class="eyebrow">B1–B2 GRAMMAR REFERENCE</span>
+<div class="title">Past Simple vs Past Continuous 🎬</div>
+<p class="sub">Forms, uses, signal words, WHEN / WHILE, spelling and the difference between a completed event and an action in progress.</p>
+
+<div class="grid2">
+<div class="card c1">
+<h2>📸 Past Simple = Snapshot</h2><div class="formula">V2 / verb + -ed</div>
+<p><b>Use for:</b></p><ul>
+<li>finished action: <i>I called yesterday.</i></li>
+<li>sequence: <i>I arrived, ordered and sat down.</i></li>
+<li>past fact/state: <i>The room was quiet.</i></li>
+<li>main events in a story.</li></ul>
+<p><b>−</b> didn't + base verb<br><b>?</b> Did + subject + base verb?</p>
+<div class="chips"><span class="chip">yesterday</span><span class="chip">last week</span><span class="chip">... ago</span><span class="chip">in 2024</span><span class="chip">then</span><span class="chip">suddenly</span><span class="chip">finally</span></div>
+</div>
+
+<div class="card c2">
+<h2>🎥 Past Continuous = Video</h2><div class="formula">was / were + verb-ing</div>
+<p><b>Use for:</b></p><ul>
+<li>action in progress at a past moment: <i>At 5, I was working.</i></li>
+<li>background scene: <i>The sun was shining.</i></li>
+<li>temporary past situation: <i>I was staying with friends that month.</i></li>
+<li>two simultaneous ongoing actions.</li></ul>
+<p><b>−</b> wasn't/weren't + -ing<br><b>?</b> Was/Were + subject + -ing?</p>
+<div class="chips"><span class="chip">at 5 p.m.</span><span class="chip">at that moment</span><span class="chip">this time yesterday</span><span class="chip">all evening</span><span class="chip">while</span></div>
+</div>
+</div>
+
+<div class="good"><b>Core difference:</b> Past Simple = “What happened?” · Past Continuous = “What was happening at that moment?”</div>
+
+<div class="dense2 sectionGap">
+<div class="card c3"><h2>When they appear together</h2><p>The longer/background action is often Past Continuous and the shorter event is Past Simple:</p><p><b>I was riding home when it started to rain.</b></p><p><b>While I was cooking, the phone rang.</b></p><p>This pattern is common, but it is not the only use of either tense.</p></div>
+<div class="card c4"><h2>WHEN vs WHILE</h2><p><b>when</b> often introduces the shorter event: <i>I was walking when it started to rain.</i></p><p><b>while</b> often introduces the ongoing action: <i>While I was walking, it started to rain.</i></p></div>
+</div>
+
+<div class="grid4 sectionGap">
+<div class="card c1"><h2>Past Simple spelling</h2><ul><li>work → worked</li><li>live → lived</li><li>study → studied</li><li>stop → stopped</li></ul><p class="small"><b>-ed sounds:</b> /t/ worked · /d/ played · /ɪd/ wanted</p></div>
+<div class="card c2"><h2>Past Continuous spelling</h2><ul><li>work → was working</li><li>make → was making</li><li>run → was running</li><li>lie → was lying</li></ul></div>
+<div class="card c3"><h2>Stative verbs</h2><p>Usually stay simple even in a past scene: <i>I knew, wanted, believed, understood, needed.</i></p><p>Not usually: <i>I was knowing.</i></p></div>
+<div class="card c4"><h2>Meaning over signal words</h2><p>Signal words are clues, not automatic rules.</p><p><i>At 5 p.m. I called him</i> is correct if the call happened at that time as a completed event.</p></div>
+</div>
+
+<div class="footer">The Fluency Club · Past Simple & Past Continuous · Page 1 of 2</div>
+</section>
+
+<section class="sheetPage">
+<span class="eyebrow">IRREGULARS + COMMON MISTAKES</span>
+<div class="title">Past Tenses — Quick Reference</div>
+<p class="sub">Useful irregular verbs, error correction, story building and a final decision guide.</p>
+
+<h2>Useful irregular verbs</h2>
+<table class="table">
+<tr><th>Base</th><th>Past</th><th>Base</th><th>Past</th></tr>
+<tr><td>be</td><td>was/were</td><td>go</td><td>went</td></tr>
+<tr><td>come</td><td>came</td><td>see</td><td>saw</td></tr>
+<tr><td>take</td><td>took</td><td>give</td><td>gave</td></tr>
+<tr><td>get</td><td>got</td><td>make</td><td>made</td></tr>
+<tr><td>have</td><td>had</td><td>do</td><td>did</td></tr>
+<tr><td>say</td><td>said</td><td>tell</td><td>told</td></tr>
+<tr><td>eat</td><td>ate</td><td>drink</td><td>drank</td></tr>
+<tr><td>ride</td><td>rode</td><td>fall</td><td>fell</td></tr>
+<tr><td>leave</td><td>left</td><td>feel</td><td>felt</td></tr>
+<tr><td>buy</td><td>bought</td><td>bring</td><td>brought</td></tr>
+</table>
+
+<h2>Common mistakes</h2>
+<table class="table">
+<tr><th>Wrong</th><th>Correct</th><th>Why</th></tr>
+<tr><td>Yesterday I was went there.</td><td>Yesterday I went there.</td><td>Past Simple = V2, no was/were</td></tr>
+<tr><td>At 5 p.m. I worked.</td><td>At 5 p.m. I was working.</td><td>if you mean action in progress at that moment</td></tr>
+<tr><td>She didn't went.</td><td>She didn't go.</td><td>after did/didn't use base verb</td></tr>
+<tr><td>Were you went?</td><td>Did you go?</td><td>Past Simple question</td></tr>
+<tr><td>He was work.</td><td>He was working.</td><td>Past Continuous needs -ing</td></tr>
+<tr><td>I was knowing the answer.</td><td>I knew the answer.</td><td>stative verb</td></tr>
+</table>
+
+<div class="dense2 sectionGap">
+<div class="card c1"><h2>Set the scene</h2><p>Use Past Continuous for what was already happening around the main event.</p><p><i>People were talking. Music was playing. I was waiting near the door.</i></p></div>
+<div class="card c2"><h2>Move the story forward</h2><p>Use Past Simple for completed events in sequence.</p><p><i>The waiter arrived, gave us the menu and took our order.</i></p></div>
+</div>
+
+<div class="dense2 sectionGap">
+<div class="card c3"><h2>Two ongoing actions</h2><p>Past Continuous can describe two actions happening at the same time.</p><p><i>While I was cooking, my friend was setting the table.</i></p></div>
+<div class="card c4"><h2>Temporary past situation</h2><p>Use Past Continuous for a temporary situation around a past period.</p><p><i>I was staying with my sister that month.</i></p></div>
+</div>
+
+<div class="good"><b>Decision check:</b><br>
+Finished event / sequence / past fact? → Past Simple.<br>
+Action in progress / background / temporary past situation? → Past Continuous.<br>
+Background + shorter event? → often Past Continuous + Past Simple.</div>
+
+<div class="fillNote"><b>Remember:</b> Past Continuous does not mean “long action” and Past Simple does not mean “short action.” The key question is whether you see the action as <i>in progress</i> or <i>complete</i>.</div>
+
+<div class="footer">The Fluency Club · Past Simple & Past Continuous · Page 2 of 2</div>
+</section>
+</div>
+<script>const CHEAT_PDF_FILENAME='B1_B2_Past_Simple_Past_Continuous_Cheat_Sheet.pdf';</script>
+
+<script>
+async function buildCheatPdfBlob(){
+  if(!window.html2canvas||!window.jspdf) throw new Error('PDF tools are still loading. Please try again in a few seconds.');
+  const pages=[...document.querySelectorAll('.sheetPage')];
+  const {jsPDF}=window.jspdf;
+  const pdf=new jsPDF('p','mm','a4');
+  for(let i=0;i<pages.length;i++){
+    if(i>0) pdf.addPage('a4','p');
+    const canvas=await html2canvas(pages[i],{
+      scale:1.55,useCORS:true,backgroundColor:'#ffffff',
+      scrollX:0,scrollY:0,logging:false
+    });
+    pdf.addImage(canvas.toDataURL('image/jpeg',0.94),'JPEG',0,0,210,297,undefined,'FAST');
+  }
+  return pdf.output('blob');
+}
+async function downloadCheatPdf(){
+  const btn=document.getElementById('downloadCheatBtn'),old=btn.textContent;
+  btn.disabled=true;btn.textContent='Creating PDF...';
+  try{
+    const blob=await buildCheatPdfBlob(),a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);a.download=CHEAT_PDF_FILENAME;a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  }catch(e){alert(e.message||'Could not create PDF.')}
+  finally{btn.disabled=false;btn.textContent=old}
+}
+async function printCheatPdf(){
+  const btn=document.getElementById('printCheatBtn'),old=btn.textContent;
+  btn.disabled=true;btn.textContent='Preparing print...';
+  try{
+    const blob=await buildCheatPdfBlob(),url=URL.createObjectURL(blob),w=window.open(url,'_blank');
+    if(!w) throw new Error('Please allow pop-ups for this page.');
+    setTimeout(()=>URL.revokeObjectURL(url),120000);
+  }catch(e){alert(e.message||'Could not prepare printable PDF.')}
+  finally{btn.disabled=false;btn.textContent=old}
+}
+</script>
+
+</body></html>
