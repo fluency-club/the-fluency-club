@@ -1,0 +1,196 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<title>B1-B2 Present Tenses Cheat Sheet</title><style>
+:root{--ink:#243147;--muted:#667085;--purple:#6d28d9;--pink:#db2777;--blue:#2563eb;--green:#16a34a;--orange:#f97316}
+*{box-sizing:border-box}
+body{margin:0;background:#eef1f6;font-family:Arial,sans-serif;color:var(--ink)}
+.controls{position:sticky;top:0;z-index:20;display:flex;gap:10px;justify-content:center;padding:12px;background:#ffffffee;backdrop-filter:blur(10px);border-bottom:1px solid #ddd}
+.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:900;cursor:pointer;background:#6d28d9;color:white}.btn.alt{background:#172554}
+.wrap{padding:18px 0 40px}
+.sheetPage{
+ width:210mm;height:297mm;margin:0 auto 16px;background:#fff;padding:9mm 10mm;
+ overflow:hidden;box-shadow:0 10px 30px #22304422;page-break-after:always;position:relative
+}
+.sheetPage:last-child{page-break-after:auto}
+.eyebrow{display:inline-block;background:#ede9fe;color:#5b21b6;font-weight:900;padding:5px 9px;border-radius:999px;font-size:11px}
+.title{font-size:27px;line-height:1.02;margin:7px 0 4px;color:#4c1d95}
+.sub{color:var(--muted);font-size:12px;margin:0 0 7px}
+h2{font-size:16px;margin:6px 0 5px;color:#5b21b6}
+h3{font-size:14px;margin:2px 0 4px}
+p,li{font-size:10.7px;line-height:1.33;margin:3px 0}
+ul{padding-left:16px;margin:3px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.grid4{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.card{border:1px solid #e5e7eb;border-radius:13px;padding:8px;background:#fff}
+.c1{background:linear-gradient(135deg,#eff6ff,#fff)}
+.c2{background:linear-gradient(135deg,#f5f3ff,#fff)}
+.c3{background:linear-gradient(135deg,#fff7ed,#fff)}
+.c4{background:linear-gradient(135deg,#ecfdf5,#fff)}
+.formula{background:#172554;color:#fff;border-radius:9px;padding:6px 8px;font-weight:900;font-size:11.5px;margin:4px 0}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{background:#ecfeff;color:#155e75;border:1px solid #a5f3fc;border-radius:999px;padding:3px 6px;font-weight:800;font-size:9.5px}
+.warn{background:#fff7ed;border-left:4px solid #f97316;border-radius:9px;padding:6px 8px;margin-top:5px}
+.good{background:#ecfdf5;border-left:4px solid #16a34a;border-radius:9px;padding:6px 8px;margin-top:5px}
+.table{width:100%;border-collapse:collapse;font-size:9.7px}
+.table th,.table td{border-bottom:1px solid #e5e7eb;padding:4px 5px;text-align:left;vertical-align:top}
+.table th{background:#f5f3ff;color:#5b21b6}
+.small{font-size:9.4px}
+.footer{position:absolute;bottom:4mm;left:10mm;right:10mm;color:#98a2b3;font-size:8.5px;text-align:center}
+.sectionGap{margin-top:6px}
+.dense2{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.dense3{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.fillNote{margin-top:6px;border-radius:12px;padding:7px 9px;background:linear-gradient(135deg,#eef2ff,#fff7ed);font-size:10px;font-weight:800}
+@page{size:A4;margin:0}
+@media print{
+ body{background:#fff}.controls{display:none!important}.wrap{padding:0}
+ .sheetPage{margin:0;box-shadow:none;width:210mm;height:297mm;padding:9mm 10mm;page-break-after:always;break-after:page}
+ .sheetPage:last-child{page-break-after:auto;break-after:auto}
+}
+</style></head><body>
+<div class="controls"><button class="btn" id="downloadCheatBtn" onclick="downloadCheatPdf()">⬇ Download PDF</button><button class="btn alt" id="printCheatBtn" onclick="printCheatPdf()">🖨 Print</button></div>
+<div class="wrap">
+
+<section class="sheetPage">
+<span class="eyebrow">B1–B2 GRAMMAR REFERENCE</span>
+<div class="title">Present Tenses Cheat Sheet ⏳</div>
+<p class="sub">Four present tenses: forms, key uses, signal words and the fastest way to tell them apart.</p>
+
+<div class="grid4">
+<div class="card c1">
+<h3>Present Simple</h3><div class="formula">I/you/we/they work · he/she works</div>
+<p><b>Use:</b> routines, habits, facts, permanent situations, timetables.</p>
+<p><i>I ride twice a week. The lesson starts at 6.</i></p>
+<p><b>−</b> don't/doesn't + base verb<br><b>?</b> Do/Does + subject + base verb?</p>
+<div class="chips"><span class="chip">always</span><span class="chip">usually</span><span class="chip">often</span><span class="chip">sometimes</span><span class="chip">never</span><span class="chip">every day</span><span class="chip">once a week</span><span class="chip">on Mondays</span></div>
+</div>
+
+<div class="card c2">
+<h3>Present Continuous</h3><div class="formula">am / is / are + verb-ing</div>
+<p><b>Use:</b> now, around now, temporary situations, changes, arranged near-future plans.</p>
+<p><i>I'm working now. She's staying with friends this week.</i></p>
+<p><b>−</b> am/is/are not + -ing<br><b>?</b> Am/Is/Are + subject + -ing?</p>
+<div class="chips"><span class="chip">now</span><span class="chip">right now</span><span class="chip">at the moment</span><span class="chip">currently</span><span class="chip">today</span><span class="chip">this week</span><span class="chip">these days</span><span class="chip">Look!</span></div>
+</div>
+
+<div class="card c3">
+<h3>Present Perfect</h3><div class="formula">have / has + V3</div>
+<p><b>Use:</b> experience, recent result, unfinished time, present connection.</p>
+<p><i>I've tried it before. She has already finished.</i></p>
+<p><b>−</b> haven't/hasn't + V3<br><b>?</b> Have/Has + subject + V3?</p>
+<div class="chips"><span class="chip">already</span><span class="chip">just</span><span class="chip">yet</span><span class="chip">ever</span><span class="chip">never</span><span class="chip">so far</span><span class="chip">recently</span><span class="chip">this week</span></div>
+</div>
+
+<div class="card c4">
+<h3>Present Perfect Continuous</h3><div class="formula">have / has been + verb-ing</div>
+<p><b>Use:</b> activity continuing until now, duration, repeated recent activity, visible result.</p>
+<p><i>I've been studying for two hours. It's been raining.</i></p>
+<p><b>−</b> haven't/hasn't been + -ing<br><b>?</b> Have/Has + subject + been + -ing?</p>
+<div class="chips"><span class="chip">for</span><span class="chip">since</span><span class="chip">all day</span><span class="chip">lately</span><span class="chip">recently</span><span class="chip">how long</span><span class="chip">for the last...</span></div>
+</div>
+</div>
+
+<div class="good"><b>Fast decision:</b> routine/fact → Simple · happening/temporary → Continuous · result/experience → Perfect · activity/duration → Perfect Continuous.</div>
+
+<div class="dense2 sectionGap">
+<div class="card c1"><h2>Simple vs Continuous</h2><p><b>Simple:</b> normal/repeated/permanent. <i>I work from home.</i></p><p><b>Continuous:</b> now/temporary/changing. <i>I'm working from a café today.</i></p><div class="warn"><b>Trap:</b> a word like <i>today</i> does not automatically mean Continuous.</div></div>
+<div class="card c2"><h2>Perfect vs Perfect Continuous</h2><p><b>Perfect:</b> result, completion, experience, number. <i>I've read three chapters.</i></p><p><b>Perfect Continuous:</b> process or duration. <i>I've been reading for two hours.</i></p><div class="warn"><b>How many?</b> often Perfect · <b>How long?</b> often Perfect Continuous.</div></div>
+</div>
+
+<div class="dense2 sectionGap">
+<div class="card c3"><h2>Since / For</h2><p><b>since</b> + starting point: <i>since Monday, since 2024, since I moved here</i>.</p><p><b>for</b> + duration: <i>for two hours, for years, for a long time</i>.</p></div>
+<div class="card c4"><h2>Already / Just / Yet</h2><p><b>already</b> = earlier than expected · <b>just</b> = very recently · <b>yet</b> = usually questions/negatives, often at the end.</p><p><i>I've already eaten. She's just left. Have you finished yet?</i></p></div>
+</div>
+
+<div class="footer">The Fluency Club · Present Tenses · Page 1 of 2</div>
+</section>
+
+<section class="sheetPage">
+<span class="eyebrow">COMMON CASES + MISTAKES</span>
+<div class="title">Present Tenses — Keep This Page Nearby</div>
+<p class="sub">Stative verbs, spelling, unfinished time, repeated activity and the mistakes students make most often.</p>
+
+<h2>Stative verbs: usually NOT continuous</h2>
+<table class="table">
+<tr><th>Group</th><th>Common verbs</th><th>Example</th></tr>
+<tr><td>thought/opinion</td><td>know, believe, understand, remember, mean</td><td>I understand. NOT usually “I'm understanding.”</td></tr>
+<tr><td>likes/wants</td><td>like, love, hate, prefer, want, need</td><td>I prefer tea.</td></tr>
+<tr><td>possession</td><td>own, belong, have (= possess)</td><td>She owns a horse.</td></tr>
+<tr><td>senses/appearance</td><td>seem, look (= appear), sound, smell, taste</td><td>It tastes great.</td></tr>
+</table>
+<div class="warn"><b>Meaning can change:</b> <i>I think it's good</i> (opinion) vs <i>I'm thinking about it</i> (mental activity); <i>I have a car</i> vs <i>I'm having lunch</i>.</div>
+
+<div class="grid4 sectionGap">
+<div class="card c1"><h2>-ing spelling</h2><ul><li>work → working</li><li>make → making</li><li>run → running</li><li>lie → lying</li></ul></div>
+<div class="card c2"><h2>Third-person -s</h2><ul><li>work → works</li><li>go → goes</li><li>study → studies</li><li>have → has</li></ul></div>
+<div class="card c3"><h2>Unfinished time</h2><p><i>today, this week, this month, this year</i> can use Present Perfect when the period is not finished.</p><p><i>I've had three meetings today.</i></p></div>
+<div class="card c4"><h2>Repeated recent activity</h2><p>Present Perfect Continuous can show repeated recent actions.</p><p><i>I've been going to the gym a lot lately.</i></p></div>
+</div>
+
+<h2>Common mistakes</h2>
+<table class="table">
+<tr><th>Wrong</th><th>Better</th><th>Why</th></tr>
+<tr><td>She is knowing the answer.</td><td>She knows the answer.</td><td>stative verb</td></tr>
+<tr><td>I am here since Monday.</td><td>I've been here since Monday.</td><td>state started in past, continues now</td></tr>
+<tr><td>I have seen him yesterday.</td><td>I saw him yesterday.</td><td>finished past time → Past Simple</td></tr>
+<tr><td>I've been reading three books.</td><td>I've read three books.</td><td>number/result focus</td></tr>
+<tr><td>He don't work here.</td><td>He doesn't work here.</td><td>3rd person auxiliary</td></tr>
+</table>
+
+<div class="dense2 sectionGap">
+<div class="card c1"><h2>Present Perfect with unfinished time</h2><p>Use it when the period is still open: <i>I've had two coffees today.</i></p><p>Compare: <i>I had two coffees yesterday.</i> = finished time.</p></div>
+<div class="card c2"><h2>Present Perfect vs Past Simple</h2><p><b>Present Perfect:</b> no finished past time or present connection.</p><p><b>Past Simple:</b> finished past time: <i>yesterday, last week, in 2024, two days ago</i>.</p></div>
+</div>
+
+<div class="good"><b>Mini decision tree:</b><br>
+1) Routine/fact? → Present Simple.<br>
+2) Happening/temporary/changing? → Present Continuous.<br>
+3) Experience/result/unfinished time? → Present Perfect.<br>
+4) Activity/duration/repeated recent activity? → Present Perfect Continuous.</div>
+
+<div class="fillNote"><b>Remember:</b> signal words help, but meaning decides the tense. The same phrase (for example <i>this week</i>) can work with different tenses depending on what you want to say.</div>
+
+<div class="footer">The Fluency Club · Present Tenses · Page 2 of 2</div>
+</section>
+</div>
+<script>const CHEAT_PDF_FILENAME='B1_B2_Present_Tenses_Cheat_Sheet.pdf';</script>
+
+<script>
+async function buildCheatPdfBlob(){
+  if(!window.html2canvas||!window.jspdf) throw new Error('PDF tools are still loading. Please try again in a few seconds.');
+  const pages=[...document.querySelectorAll('.sheetPage')];
+  const {jsPDF}=window.jspdf;
+  const pdf=new jsPDF('p','mm','a4');
+  for(let i=0;i<pages.length;i++){
+    if(i>0) pdf.addPage('a4','p');
+    const canvas=await html2canvas(pages[i],{
+      scale:1.55,useCORS:true,backgroundColor:'#ffffff',
+      scrollX:0,scrollY:0,logging:false
+    });
+    pdf.addImage(canvas.toDataURL('image/jpeg',0.94),'JPEG',0,0,210,297,undefined,'FAST');
+  }
+  return pdf.output('blob');
+}
+async function downloadCheatPdf(){
+  const btn=document.getElementById('downloadCheatBtn'),old=btn.textContent;
+  btn.disabled=true;btn.textContent='Creating PDF...';
+  try{
+    const blob=await buildCheatPdfBlob(),a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);a.download=CHEAT_PDF_FILENAME;a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href),1500);
+  }catch(e){alert(e.message||'Could not create PDF.')}
+  finally{btn.disabled=false;btn.textContent=old}
+}
+async function printCheatPdf(){
+  const btn=document.getElementById('printCheatBtn'),old=btn.textContent;
+  btn.disabled=true;btn.textContent='Preparing print...';
+  try{
+    const blob=await buildCheatPdfBlob(),url=URL.createObjectURL(blob),w=window.open(url,'_blank');
+    if(!w) throw new Error('Please allow pop-ups for this page.');
+    setTimeout(()=>URL.revokeObjectURL(url),120000);
+  }catch(e){alert(e.message||'Could not prepare printable PDF.')}
+  finally{btn.disabled=false;btn.textContent=old}
+}
+</script>
+
+</body></html>
