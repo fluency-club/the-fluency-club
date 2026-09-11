@@ -1,0 +1,185 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mystery Mansion — Final Case Homework 🕯️🔎</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--ink:#243147;--muted:#667085;--purple:#6d28d9;--blue:#2563eb;--green:#16a34a;--red:#dc2626;--orange:#f97316;--pink:#db2777;--navy:#172554;--gold:#d4a72c;--wine:#7f1d1d}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#eef6ff,#f8f3ff 45%,#fff7eb)}
+.wrap{max-width:1020px;margin:auto;padding:24px 15px 50px}.hero{background:linear-gradient(135deg,#172554,#6d28d9);color:white;border-radius:28px;padding:28px;box-shadow:0 18px 45px #25335d28}
+.hero h1{font-size:38px;margin:0 0 8px}.hero p{font-size:17px;line-height:1.5}.section{position:relative;overflow:hidden;background:white;border:2px solid #e5e7eb;border-radius:24px;padding:22px;margin-top:17px;box-shadow:0 12px 30px #22304412}
+.section:before{content:"";position:absolute;left:0;top:0;right:0;height:7px;background:linear-gradient(90deg,#7c3aed,#ec4899,#f97316,#14b8a6,#2563eb)}
+.section:nth-of-type(4n+1){background:linear-gradient(135deg,#ffffff,#f5f3ff 70%,#fdf2f8)}.section:nth-of-type(4n+2){background:linear-gradient(135deg,#ffffff,#ecfeff 70%,#eff6ff)}
+.section:nth-of-type(4n+3){background:linear-gradient(135deg,#ffffff,#fff7ed 70%,#fef2f2)}.section:nth-of-type(4n){background:linear-gradient(135deg,#ffffff,#ecfdf5 70%,#f5f3ff)}
+.section h2{font-size:27px;color:#5b21b6;margin:0 0 10px;display:flex;align-items:center;gap:8px}.section h2:after{content:"";height:4px;flex:1;border-radius:99px;background:linear-gradient(90deg,#ddd6fe,transparent)}
+.sub{color:var(--muted)}.recapGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.recap{border-radius:18px;padding:15px;background:linear-gradient(135deg,#f5f3ff,#fff)}
+.formula{background:#172554;color:#fff;border-radius:12px;padding:9px 12px;font-weight:900;margin:7px 0}.vgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.v{min-height:145px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:13px;border-radius:17px;background-size:cover;background-position:center;border:2px solid #fff;box-shadow:0 10px 24px #26364f1a}
+.v:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 10%,#000000d4 100%)}.v b,.v span{position:relative;z-index:2;color:#fff;text-shadow:0 2px 7px #0008}.v b{font-size:18px}.v span{font-size:12px;margin-top:3px}
+.btn{border:0;border-radius:13px;padding:11px 15px;background:#6d28d9;color:white;font-weight:900;cursor:pointer;text-decoration:none;display:inline-block}.btn.alt{background:#172554}.btn.green{background:#15803d}.btn.pink{background:#db2777}.btn.wine{background:#7f1d1d}.btn:disabled{opacity:.55}
+.q{border:1px solid #e5e7eb;border-radius:17px;padding:14px;margin:10px 0;background:#fff;box-shadow:0 6px 18px #26364f0b}.opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.opt{border:2px solid #ddd6fe;background:#fff;border-radius:12px;padding:9px 12px;font-weight:800;cursor:pointer}.opt.selected{border-color:#7c3aed;background:#ede9fe}.opt.correctAnswer{border-color:#16a34a;background:#dcfce7;color:#166534}.opt.wrongAnswer{border-color:#dc2626;background:#fee2e2;color:#991b1b}
+.fb{font-weight:850;margin-top:8px;min-height:19px}.exerciseNote{display:inline-block;border-radius:999px;padding:6px 10px;background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;font-size:12px;font-weight:900;margin:4px 0 10px}
+.matchBoard{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}.matchCol{display:grid;gap:8px}.matchBtn{width:100%;border:2px solid #dbeafe;background:white;border-radius:14px;padding:11px 12px;text-align:left;font-weight:850;cursor:pointer}
+.matchBtn.sel{background:#ede9fe;border-color:#7c3aed;color:#5b21b6}.matchBtn.done{background:#dcfce7;border-color:#16a34a;color:#166534}.matchFeedback{font-weight:850;margin-top:10px;min-height:20px}
+.sortWrap{margin-top:12px}.sortBank{display:flex;gap:8px;flex-wrap:wrap;min-height:66px;padding:12px;border-radius:18px;background:linear-gradient(135deg,#eff6ff,#f5f3ff);border:2px dashed #c4b5fd}
+.sortChip{border:2px solid #c7d2fe;background:white;color:#3730a3;border-radius:999px;padding:9px 12px;font-weight:900;cursor:pointer}.sortChip.selected{transform:scale(1.03);border-color:#ec4899;box-shadow:0 0 0 4px #fce7f3}.sortChip.sortGood{background:#dcfce7;border-color:#16a34a;color:#166534}.sortChip.sortBad{background:#fee2e2;border-color:#dc2626;color:#991b1b}
+.sortZones{display:grid;gap:12px;margin-top:12px}.sortZone{min-height:120px;border-radius:20px;padding:13px;border:2px dashed #cbd5e1;background:#fff}.sortZone h3{margin:0 0 9px}
+.builder{border:1px solid #dbeafe;background:#eff6ff;border-radius:16px;padding:13px;margin:11px 0}.builderBank{display:flex;flex-wrap:wrap;gap:7px}.wordBtn{border:2px solid #c7d2fe;background:white;border-radius:10px;padding:7px 9px;font-weight:850;cursor:pointer}
+.sentenceLine{min-height:48px;background:white;border:2px dashed #93c5fd;border-radius:11px;padding:9px;margin:9px 0;font-weight:850}.result{display:none;border-radius:19px;padding:18px;margin-top:14px;background:linear-gradient(135deg,#ecfdf5,#f5f3ff)}.result.show{display:block}
+.nameRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.nameRow input{flex:1;min-width:240px;border:2px solid #cbd5e1;border-radius:12px;padding:11px;font-size:16px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:13px}.small{font-size:12px;color:#667085}
+.progress{height:12px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:12px 0}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#db2777);transition:.25s}
+.listenBox{display:grid;grid-template-columns:.86fr 1.14fr;gap:13px;align-items:center}.listenPic{min-height:235px;border-radius:18px;background:linear-gradient(#11182744,#11182777),url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=85') center/cover;position:relative}
+.listenPic:after{content:"CASE AUDIO";position:absolute;left:15px;bottom:14px;background:#fff;color:#7f1d1d;border-radius:9px;padding:7px 10px;font-weight:950}.note{background:#fff7ed;border-left:5px solid #f97316;border-radius:13px;padding:11px;margin-top:10px}
+.caseStrip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}.caseTile{border-radius:17px;padding:12px;color:#fff;font-weight:850}.caseTile:nth-child(1){background:linear-gradient(135deg,#7c3aed,#ec4899)}.caseTile:nth-child(2){background:linear-gradient(135deg,#2563eb,#06b6d4)}.caseTile:nth-child(3){background:linear-gradient(135deg,#f97316,#eab308)}
+.writingArea{width:100%;max-width:100%;min-height:230px;border:2px solid #c4b5fd;border-radius:16px;padding:14px;font-size:16px;line-height:1.55;background:#fff;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;overflow:hidden;outline:none}
+.writingArea:empty:before{content:attr(data-placeholder);color:#94a3b8}.wordCount{font-weight:850;color:#6d28d9;margin-top:8px}.targetBox{background:linear-gradient(135deg,#172554,#4c1d95);color:#fff;border-radius:16px;padding:13px;margin-top:10px}
+@media(max-width:800px){.recapGrid,.vgrid,.listenBox,.caseStrip{grid-template-columns:1fr 1fr}}@media(max-width:540px){.recapGrid,.vgrid,.listenBox,.caseStrip,.matchBoard{grid-template-columns:1fr}.hero h1{font-size:31px}.section{padding:16px}.section h2:after{display:none}}
+@page{size:A4;margin:8mm}@media print{body{background:#f7f8fc;-webkit-print-color-adjust:exact;print-color-adjust:exact}.actions,#sendStatus{display:none!important}.wrap{max-width:1020px;margin:auto;padding:24px 15px 50px}.section,.hero{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<header class="hero"><div style="font-weight:900;opacity:.85">C1 HOMEWORK</div><h1>Mystery Mansion — Final Case Homework 🕯️🔎</h1><p>Review the C1 mystery vocabulary and grammar, complete the listening from class, and finish with your own detective report.</p></header>
+<section class="section"><h2>Lesson Recap 🧠</h2>
+<h3>Detective vocabulary</h3><div class="vgrid"><div class="v" style="background-image:url(https://images.unsplash.com/photo-1520637736862-4d197d17c43a?auto=format&fit=crop&w=700&q=85)"><b>alibi</b><span>алиби</span></div><div class="v" style="background-image:url(https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=700&q=85)"><b>motive</b><span>мотив</span></div><div class="v" style="background-image:url(https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=700&q=85)"><b>evidence</b><span>доказательства / улики</span></div><div class="v" style="background-image:url(https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=700&q=85)"><b>contradiction</b><span>противоречие</span></div><div class="v" style="background-image:url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=700&q=85)"><b>misleading</b><span>вводящий в заблуждение</span></div><div class="v" style="background-image:url(https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=700&q=85)"><b>plausible</b><span>правдоподобный</span></div><div class="v" style="background-image:url(https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=700&q=85)"><b>tamper with</b><span>тайно вмешиваться / подделывать</span></div><div class="v" style="background-image:url(https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=700&q=85)"><b>unaccounted for</b><span>необъяснённый / неучтённый</span></div></div>
+<div class="recapGrid" style="margin-top:13px">
+ <div class="recap"><h3>Present system</h3><div class="formula">Simple → routine / state</div><div class="formula">Continuous → temporary / happening now</div><div class="formula">Perfect → result up to now</div><div class="formula">Perfect Continuous → duration / ongoing process</div></div>
+ <div class="recap"><h3>Narrative grammar</h3><div class="formula">Past Simple → main completed event</div><div class="formula">Past Continuous → background / action in progress</div><div class="formula">Past Perfect → earlier past event</div><p><b>Passive:</b> be + V3 · <b>Articles:</b> a/an → first mention, the → specific/known, zero → general idea.</p></div>
+</div></section>
+<div class="progress"><div id="progressBar"></div></div><div id="progressText" class="small">0 / 0 answered</div>
+
+<section class="section"><h2>1. Evidence Locker Match 🔗</h2><span class="exerciseNote">CLICK TWO CARDS</span><p class="sub">Match the C1 detective vocabulary to its meaning.</p><div id="c1Match"></div></section>
+<section class="section"><h2>2. Vocabulary Under Pressure 🧠</h2><span class="exerciseNote">CONTEXT TEST</span><p class="sub">Choose the most precise word for each case note.</p><div id="c1VocabMC"></div></section>
+<section class="section"><h2>3. Present Tense Forensics 🧪</h2><span class="exerciseNote">MEANING FIRST</span><p class="sub">Choose the form that best matches the situation.</p><div id="c1Present"></div></section>
+<section class="section"><h2>4. Reconstruct the Timeline ⏪🎬</h2><span class="exerciseNote">CLICK + SORT</span><p class="sub">Sort each sentence by its narrative job.</p><div id="c1PastSort"></div></section>
+<section class="section"><h2>5. Passive Evidence Report 📄</h2><span class="exerciseNote">CHOOSE THE BEST REPORT</span><p class="sub">Pick the most natural passive form.</p><div id="c1Passive"></div></section>
+<section class="section"><h2>6. Article Logic — Case File Edition 🗂️</h2><span class="exerciseNote">CHOOSE</span><p class="sub">Select the article that sounds natural in context.</p><div id="c1Articles"></div></section>
+<section class="section"><h2>7. Listening — Murder Mystery Scene 1 🎧</h2>
+<div class="listenBox"><div class="listenPic"></div><div><h3>Listen for inference, not just facts</h3><p>Open the same listening from the lesson. Listen once for the overall logic, then again for the details behind each inference.</p><a class="btn wine" href="https://learnenglish.britishcouncil.org/free-resources/general/video-series/wots/murder-mystery/murder-mystery-scene-1?page=1" target="_blank" rel="noopener">Open listening ↗</a></div></div>
+<div id="c1Listening"></div></section>
+<section class="section"><h2>8. Build the Case Theory 🧩</h2><span class="exerciseNote">CLICK-TO-BUILD</span><p class="sub">Build precise investigation sentences using the grammar and vocabulary from the lesson.</p><div id="c1Builders"></div></section>
+<section class="section"><h2>9. Writing — The Final Case Report ✍️🕯️</h2>
+<p>Write <b>130–170 words</b>. Give your final theory about the missing necklace. You can choose the host, the friend, or the guest — but explain the evidence clearly.</p>
+<div class="targetBox"><b>Include:</b> at least 4 vocabulary words from the recap, 1 Present Perfect or Present Perfect Continuous form, 2 Past Simple verbs, 1 Past Continuous form, 1 Past Perfect form, 1 Passive Voice structure, and accurate articles.</div>
+<div id="writingBox" class="writingArea" contenteditable="true" data-placeholder="Write your final case report here..." oninput="updateWritingCount()"></div>
+<div class="wordCount" id="wordCount">0 words</div></section>
+
+<section class="section" id="finalSection"><h2>Finish & Send ✅</h2>
+<div class="nameRow"><label><b>Student name:</b></label><input id="studentName" autocomplete="name" placeholder="Type your name"></div>
+<input id="websiteField" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
+<div id="finalResult" class="result"></div>
+<div class="actions"><button class="btn green" onclick="calculateFinalResult()">✓ CHECK YOUR RESULTS</button><button class="btn pink" id="sendBtn" onclick="sendResults()">📨 SEND RESULTS TO TEACHER</button><button class="btn alt" id="downloadBtn" onclick="downloadHomeworkResults()">Backup: download PDF</button></div>
+<div id="sendStatus" class="small" style="margin-top:10px"></div><p class="small">Your completed homework, selections, feedback, score, and writing (if included) are saved in the PDF.</p></section>
+</div><iframe name="sendFrame" id="sendFrame" style="display:none"></iframe><form id="sendForm" method="POST" target="sendFrame" style="display:none"></form>
+<script>
+const ENDPOINT="https://script.google.com/macros/s/AKfycbyzfvP4ZuWA4A0lF2naJYi_Hs9XnC_EnVZS3BxOL50Rldgk5xBop1Z2rh1i_bAADUXH/exec",SEND_KEY="l0Wgf2BejUSFsst5cNGfFvn689YJ-Au9",HOMEWORK_ID="c1-mystery-mansion-speaking-v1",LESSON_TITLE="Mystery Mansion \u2014 Final Case Homework \ud83d\udd6f\ufe0f\ud83d\udd0e",PDF_FILENAME="C1_Mystery_Mansion_Homework.pdf",OPENED_AT=Date.now();let submitInFlight=false;
+
+function norm(s){return (s||'').toLowerCase().trim().replace(/\s+/g,' ')}
+function renderMC(id,data){document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="q graded" data-kind="mc" data-answer="${q[2]}"><b>${i+1}. ${q[0]}</b><div class="opts">${q[1].map((o,j)=>`<button type="button" class="opt" data-index="${j}" onclick="choose(this)">${o}</button>`).join('')}</div><div class="fb"></div></div>`).join('')}
+function choose(btn){const q=btn.closest('.q');q.dataset.chosen=btn.dataset.index;q.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected','correctAnswer','wrongAnswer'));btn.classList.add('selected');updateProgress()}
+let matchSelected={};
+function renderMatch(id,pairs){
+ const root=document.getElementById(id);root.className='matchBoard';root.dataset.game=id;
+ const words=pairs.map((p,i)=>({text:p[0],id:i}));const defs=pairs.map((p,i)=>({text:p[1],id:i})).sort(()=>Math.random()-.5);
+ root.innerHTML=`<div class="matchCol">${words.map(x=>`<div class="matchUnit graded" data-kind="match" data-answer="${x.id}"><button type="button" class="matchBtn" data-side="word" data-id="${x.id}" onclick="matchPick(this)">${x.text}</button><div class="fb"></div></div>`).join('')}</div><div class="matchCol">${defs.map(x=>`<button type="button" class="matchBtn" data-side="def" data-id="${x.id}" onclick="matchPick(this)">${x.text}</button>`).join('')}</div><div class="matchFeedback" style="grid-column:1/-1"></div>`;
+}
+function matchPick(btn){
+ const root=btn.closest('.matchBoard'),game=root.dataset.game;if(btn.classList.contains('done'))return;
+ const prev=matchSelected[game];if(!prev){matchSelected[game]=btn;btn.classList.add('sel');return}
+ if(prev===btn){btn.classList.remove('sel');matchSelected[game]=null;return}
+ if(prev.dataset.side===btn.dataset.side){prev.classList.remove('sel');matchSelected[game]=btn;btn.classList.add('sel');return}
+ const word=prev.dataset.side==='word'?prev:btn,def=prev.dataset.side==='def'?prev:btn,fb=root.querySelector('.matchFeedback');
+ if(word.dataset.id===def.dataset.id){word.classList.remove('sel');def.classList.remove('sel');word.classList.add('done');def.classList.add('done');word.closest('.matchUnit').dataset.chosen=word.dataset.id;fb.textContent='✓ Match locked in!';fb.style.color='#16803c'}
+ else{prev.classList.remove('sel');fb.textContent='Not that pair — try again.';fb.style.color='#b42318'}
+ matchSelected[game]=null;updateProgress()
+}
+let activeSortChip=null;
+function renderGenericSort(id,items,zones){
+ const root=document.getElementById(id);root.className='sortWrap';
+ root.innerHTML=`<div class="sortBank">${items.map(x=>`<button type="button" class="sortChip graded" data-kind="sort" data-answer="${x[1]}" data-selected="" onclick="pickSortChip(this)">${x[0]}</button>`).join('')}</div><div class="sortZones" style="grid-template-columns:repeat(${zones.length},1fr)">${zones.map(z=>`<div class="sortZone" data-zone="${z[0]}" onclick="dropSort(this)"><h3>${z[1]}</h3></div>`).join('')}</div><div class="matchFeedback"></div>`
+}
+function pickSortChip(btn){if(activeSortChip)activeSortChip.classList.remove('selected');activeSortChip=btn;btn.classList.add('selected')}
+function dropSort(zone){if(!activeSortChip)return;activeSortChip.dataset.selected=zone.dataset.zone;activeSortChip.classList.remove('selected','sortGood','sortBad');zone.appendChild(activeSortChip);activeSortChip=null;updateProgress()}
+let totalBuilders=0;
+function renderBuilders(id,data){totalBuilders=data.length;document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="builder graded" data-kind="builder" data-answer="${q.answer.replace(/"/g,'&quot;')}" data-built=""><b>${i+1}. ${q.label}</b><div class="builderBank">${q.words.slice().sort(()=>Math.random()-.5).map(w=>`<button type="button" class="wordBtn" onclick="addBuilderWord(this,${i})">${w}</button>`).join('')}</div><div class="sentenceLine" id="line${i}"></div><button type="button" class="btn alt" onclick="resetBuilder(${i})">Reset</button><div class="fb"></div></div>`).join('')}
+function addBuilderWord(btn,i){const b=btn.closest('.builder');let a=b.dataset.built?JSON.parse(b.dataset.built):[];a.push(btn.textContent);b.dataset.built=JSON.stringify(a);btn.disabled=true;document.getElementById('line'+i).textContent=a.join(' ');updateProgress()}
+function resetBuilder(i){const b=document.getElementById('line'+i).closest('.builder');b.dataset.built='';b.querySelectorAll('.wordBtn').forEach(x=>x.disabled=false);document.getElementById('line'+i).textContent='';b.querySelector('.fb').textContent='';updateProgress()}
+function allGraded(){return [...document.querySelectorAll('.graded')]}
+function isAnswered(q){
+ if(q.dataset.kind==='mc')return q.dataset.chosen!==undefined;
+ if(q.dataset.kind==='builder')return q.dataset.built&&JSON.parse(q.dataset.built).length>0;
+ if(q.dataset.kind==='match')return q.dataset.chosen!==undefined;
+ if(q.dataset.kind==='sort')return !!q.dataset.selected;
+ return false
+}
+function updateProgress(){const qs=allGraded(),done=qs.filter(isAnswered).length;document.getElementById('progressBar').style.width=(qs.length?done/qs.length*100:0)+'%';document.getElementById('progressText').textContent=`${done} / ${qs.length} answered`}
+function calculateFinalResult(){
+ let correct=0,wrong=0,unanswered=0;
+ allGraded().forEach(q=>{
+  const fb=q.querySelector('.fb');if(fb)fb.textContent='';
+  if(q.dataset.kind==='mc'){
+   q.querySelectorAll('.opt').forEach(x=>x.classList.remove('correctAnswer','wrongAnswer'));
+   if(q.dataset.chosen===undefined){unanswered++;if(fb){fb.textContent='No answer yet.';fb.style.color='#667085'};return}
+   const chosen=+q.dataset.chosen,ans=+q.dataset.answer;
+   if(chosen===ans){correct++;q.querySelector(`[data-index="${chosen}"]`).classList.add('correctAnswer');if(fb){fb.textContent='✓ Correct';fb.style.color='#16803c'}}
+   else{wrong++;q.querySelector(`[data-index="${chosen}"]`).classList.add('wrongAnswer');q.querySelector(`[data-index="${ans}"]`).classList.add('correctAnswer');if(fb){fb.textContent='Correct answer is shown in green.';fb.style.color='#b42318'}}
+  }else if(q.dataset.kind==='builder'){
+   const a=q.dataset.built?JSON.parse(q.dataset.built).join(' '):'';if(!a){unanswered++;if(fb){fb.textContent='No answer yet.';fb.style.color='#667085'};return}
+   const ok=norm(a)===norm(q.dataset.answer);if(ok){correct++;if(fb){fb.textContent='✓ Correct';fb.style.color='#16803c'}}else{wrong++;if(fb){fb.textContent='Model: '+q.dataset.answer;fb.style.color='#b42318'}}
+  }else if(q.dataset.kind==='match'){
+   if(q.dataset.chosen===undefined){unanswered++;return}const ok=q.dataset.chosen===q.dataset.answer;if(ok)correct++;else wrong++;
+  }else if(q.dataset.kind==='sort'){
+   q.classList.remove('sortGood','sortBad');if(!q.dataset.selected){unanswered++;return}const ok=q.dataset.selected===q.dataset.answer;q.classList.add(ok?'sortGood':'sortBad');if(ok)correct++;else wrong++;
+  }
+ });
+ const total=correct+wrong+unanswered,pct=Math.round(correct/Math.max(1,total)*100),label=pct>=90?'Excellent! 🌟':pct>=75?'Great job! 👏':pct>=60?'Good progress 👍':'Keep practicing 💪';
+ window.lastHomeworkResult={correct,wrong,unanswered,total,pct,label};const r=document.getElementById('finalResult');r.classList.add('show');r.innerHTML=`<h3>${label}</h3><p><b>${correct}</b> correct · <b>${wrong}</b> wrong · <b>${unanswered}</b> unanswered · <b>${pct}%</b></p>`;updateProgress();return window.lastHomeworkResult
+}
+function prepareInputs(){document.querySelectorAll('input').forEach(i=>i.setAttribute('value',i.value))}
+async function buildPdfBlob(){
+ if(!window.lastHomeworkResult)calculateFinalResult();if(!window.html2canvas||!window.jspdf)throw new Error('PDF tools are still loading. Please try again in a few seconds.');
+ prepareInputs();const hide=[...document.querySelectorAll('.actions')];hide.forEach(x=>x.style.visibility='hidden');const sx=window.scrollX,sy=window.scrollY;window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+ try{const root=document.documentElement,b=document.body,fw=Math.max(b.scrollWidth,b.offsetWidth,root.clientWidth,root.scrollWidth,root.offsetWidth),fh=Math.max(b.scrollHeight,b.offsetHeight,root.clientHeight,root.scrollHeight,root.offsetHeight);
+ const canvas=await html2canvas(b,{scale:1.16,useCORS:true,backgroundColor:'#f7f8fc',scrollX:0,scrollY:0,width:fw,height:fh,windowWidth:fw,windowHeight:fh,logging:false});
+ const {jsPDF}=window.jspdf,pdf=new jsPDF('p','mm','a4'),mw=198,mh=285,margin=6,ratio=canvas.width/mw,slice=Math.floor(mh*ratio);let y=0,p=0;
+ while(y<canvas.height){const hh=Math.min(slice,canvas.height-y),c=document.createElement('canvas');c.width=canvas.width;c.height=hh;c.getContext('2d').drawImage(canvas,0,y,canvas.width,hh,0,0,canvas.width,hh);if(p++)pdf.addPage();pdf.addImage(c.toDataURL('image/jpeg',.86),'JPEG',margin,margin,mw,hh/ratio,undefined,'FAST');y+=hh}return pdf.output('blob')}
+ finally{hide.forEach(x=>x.style.visibility='');window.scrollTo(sx,sy)}
+}
+async function downloadHomeworkResults(){const btn=document.getElementById('downloadBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Creating PDF...';try{const blob=await buildPdfBlob(),n=(document.getElementById('studentName').value||'Student').trim().replace(/[^a-z0-9_-]+/gi,'_'),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=n+'_'+PDF_FILENAME;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}catch(e){alert(e.message||'Could not create PDF.')}finally{btn.disabled=false;btn.textContent=old}}
+function nonce(){if(window.crypto&&crypto.getRandomValues){const a=new Uint32Array(4);crypto.getRandomValues(a);return [...a].map(x=>x.toString(16)).join('')}return String(Date.now())+Math.random()}
+async function sendResults(){
+ const name=document.getElementById('studentName').value.trim(),status=document.getElementById('sendStatus');
+ if(name.length<2||name.length>60){alert('Please enter the student name.');document.getElementById('studentName').focus();return}
+ if(document.getElementById('websiteField').value)return;if(Date.now()-OPENED_AT<15000){alert('Please spend a little more time on the homework before sending it.');return}
+ if(submitInFlight)return;if(!window.lastHomeworkResult)calculateFinalResult();const key='sent:'+HOMEWORK_ID+':'+name.toLowerCase(),prev=+localStorage.getItem(key)||0;if(prev&&Date.now()-prev<86400000&&!confirm('Results for this homework were already sent in the last 24 hours. Send again?'))return;
+ submitInFlight=true;const btn=document.getElementById('sendBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing PDF...';status.textContent='Creating your completed homework PDF...';
+ try{const blob=await buildPdfBlob();if(blob.size>18*1024*1024)throw new Error('The PDF is too large to send. Use Backup: download PDF instead.');
+ const base64=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result).split(',')[1]);r.onerror=reject;r.readAsDataURL(blob)}),result=window.lastHomeworkResult,form=document.getElementById('sendForm');form.action=ENDPOINT;
+ const payload={key:SEND_KEY,homeworkId:HOMEWORK_ID,lessonTitle:LESSON_TITLE,studentName:name,score:`${result.correct}/${result.total}`,percentage:String(result.pct),result:result.label,wrong:String(result.wrong),unanswered:String(result.unanswered),submittedAt:String(Date.now()),nonce:nonce(),website:'',pdfBase64:base64,pdfFilename:(name.replace(/[^a-z0-9_-]+/gi,'_')+'_'+PDF_FILENAME)};
+ form.innerHTML='';Object.entries(payload).forEach(([k,v])=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;form.appendChild(i)});status.textContent='Sending results to teacher...';
+ let confirmed=false;const listener=e=>{if(e.data&&e.data.homeworkId===HOMEWORK_ID){confirmed=true;window.removeEventListener('message',listener);status.textContent=e.data.ok?'✓ Results sent to teacher!':'Could not send: '+(e.data.error||'unknown error')}};window.addEventListener('message',listener);form.submit();localStorage.setItem(key,String(Date.now()));setTimeout(()=>{if(!confirmed)status.textContent='✓ Submission sent. If you do not see confirmation, use the backup PDF button.'},6000)}
+ catch(e){status.textContent='Could not send automatically: '+e.message}
+ finally{setTimeout(()=>{submitInFlight=false;btn.disabled=false;btn.textContent=old},1500)}
+}
+function updateWritingCount(){const el=document.getElementById('writingBox'),wc=document.getElementById('wordCount');if(!el||!wc)return;const n=(el.innerText.trim().match(/\S+/g)||[]).length;wc.textContent=n+' words'}
+
+
+const c1Match=[["alibi", "an explanation of where someone was when an event happened"], ["motive", "a reason someone may have for doing something"], ["evidence", "facts or objects that can support a conclusion"], ["contradiction", "two details that cannot both be true"], ["misleading", "likely to make someone form the wrong conclusion"], ["plausible", "reasonable and believable"], ["tamper with", "secretly interfere with or alter something"], ["unaccounted for", "not explained during a period of time"]];
+const c1VocabMC=[["The suspect’s story is possible, consistent, and supported by the timeline. It sounds ___.", ["misleading", "plausible", "unaccounted for"], 1], ["Someone changed the security-camera file after the police arrived. The file may have been ___.", ["tampered with", "motivated", "alibied"], 0], ["There is a 45-minute gap in the witness’s movements. That time is ___.", ["plausible", "unaccounted for", "misleading"], 1], ["Two statements about the same event cannot both be true. This is a ___.", ["contradiction", "motive", "clue"], 0], ["The broken cup looks important, but it may actually distract investigators. It could be ___.", ["plausible", "misleading", "unaccounted for"], 1], ["Financial pressure could provide a strong ___ for stealing the necklace.", ["alibi", "motive", "contradiction"], 1]];
+const c1Present=[["The detective ___ the guests for the last twenty minutes.", ["questions", "has been questioning", "is questioned"], 1], ["The host ___ that the necklace belongs to her family.", ["is knowing", "knows", "has been knowing"], 1], ["The police ___ already ___ the security footage.", ["have / checked", "are / checking yesterday", "did / checked"], 0], ["One witness ___ her story several times this evening.", ["changes usually", "has changed", "was changing last year"], 1], ["The investigators ___ whether the message is genuine right now.", ["are checking", "check every week", "have checked yesterday"], 0], ["The guests ___ about the disappearance since dinner ended.", ["have been arguing", "argue yesterday", "are argued"], 0]];
+const c1PastSort=[["The host opened the safe at 9:05.", "simple"], ["The guests were eating when the lights went out.", "continuous"], ["Someone had removed the necklace before the safe was opened.", "perfect"], ["The detective found a torn envelope.", "simple"], ["The friend was speaking on the phone at 8:50.", "continuous"], ["The guest had already checked her bag before people started shouting.", "perfect"], ["The police arrived at 9:20.", "simple"], ["Rain was falling outside during the search.", "continuous"], ["Someone had deleted one message before the phone was examined.", "perfect"]];
+const c1Passive=[["Choose the best report: Someone moved the necklace before dinner.", ["The necklace was moved before dinner.", "The necklace moved before dinner.", "The necklace has moving before dinner."], 0], ["Choose the best report: Police have checked the security footage.", ["The security footage has checked.", "The security footage has been checked.", "The security footage was checking."], 1], ["Choose the best report: Someone was watching the hallway.", ["The hallway was watched right now.", "The hallway was being watched.", "The hallway had watch."], 1], ["Choose the best report: Someone had deleted the message before 9.", ["The message had been deleted before 9.", "The message was been deleted before 9.", "The message had deleted before 9."], 0], ["Which sentence focuses naturally on the evidence?", ["Investigators found the glove in the garden.", "The glove was found in the garden.", "The glove finding was garden."], 1], ["Which is correct?", ["The suspect is being questioned now.", "The suspect is been questioned now.", "The suspect being questioned now."], 0]];
+const c1Articles=[["The detective found ___ torn envelope near the stairs.", ["a", "the", "—"], 0], ["___ envelope contained a handwritten note.", ["A", "The", "—"], 1], ["She works as ___ investigator for a private agency.", ["a", "an", "the"], 1], ["___ evidence recovered from the safe changed the case.", ["A", "The", "An"], 1], ["___ jewellery is often easy to hide and resell.", ["A", "The", "—"], 2], ["They questioned ___ friend who had arrived late.", ["a", "the", "—"], 0]];
+const c1Listening=[["What does Ashlie's first reaction to the tea show about her approach to the mystery?", ["She refuses to make any guesses", "She forms a theory quickly from limited evidence", "She already knows the murderer"], 1], ["Why does the gun make Stephen question Ashlie’s first theory?", ["It proves the tea was harmless", "It belongs to Stephen", "It introduces evidence that does not fit her original explanation"], 2], ["What does the footprint mainly contribute to the investigation?", ["A possible physical link to someone's movement", "Evidence that nobody entered the room", "Proof that the murder happened outside"], 0], ["What can we infer from Ashlie touching the man later?", ["She is trying to wake him for dinner", "She is searching his pockets", "She is testing whether he is actually dead or unconscious"], 2], ["Which description best fits Ashlie and Stephen’s investigation style?", ["They rely only on witness statements", "They collect clues but sometimes interpret them too quickly", "They ignore physical evidence completely"], 1], ["Which clue seems the most misleading at first glance?", ["The tea", "The gun", "The footprint"], 0]];
+const c1Builders=[{"label": "Present Perfect Passive", "words": ["The", "security", "footage", "has", "already", "been", "checked."], "answer": "The security footage has already been checked."}, {"label": "Past Perfect + Past Simple", "words": ["Someone", "had", "moved", "the", "necklace", "before", "the", "detective", "arrived."], "answer": "Someone had moved the necklace before the detective arrived."}, {"label": "Vocabulary + Passive", "words": ["The", "evidence", "may", "have", "been", "tampered", "with."], "answer": "The evidence may have been tampered with."}, {"label": "Article chain", "words": ["A", "witness", "gave", "an", "alibi,", "but", "the", "alibi", "contained", "a", "contradiction."], "answer": "A witness gave an alibi, but the alibi contained a contradiction."}];
+
+
+renderMatch('c1Match',c1Match);
+renderMC('c1VocabMC',c1VocabMC);
+renderMC('c1Present',c1Present);
+renderGenericSort('c1PastSort',c1PastSort,[['simple','📸 PAST SIMPLE'],['continuous','🎥 PAST CONTINUOUS'],['perfect','⏪ PAST PERFECT']]);
+renderMC('c1Passive',c1Passive);
+renderMC('c1Articles',c1Articles);
+renderMC('c1Listening',c1Listening);
+renderBuilders('c1Builders',c1Builders);
+updateWritingCount();
+
+updateProgress();
+</script></body></html>
