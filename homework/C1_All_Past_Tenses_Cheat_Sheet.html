@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C1 All Past Tenses — Cheat Sheet</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--ink:#172033;--muted:#667085;--navy:#172554;--purple:#6d28d9;--pink:#db2777;--blue:#2563eb;--orange:#ea580c;--green:#15803d;--gold:#ca8a04;--paper:#fff}
+*{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:Arial,sans-serif;background:#e9eefc;color:var(--ink)}
+.tools{position:sticky;top:0;z-index:20;display:flex;justify-content:center;gap:10px;padding:11px;background:#172554}.tools button{border:0;border-radius:12px;padding:11px 16px;font-weight:900;cursor:pointer}.pdf{background:#f59e0b;color:#342300}.print{background:#fff;color:#172554}
+.sheetPage{width:210mm;height:297mm;margin:12px auto;background:var(--paper);padding:10mm;box-shadow:0 16px 40px #17255428;overflow:hidden;display:flex;flex-direction:column;gap:5mm}
+.top{border-radius:7mm;padding:8mm;background:linear-gradient(135deg,#172554,#5b21b6,#db2777);color:#fff}.top .kicker{font-size:11px;font-weight:900;letter-spacing:1.2px;opacity:.86}.top h1{margin:2mm 0 1mm;font-size:30px;line-height:1}.top p{margin:0;max-width:165mm;font-size:13px;line-height:1.4}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:5mm;min-height:0}.tense{border:1.5px solid #e5e7eb;border-radius:6mm;padding:5mm;display:flex;flex-direction:column;gap:2.5mm;min-height:0}.tense.simple{background:linear-gradient(135deg,#fff7ed,#fff);border-color:#fed7aa}.tense.cont{background:linear-gradient(135deg,#eff6ff,#fff);border-color:#bfdbfe}.tense.perfect{background:linear-gradient(135deg,#f5f3ff,#fff);border-color:#ddd6fe}.tense.ppc{background:linear-gradient(135deg,#ecfdf5,#fff);border-color:#bbf7d0}
+.tense h2{font-size:22px;margin:0}.simple h2{color:#c2410c}.cont h2{color:#1d4ed8}.perfect h2{color:#6d28d9}.ppc h2{color:#047857}.formula{border-radius:4mm;padding:3.5mm;color:#fff;font-weight:900;font-size:17px}.simple .formula{background:linear-gradient(135deg,#ea580c,#f59e0b)}.cont .formula{background:linear-gradient(135deg,#2563eb,#06b6d4)}.perfect .formula{background:linear-gradient(135deg,#6d28d9,#a855f7)}.ppc .formula{background:linear-gradient(135deg,#15803d,#14b8a6)}
+.label{font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;font-weight:900;color:#64748b;margin-bottom:1mm}.uses{display:grid;gap:1.6mm}.use{background:#ffffffc9;border-radius:3.5mm;padding:2.5mm 3mm;font-size:12.2px;line-height:1.35}.use b{color:#0f172a}.signals{display:flex;gap:1.4mm;flex-wrap:wrap}.signal{border-radius:99px;padding:1.4mm 2.2mm;background:#fff;border:1px solid #dbe2ea;font-weight:800;font-size:10.5px}.example{background:#172554;color:#fff;border-radius:3.5mm;padding:3mm;font-size:12px;line-height:1.4}.forms{font-size:11.5px;line-height:1.45;background:#fff;border-radius:3.5mm;padding:2.7mm 3mm;border:1px solid #e5e7eb}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}.step{border-radius:4mm;padding:3mm;min-height:30mm;border:1px solid #e5e7eb;font-size:11px;line-height:1.35}.step:nth-child(1){background:#fff7ed}.step:nth-child(2){background:#eff6ff}.step:nth-child(3){background:#f5f3ff}.step:nth-child(4){background:#ecfdf5}.step b{display:block;font-size:13px;margin-bottom:1mm}.arrow{font-weight:1000;color:#7c3aed}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:4mm}.compareBox{border-radius:5mm;padding:4mm;border:1.5px solid #e5e7eb}.compareBox.a{background:linear-gradient(135deg,#f5f3ff,#fff);border-color:#ddd6fe}.compareBox.b{background:linear-gradient(135deg,#ecfdf5,#fff);border-color:#bbf7d0}.compareBox h3{margin:0 0 2mm;font-size:18px}.vs{font-size:12.2px;line-height:1.45}.trap{border:1.5px solid #fecaca;background:linear-gradient(135deg,#fef2f2,#fff);border-radius:5mm;padding:4mm}.trap h3{margin:0 0 2mm;color:#b91c1c}.trapgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:2mm;font-size:11.5px}.good{color:#166534;font-weight:800}.bad{color:#991b1b;font-weight:800}.timeline{border-radius:5mm;padding:4mm;background:linear-gradient(135deg,#172554,#312e81);color:#fff}.line{height:5px;background:#c4b5fd;border-radius:99px;margin:12mm 5mm 5mm;position:relative}.dot{position:absolute;width:14px;height:14px;border-radius:50%;top:-5px;background:#f59e0b}.dot.one{left:20%}.dot.two{left:70%}.lab{position:absolute;top:-10mm;font-size:10px;font-weight:900}.lab.one{left:5%}.lab.two{left:58%}.note{font-size:11.5px;line-height:1.4}.footer{margin-top:auto;text-align:center;font-size:10px;color:#64748b;font-weight:800}
+@page{size:A4;margin:0}
+@media print{body{background:#fff}.tools{display:none!important}.sheetPage{margin:0;box-shadow:none;page-break-after:always}}
+@media(max-width:900px){.tools{position:relative}.sheetPage{transform-origin:top left;margin:8px auto;max-width:100%;height:auto;min-height:297mm}.two,.compare{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="tools"><button class="pdf" id="pdfBtn" onclick="downloadPDF()">⬇ DOWNLOAD PDF</button><button class="print" onclick="window.print()">🖨 PRINT</button></div>
+<section class="sheetPage">
+  <div class="top"><div class="kicker">C1 GRAMMAR MAP · PAGE 1</div><h1>All Past Tenses — Complete Guide ⏳</h1><p>Choose the tense by asking one question: <b>What is the speaker focusing on — finished event, background action, earlier result, or earlier process/duration?</b></p></div>
+  <div class="two">
+    <div class="tense simple">
+      <h2>📸 Past Simple</h2><div class="formula">V2 / verb + -ed</div>
+      <div><div class="label">Use it for</div><div class="uses"><div class="use"><b>Finished action:</b> It happened and ended in the past.</div><div class="use"><b>Story sequence:</b> one event after another.</div><div class="use"><b>Past states/facts:</b> something true then.</div></div></div>
+      <div><div class="label">Helpful words</div><div class="signals"><span class="signal">yesterday</span><span class="signal">last week</span><span class="signal">ago</span><span class="signal">in 2024</span><span class="signal">then</span><span class="signal">suddenly</span><span class="signal">when</span></div></div>
+      <div class="example"><b>Example:</b> The lights went out, the guests screamed, and the detective entered the room.</div>
+      <div class="forms"><b>Negative:</b> did not + base verb → <i>didn't leave</i><br><b>Question:</b> Did + subject + base verb? → <i>Did she leave?</i></div>
+    </div>
+    <div class="tense cont">
+      <h2>🎥 Past Continuous</h2><div class="formula">was / were + verb-ing</div>
+      <div><div class="label">Use it for</div><div class="uses"><div class="use"><b>Action in progress:</b> already happening at a past moment.</div><div class="use"><b>Background:</b> what was happening around the main event.</div><div class="use"><b>Interrupted action:</b> longer action + shorter Past Simple event.</div></div></div>
+      <div><div class="label">Helpful words</div><div class="signals"><span class="signal">while</span><span class="signal">as</span><span class="signal">at 8 p.m.</span><span class="signal">this time yesterday</span><span class="signal">when + event</span></div></div>
+      <div class="example"><b>Example:</b> The guests <b>were talking</b> when the lights <b>went</b> out.</div>
+      <div class="forms"><b>Negative:</b> was/were not + -ing<br><b>Question:</b> Was/Were + subject + -ing?</div>
+    </div>
+  </div>
+  <div class="timeline"><div class="line"><span class="lab one">background action in progress</span><span class="lab two">main event</span><span class="dot one"></span><span class="dot two"></span></div><div class="note"><b>Classic pair:</b> Past Continuous paints the scene; Past Simple interrupts it or moves the story forward.</div></div>
+  <div>
+    <div class="label">Quick decision — page 1</div>
+    <div class="flow"><div class="step"><b>Finished event?</b>One completed action / fact / story step → <span class="arrow">Past Simple</span></div><div class="step"><b>Already happening?</b>Background or action in progress → <span class="arrow">Past Continuous</span></div><div class="step"><b>Interrupted?</b>Long action = Continuous; short interrupting event = Simple.</div><div class="step"><b>Stative verb?</b><i>know, believe, want, own</i> usually stay non-continuous.</div></div>
+  </div>
+  <div class="footer">The Fluency Club · Past Tenses · Page 1/2</div>
+</section>
+
+<section class="sheetPage">
+  <div class="top"><div class="kicker">C1 GRAMMAR MAP · PAGE 2</div><h1>Earlier Past: Perfect vs Perfect Continuous ⏪</h1><p>Both look backward from a past point. The difference is the <b>focus</b>: completed result vs process/duration.</p></div>
+  <div class="two">
+    <div class="tense perfect">
+      <h2>✅ Past Perfect</h2><div class="formula">had + V3</div>
+      <div><div class="label">Use it for</div><div class="uses"><div class="use"><b>Earlier completed event:</b> finished before another past action/time.</div><div class="use"><b>Result before a past point:</b> quantity or completed outcome matters.</div><div class="use"><b>Past experience before then:</b> what had / had not happened before.</div></div></div>
+      <div><div class="label">Helpful words</div><div class="signals"><span class="signal">before</span><span class="signal">after</span><span class="signal">by the time</span><span class="signal">already</span><span class="signal">just</span><span class="signal">never</span><span class="signal">until then</span></div></div>
+      <div class="example"><b>Example:</b> By the time the police arrived, the suspect <b>had left</b>.</div>
+      <div class="forms"><b>Negative:</b> had not + V3<br><b>Question:</b> Had + subject + V3?</div>
+    </div>
+    <div class="tense ppc">
+      <h2>⏳ Past Perfect Continuous</h2><div class="formula">had been + verb-ing</div>
+      <div><div class="label">Use it for</div><div class="uses"><div class="use"><b>Duration before a past point:</b> how long an activity had continued.</div><div class="use"><b>Cause of a past result:</b> earlier activity explains evidence you saw then.</div><div class="use"><b>Repeated activity:</b> something had been happening again and again.</div></div></div>
+      <div><div class="label">Helpful words</div><div class="signals"><span class="signal">for</span><span class="signal">since</span><span class="signal">all morning</span><span class="signal">for hours</span><span class="signal">how long</span><span class="signal">before</span><span class="signal">by the time</span></div></div>
+      <div class="example"><b>Example:</b> His shoes were wet because he <b>had been walking</b> in the rain.</div>
+      <div class="forms"><b>Negative:</b> had not been + -ing<br><b>Question:</b> Had + subject + been + -ing?</div>
+    </div>
+  </div>
+  <div class="compare">
+    <div class="compareBox a"><h3>Result / quantity → Past Perfect</h3><div class="vs"><b>She had written three reports by 9.</b><br>Focus = three completed reports.</div></div>
+    <div class="compareBox b"><h3>Process / duration → PPC</h3><div class="vs"><b>She had been writing for three hours by 9.</b><br>Focus = activity + duration.</div></div>
+  </div>
+  <div class="flow">
+    <div class="step"><b>1 · Main finished event?</b>Past Simple.</div><div class="step"><b>2 · Background/in progress?</b>Past Continuous.</div><div class="step"><b>3 · Earlier + completed/result?</b>Past Perfect.</div><div class="step"><b>4 · Earlier + duration/process?</b>Past Perfect Continuous.</div>
+  </div>
+  <div class="trap">
+    <h3>Common traps 🚨</h3>
+    <div class="trapgrid">
+      <div><span class="bad">✗ She didn't went.</span><br><span class="good">✓ She didn't go.</span></div>
+      <div><span class="bad">✗ He was work.</span><br><span class="good">✓ He was working.</span></div>
+      <div><span class="bad">✗ They had been finished it.</span><br><span class="good">✓ They had finished it.</span></div>
+      <div><span class="bad">✗ She had been knowing him.</span><br><span class="good">✓ She had known him.</span></div>
+      <div><span class="bad">✗ I had ate.</span><br><span class="good">✓ I had eaten.</span></div>
+      <div><span class="bad">✗ They had been wait.</span><br><span class="good">✓ They had been waiting.</span></div>
+    </div>
+  </div>
+  <div class="rule"><b>Golden rule:</b> Do not use Past Perfect in every sentence. Use it when you need to make the earlier past clear. Once the timeline is clear, English often returns to Past Simple.</div>
+  <div class="footer">The Fluency Club · Past Tenses · Page 2/2</div>
+</section>
+<script>
+async function downloadPDF(){
+ const btn=document.getElementById('pdfBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Creating PDF...';
+ try{if(!window.html2canvas||!window.jspdf)throw new Error('PDF tools are still loading.');const pages=[...document.querySelectorAll('.sheetPage')];const {jsPDF}=window.jspdf;const pdf=new jsPDF('p','mm','a4');for(let i=0;i<pages.length;i++){if(i)pdf.addPage();const c=await html2canvas(pages[i],{scale:1.5,useCORS:true,backgroundColor:'#ffffff',logging:false});pdf.addImage(c.toDataURL('image/jpeg',.92),'JPEG',0,0,210,297,undefined,'FAST')}pdf.save('C1_All_Past_Tenses_Cheat_Sheet.pdf')}
+ catch(e){alert(e.message||'Could not create PDF.')}finally{btn.disabled=false;btn.textContent=old}
+}
+</script>
+</body></html>
