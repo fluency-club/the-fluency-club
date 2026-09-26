@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>B1-B2 Questions + Past Tenses Homework</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--ink:#20253a;--muted:#667085;--purple:#5b21b6;--violet:#7c3aed;--pink:#db2777;--blue:#2563eb;--green:#15803d;--red:#dc2626;--orange:#ea580c;--bg:#f7f7fc}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(135deg,#eef2ff,#fdf4ff 48%,#fff7ed);color:var(--ink)}
+.wrap{max-width:1020px;margin:auto;padding:22px}.hero,.section{background:#fff;border:1px solid #e7e8ef;border-radius:26px;box-shadow:0 16px 40px #312e8112;padding:24px;margin-bottom:18px}.hero{background:linear-gradient(135deg,#172554,#5b21b6 52%,#be185d);color:#fff;overflow:hidden;position:relative}.hero:after{content:"?";position:absolute;right:22px;top:-40px;font-size:180px;font-weight:1000;color:#ffffff12}.hero>*{position:relative;z-index:2}.tag{display:inline-block;border-radius:999px;padding:7px 11px;background:#ffffff1d;border:1px solid #ffffff38;font-size:12px;font-weight:900}.hero h1{font-size:44px;line-height:1.02;margin:11px 0}.hero p{font-size:17px;line-height:1.55;max-width:760px;color:#f4f3ff}.progressWrap{position:sticky;top:8px;z-index:30;background:#ffffffee;backdrop-filter:blur(10px);border:1px solid #e5e7eb;border-radius:16px;padding:9px 12px;margin-bottom:14px;box-shadow:0 8px 24px #17255410}.progress{height:9px;border-radius:999px;background:#ede9fe;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#2563eb,#7c3aed,#ec4899);transition:.2s}.small{font-size:12px;color:#667085;margin-top:5px}.section h2{font-size:28px;color:#4c1d95;margin:0 0 7px}.sub{color:#667085;line-height:1.5;margin:0 0 14px}.recapGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.recap{border-radius:18px;padding:14px;border:1px solid #ddd6fe;background:#faf5ff;line-height:1.45}.recap:nth-child(2){background:#eff6ff;border-color:#bfdbfe}.recap:nth-child(3){background:#ecfdf5;border-color:#bbf7d0}.recap b{display:block;color:#4c1d95;font-size:18px;margin-bottom:5px}.cheatBox{margin-top:13px;border:2px dashed #c4b5fd;border-radius:18px;padding:14px;background:#faf5ff;display:flex;align-items:center;justify-content:space-between;gap:12px}.btn{border:0;border-radius:13px;padding:11px 15px;font-weight:900;cursor:pointer;background:#5b21b6;color:#fff}.btn:hover{filter:brightness(1.03)}.btn.green{background:#15803d}.btn.pink{background:#db2777}.btn.alt{background:#475467}.btn.light{background:#ede9fe;color:#5b21b6;text-decoration:none;display:inline-block}.q{border:1px solid #e5e7eb;border-radius:18px;padding:14px;margin:10px 0;background:#fff}.q>strong{display:block;font-size:16px;line-height:1.45;margin-bottom:9px}.options{display:grid;grid-template-columns:1fr 1fr;gap:8px}.opt{border:2px solid #e5e7eb;border-radius:13px;padding:10px 11px;background:#fff;text-align:left;cursor:pointer;color:#273044;font-size:14px}.opt:hover{border-color:#c4b5fd;background:#faf5ff}.opt.selected{border-color:#7c3aed;background:#f3e8ff}.opt.correct{border-color:#16a34a!important;background:#ecfdf5!important;color:#166534}.opt.wrong{border-color:#ef4444!important;background:#fef2f2!important;color:#991b1b}.q.unanswered{border-color:#e5e7eb;background:#fff}.feedback{font-size:12px;font-weight:800;min-height:18px;margin-top:7px}.translationGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.writeBox{width:100%;min-height:86px;border:2px solid #d8dbe7;border-radius:14px;padding:12px;font:15px/1.5 Inter,Arial,sans-serif;resize:vertical;color:#20253a;background:#fff}.writeBox:focus{outline:none;border-color:#8b5cf6;box-shadow:0 0 0 3px #ede9fe}.miniPrompt{border-radius:17px;padding:13px 14px;background:#f8fafc;border:1px solid #e2e8f0;margin:10px 0}.nameRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.nameRow input{flex:1;min-width:220px;border:2px solid #d8dbe7;border-radius:12px;padding:11px 12px;font-size:15px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.result{display:none;border-radius:20px;padding:18px;background:linear-gradient(135deg,#ecfdf5,#f5f3ff);margin-top:14px}.result.show{display:block}.scoreBig{font-size:42px;font-weight:1000;color:#4c1d95}.breakdown{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:10px}.stat{border-radius:13px;background:#fff;border:1px solid #e5e7eb;padding:9px;text-align:center}.stat b{display:block;color:#4c1d95;font-size:17px}.note{border-left:5px solid #7c3aed;padding:10px 12px;background:#faf5ff;border-radius:0 14px 14px 0;line-height:1.45}.pill{display:inline-block;border-radius:999px;padding:5px 8px;background:#ede9fe;color:#5b21b6;font-size:11px;font-weight:900;margin:2px}
+@media(max-width:760px){.recapGrid,.options,.translationGrid,.breakdown{grid-template-columns:1fr}.wrap{padding:12px}.hero h1{font-size:34px}.cheatBox{align-items:flex-start;flex-direction:column}}
+@page{size:A4;margin:8mm}@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.actions,.progressWrap{display:none!important}.hero,.section{box-shadow:none;break-inside:avoid}.q{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap" id="homeworkRoot">
+  <div class="progressWrap"><div class="progress"><div id="bar"></div></div><div class="small" id="prog">0 / 30 graded answers completed</div></div>
+
+  <header class="hero">
+    <span class="tag">B1-B2 HOMEWORK · 20-25 MIN</span>
+    <h1>Question Lab + Past Tenses 🎤⏳</h1>
+    <p>Review how to answer different question types naturally, practise Past Simple / Past Continuous / Past Perfect, and finish with travel-style translation and two short personal answers.</p>
+  </header>
+
+  <section class="section">
+    <h2>Quick recap ✨</h2>
+    <div class="recapGrid">
+      <div class="recap"><b>Questions</b>YES/NO -> short answer + detail.<br>WH- -> answer the exact information word.<br>WHO/WHAT subject -> <i>Who booked...?</i></div>
+      <div class="recap"><b>Natural answers</b>Direct answer -> useful detail -> optional reason/example. Avoid one-word answers when you can.</div>
+      <div class="recap"><b>Past tenses</b>Past Simple = finished event.<br>Past Continuous = background/in progress.<br>Past Perfect = earlier past.</div>
+    </div>
+    <div class="cheatBox"><div><b>📘 Keep the question cheat sheet nearby.</b><div class="small">You can download it and use it for revision after the homework.</div></div><a class="btn light" href="B1_B2_Questions_Answers_Cheat_Sheet.pdf" download>⬇ Download cheat sheet</a></div>
+  </section>
+
+  <section class="section"><h2>1. Question Decoder 🔎</h2><p class="sub">What kind of information should the answer give?</p><div id="typeQs"></div></section>
+  <section class="section"><h2>2. Choose the Natural Answer 💬</h2><p class="sub">Pick the answer that sounds complete and natural.</p><div id="answerQs"></div></section>
+  <section class="section"><h2>3. Build the Question 🧩</h2><p class="sub">Choose the correct question form. Watch auxiliary verbs and subject questions.</p><div id="formQs"></div></section>
+  <section class="section"><h2>4. Past Tense Check ⏳</h2><p class="sub">Choose the tense that matches the meaning, not just the signal word.</p><div id="pastQs"></div></section>
+  <section class="section"><h2>5. Russian -> English 🌍</h2><p class="sub">Choose the most natural translation. These recycle the vocabulary and structures from the lesson.</p><div id="translationQs"></div></section>
+
+  <section class="section">
+    <h2>6. Short Answer Practice ✍️</h2>
+    <p class="sub">Keep it short - 2-3 sentences each. These are not automatically graded.</p>
+    <div class="miniPrompt"><b>1.</b> Would you rather stay in a city-center hotel or somewhere off the beaten track? Why?</div>
+    <textarea class="writeBox" id="writing1" placeholder="Write 2-3 sentences..."></textarea>
+    <div class="miniPrompt"><b>2.</b> Think of a real travel problem. What happened? What were you doing when it started? If possible, add what had happened before.</div>
+    <textarea class="writeBox" id="writing2" placeholder="Write 2-3 sentences..."></textarea>
+  </section>
+
+  <section class="section">
+    <h2>Finish & Send ✅</h2>
+    <div class="nameRow"><b>Student name:</b><input id="studentName" placeholder="Type your name"></div>
+    <input id="website" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
+    <div id="result" class="result"></div>
+    <div class="actions"><button class="btn green" onclick="grade()">✓ CHECK RESULTS</button><button class="btn pink" id="sendBtn" onclick="sendResults()">📨 SEND RESULTS TO TEACHER</button><button class="btn alt" id="downloadBtn" onclick="downloadPDF()">⬇ Backup PDF</button></div>
+    <div id="sendStatus" class="small" style="margin-top:10px"></div>
+  </section>
+</div>
+<iframe name="sendFrame" id="sendFrame" style="display:none"></iframe><form id="sendForm" method="POST" target="sendFrame" style="display:none"></form>
+<script>
+const ENDPOINT='https://script.google.com/macros/s/AKfycbyzfvP4ZuWA4A0lF2naJYi_Hs9XnC_EnVZS3BxOL50Rldgk5xBop1Z2rh1i_bAADUXH/exec';
+const KEY='l0Wgf2BejUSFsst5cNGfFvn689YJ-Au9';
+const HOMEWORK_ID='b1-b2-question-types-past-tenses-v1';
+const LESSON='B1-B2 Question Types + Past Tenses Homework';
+const OPENED=Date.now(); let submitInFlight=false;
+
+const sections={
+ type:[
+  ['How often do you travel abroad?',['A place','A frequency','A person','A reason'],1],
+  ['Who booked the hotel?',['A person / subject','A duration','Yes or no','A price'],0],
+  ['Did you ask for a refund?',['A distance','Yes/no + detail','A person','A place'],1],
+  ['Why had you changed hotels?',['A reason','A number','A time','A person'],0],
+  ['Would you rather cruise or fly?',['A choice + reason','A frequency','A duration','A place'],0],
+  ['Could you tell me where the information desk is?',['A person','A place','A price','A frequency'],1]
+ ],
+ answer:[
+  ['Do you travel often?',['Yes.','Yes, I do. I usually travel two or three times a year.','I travel because.','Twice kilometer.'],1],
+  ['Where did you stay?',['Yes, we did.','For five days.','We stayed near the old town.','My husband did.'],2],
+  ['Who booked the hotel?',['My husband did.','At 9 p.m.','Because it was cheaper.','Yes, he booked.'],0],
+  ['How long were you waiting?',['At the airport.','For about an hour.','Twice a year.','Because the flight was late.'],1],
+  ['Would you rather cruise or fly?',["I'd rather fly because it's faster.",'For five days.','Yes, I do.','At the airport.'],0],
+  ['Could you tell me why the flight was delayed?',['Could you tell me because...','It was delayed because of bad weather.','At Gate 12.','For two hours.'],1]
+ ],
+ form:[
+  ['You want to ask about the place someone stayed on their last trip.',['Where did you stay on your last trip?','Where you did stay on your last trip?','Where stayed you on your last trip?','Where do you stayed on your last trip?'],0],
+  ['You want to know the person who made the reservation.',['Who did book the hotel?','Who booked the hotel?','Who the hotel booked?','Who was book the hotel?'],1],
+  ['You want to ask about duration.',['How often were you waiting?','How long were you waiting?','How much time did you waiting?','When long were you waiting?'],1],
+  ['You want to ask about frequency.',['How often do you travel abroad?','How long do you travel abroad?','How many do you travel abroad?','How often you travel abroad?'],0],
+  ['You want to ask politely about the reason for a delay.',['Could you tell me why the flight was delayed?','Could you tell me why was the flight delayed?','Tell me why did the flight delay?','Could you tell why the flight did delayed?'],0],
+  ['You want to offer two choices.',['Would you rather rebook the flight or ask for a refund?','Would you rather to rebook or asking for a refund?','Do you rather rebook or refund?','Would rather you rebook or ask?'],0]
+ ],
+ past:[
+  ['While we ___ at baggage claim, the airline called us.',['waited','were waiting','had waited','have waited'],1],
+  ['By the time we reached the hotel, they ___ our reservation.',['lost','were losing','had lost','have lost'],2],
+  ['I ___ the server for the bill, and then we left.',['asked','was asking','had asked','have asked'],0],
+  ['When the storm started, we ___ back from a shore excursion.',['walked','were walking','had walked','have walked'],1],
+  ['By the time the ship left port, we ___ our luggage.',['unpacked','were unpacking','had unpacked','have unpacked'],2],
+  ['She ___ dinner when her friend called.',['had','was having','had had','has'],1],
+  ['We ___ the hotel online last week.',['booked','were booking','had booked','have booked'],0],
+  ['Before we arrived, the hotel ___ our room.',['upgraded','was upgrading','had upgraded','has upgraded'],2]
+ ],
+ trans:[
+  ['Когда мы приехали в отель, наш номер уже повысили до более высокой категории.',['When we arrived at the hotel, they had already upgraded our room.','When we were arriving at the hotel, they already upgrade our room.','When we arrived, they were already upgrade the room.','When we had arrived, they have upgraded our room.'],0],
+  ['Пока мы ждали у стойки информации, авиакомпания перебронировала нас на другой рейс.',['While we waited at the information desk, the airline had rebook us.','While we were waiting at the information desk, the airline rebooked us on another flight.','While we had waited, the airline was rebooking us yesterday.','While we are waiting, the airline rebooked us.'],1],
+  ['Мы оставили чаевые после того, как попросили счет.',['We left a tip after we had asked for the bill.','We were leaving a tip after asking the bill.','We had left a tip before we ask the bill.','We left a tip after we have asked the bill.'],0],
+  ['Как долго вы ждали? - Около часа.',['How often did you wait? - At one hour.','How long were you waiting? - For about an hour.','How far were you waiting? - One hour ago.','When were you waiting? - For one hour.'],1]
+ ]
+};
+const labels={type:'Question type',answer:'Natural answer',form:'Question form',past:'Past tenses',trans:'Translation'};
+function render(id,data,key){const box=document.getElementById(id);box.innerHTML=data.map((x,i)=>`<div class="q graded" data-section="${key}" data-answer="${x[2]}" data-chosen=""><strong>${i+1}. ${x[0]}</strong><div class="options">${x[1].map((o,j)=>`<button class="opt" type="button" data-i="${j}" onclick="choose(this)">${o}</button>`).join('')}</div><div class="feedback"></div></div>`).join('')}
+function choose(btn){const q=btn.closest('.q');q.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');q.dataset.chosen=btn.dataset.i;saveState();updateProgress()}
+function graded(){return [...document.querySelectorAll('.graded')]}
+function updateProgress(){const qs=graded(),done=qs.filter(q=>q.dataset.chosen!=='').length;document.getElementById('bar').style.width=(done/qs.length*100)+'%';document.getElementById('prog').textContent=`${done} / ${qs.length} graded answers completed`}
+function label(pct){return pct>=90?'Excellent 🌟':pct>=75?'Great job 👏':pct>=60?'Good progress 👍':'Keep practicing 💪'}
+function grade(){let correct=0,wrong=0,unanswered=0;const by={};Object.keys(labels).forEach(k=>by[k]={c:0,t:0});graded().forEach(q=>{const opts=[...q.querySelectorAll('.opt')],ans=+q.dataset.answer,chosen=q.dataset.chosen===''?null:+q.dataset.chosen;opts.forEach(x=>x.classList.remove('correct','wrong'));q.querySelector('.feedback').textContent='';q.classList.remove('unanswered');by[q.dataset.section].t++;if(chosen===null){unanswered++;q.classList.add('unanswered');q.querySelector('.feedback').textContent='No answer yet';return}opts[ans].classList.add('correct');if(chosen===ans){correct++;by[q.dataset.section].c++;q.querySelector('.feedback').textContent='✓ Correct';q.querySelector('.feedback').style.color='#15803d'}else{wrong++;opts[chosen].classList.add('wrong');q.querySelector('.feedback').textContent='Review the green answer.';q.querySelector('.feedback').style.color='#b42318'}});const total=graded().length,pct=Math.round(correct/total*100),lab=label(pct);window.last={correct,wrong,unanswered,total,pct,label:lab,by};const r=document.getElementById('result');r.classList.add('show');r.innerHTML=`<div class="scoreBig">${correct}/${total} · ${pct}%</div><h3>${lab}</h3><p><b>Wrong:</b> ${wrong} &nbsp; <b>Unanswered:</b> ${unanswered}</p><div class="breakdown">${Object.entries(by).map(([k,v])=>`<div class="stat"><b>${v.c}/${v.t}</b><span>${labels[k]}</span></div>`).join('')}</div><div class="note" style="margin-top:12px"><b>Written answers:</b> not auto-graded. They will be included in the PDF for the teacher to review.</div>`;r.scrollIntoView({behavior:'smooth',block:'center'});saveState();return window.last}
+function saveState(){try{const state={name:document.getElementById('studentName').value,w1:document.getElementById('writing1').value,w2:document.getElementById('writing2').value,answers:graded().map(q=>q.dataset.chosen===''?null:+q.dataset.chosen)};localStorage.setItem('questionPastHomeworkV1',JSON.stringify(state))}catch(e){}}
+function restoreState(){try{const s=JSON.parse(localStorage.getItem('questionPastHomeworkV1')||'null');if(!s)return;document.getElementById('studentName').value=s.name||'';document.getElementById('writing1').value=s.w1||'';document.getElementById('writing2').value=s.w2||'';(s.answers||[]).forEach((v,i)=>{if(v!==null&&graded()[i]){graded()[i].dataset.chosen=v;graded()[i].querySelector(`[data-i="${v}"]`)?.classList.add('selected')}})}catch(e){}}
+['studentName','writing1','writing2'].forEach(id=>document.getElementById(id).addEventListener('input',saveState));
+
+async function pdfBlob(){if(!window.last)grade();const hidden=[...document.querySelectorAll('.actions,.progressWrap')];hidden.forEach(x=>x.style.visibility='hidden');window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));try{const c=await html2canvas(document.getElementById('homeworkRoot'),{scale:1.18,useCORS:true,backgroundColor:'#f7f7fc',logging:false}),{jsPDF}=window.jspdf,pdf=new jsPDF('p','mm','a4'),mw=198,mh=285,ratio=c.width/mw,slice=Math.floor(mh*ratio);let y=0,p=0;while(y<c.height){const hh=Math.min(slice,c.height-y),x=document.createElement('canvas');x.width=c.width;x.height=hh;x.getContext('2d').drawImage(c,0,y,c.width,hh,0,0,c.width,hh);if(p++)pdf.addPage();pdf.addImage(x.toDataURL('image/jpeg',.86),'JPEG',6,6,mw,hh/ratio,undefined,'FAST');y+=hh}return pdf.output('blob')}finally{hidden.forEach(x=>x.style.visibility='')}}
+async function downloadPDF(){const b=document.getElementById('downloadBtn'),old=b.textContent;b.disabled=true;b.textContent='Creating PDF...';try{const blob=await pdfBlob(),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='B1_B2_Questions_Past_Tenses_Homework.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}catch(e){alert('Could not create PDF: '+e.message)}finally{b.disabled=false;b.textContent=old}}
+function nonce(){const a=new Uint32Array(4);crypto.getRandomValues(a);return [...a].map(x=>x.toString(16)).join('')}
+function toBase64(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.onerror=rej;r.readAsDataURL(blob)})}
+async function sendResults(){const name=document.getElementById('studentName').value.trim();if(name.length<2){alert('Please enter the student name.');return}if(document.getElementById('website').value||submitInFlight)return;if(Date.now()-OPENED<15000){alert('Please spend a little more time on the homework before sending it.');return}submitInFlight=true;const btn=document.getElementById('sendBtn'),status=document.getElementById('sendStatus');btn.disabled=true;status.textContent='Preparing PDF...';try{const pdf=await pdfBlob(),r=window.last||grade(),pdf64=await toBase64(pdf),form=document.getElementById('sendForm'),summary=`Question type ${r.by.type.c}/${r.by.type.t}; Natural answers ${r.by.answer.c}/${r.by.answer.t}; Question form ${r.by.form.c}/${r.by.form.t}; Past tenses ${r.by.past.c}/${r.by.past.t}; Translation ${r.by.trans.c}/${r.by.trans.t}`;form.action=ENDPOINT;const payload={key:KEY,homeworkId:HOMEWORK_ID,lessonTitle:LESSON,studentName:name,score:`${r.correct}/${r.total}`,percent:String(r.pct),grade:r.label,wrong:String(r.wrong),unanswered:String(r.unanswered),submittedAt:String(Date.now()),nonce:nonce(),website:'',pdfBase64:pdf64,filename:'B1_B2_Questions_Past_Tenses_Homework.pdf',audioBase64:'',audioMimeType:'',audioFilename:'',notes:summary};form.innerHTML='';Object.entries(payload).forEach(([k,v])=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;form.appendChild(i)});const sentNonce=payload.nonce;const listener=e=>{if(e.data&&e.data.type==='homework-submit'&&e.data.nonce===sentNonce){window.removeEventListener('message',listener);status.textContent=e.data.status==='success'?'✓ Results sent to teacher.':'Could not send: '+e.data.message}};window.addEventListener('message',listener);form.submit();setTimeout(()=>{if(status.textContent.includes('Preparing'))status.textContent='Submission sent. If no confirmation appears, use Backup PDF.'},6500)}catch(e){status.textContent='Could not send: '+e.message}finally{setTimeout(()=>{submitInFlight=false;btn.disabled=false},1500)}}
+
+render('typeQs',sections.type,'type');render('answerQs',sections.answer,'answer');render('formQs',sections.form,'form');render('pastQs',sections.past,'past');render('translationQs',sections.trans,'trans');restoreState();updateProgress();
+</script>
+</body>
+</html>
