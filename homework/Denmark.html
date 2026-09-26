@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>B2+ English Diagnostic Homework</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--ink:#21183d;--muted:#6f6883;--purple:#5b21b6;--violet:#7c3aed;--pink:#db2777;--blue:#2563eb;--green:#15803d;--orange:#ea580c;--red:#dc2626;--paper:#ffffff;--soft:#f7f4ff;--line:#e8e2f4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#eef2ff,#faf5ff 48%,#fff7ed);line-height:1.5}.wrap{max-width:1020px;margin:0 auto;padding:24px 18px 70px}.hero,.section{background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:0 18px 46px #32136b12;margin-bottom:18px}.hero{padding:30px;background:linear-gradient(135deg,#17113a,#4c1d95 56%,#9d174d);color:white;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:#ffffff0d;right:-90px;top:-120px}.hero>*{position:relative;z-index:2}.hero h1{font-size:clamp(38px,6vw,62px);line-height:1;margin:10px 0 14px}.hero p{font-size:18px;max-width:780px;color:#ede9fe}.tag{display:inline-block;border-radius:999px;padding:7px 11px;background:#ffffff1f;border:1px solid #ffffff30;font-size:12px;font-weight:1000;letter-spacing:.06em}.section{padding:25px}.section h2{font-size:31px;margin:0 0 6px;color:#4c1d95}.section .intro{color:var(--muted);margin:0 0 16px}.diagnostic{background:#fff7ed;border:1px solid #fed7aa;border-radius:18px;padding:14px 16px;color:#9a3412;font-weight:750}.progressOuter{position:sticky;top:0;z-index:20;background:#fffffff2;backdrop-filter:blur(10px);border:1px solid #e7e1f2;border-radius:18px;padding:10px 12px;margin-bottom:16px;box-shadow:0 10px 28px #312e8112}.progress{height:10px;background:#ede9fe;border-radius:999px;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#2563eb,#7c3aed,#db2777);transition:.25s}.progressText{font-size:13px;font-weight:900;color:#5b21b6;margin-top:5px}.q{border:1px solid #e7e1f2;border-radius:20px;padding:16px;margin:12px 0;background:linear-gradient(135deg,#fff,#fcfbff)}.q b.qtext{display:block;font-size:17px;margin-bottom:10px}.options{display:grid;grid-template-columns:1fr 1fr;gap:9px}.opt{border:2px solid #e5e7eb;background:#fff;color:#2e2550;border-radius:14px;padding:11px 12px;text-align:left;cursor:pointer;font-size:15.5px;transition:.15s}.opt:hover{border-color:#c4b5fd;background:#faf5ff}.opt.selected{border-color:#7c3aed;background:#f3e8ff}.opt.correct{border-color:#16a34a;background:#ecfdf5;color:#14532d}.opt.wrong{border-color:#dc2626;background:#fef2f2;color:#7f1d1d}.status{font-size:13px;font-weight:850;margin-top:8px;min-height:18px}.status.ok{color:#15803d}.status.no{color:#b91c1c}.status.skip{color:#7c3aed}.reading{background:linear-gradient(135deg,#f8fafc,#faf5ff);border:1px solid #ddd6fe;border-radius:20px;padding:18px;font-size:16.5px;line-height:1.72}.reading h3{color:#4c1d95;margin-top:0}.writingBox{background:linear-gradient(135deg,#172554,#4c1d95);color:#fff;border-radius:24px;padding:20px}.writingBox h3{color:white;font-size:25px;margin:0 0 8px}.writingBox p,.writingBox li{color:#ede9fe}.writingBox textarea{width:100%;min-height:270px;border:0;border-radius:18px;padding:16px;font:16px/1.55 Inter,Arial,sans-serif;resize:vertical;color:#21183d;background:#fff;margin-top:12px}.wordCount{font-weight:900;margin-top:8px;color:#fde68a}.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:12px}.checkItem{background:#ffffff12;border:1px solid #ffffff25;border-radius:14px;padding:10px}.nameRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:12px 0}.nameRow input{flex:1;min-width:230px;border:2px solid #d8cff0;border-radius:14px;padding:12px;font-size:16px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:15px;padding:13px 17px;color:white;background:#5b21b6;font-weight:1000;cursor:pointer;font-size:15px}.btn.green{background:#15803d}.btn.pink{background:#db2777}.btn.orange{background:#ea580c}.btn.alt{background:#475467}.btn:disabled{opacity:.55;cursor:not-allowed}.result{display:none;margin-top:18px;background:linear-gradient(135deg,#ecfdf5,#f5f3ff);border:1px solid #c4b5fd;border-radius:22px;padding:20px}.result.show{display:block}.scoreBig{font-size:58px;font-weight:1000;color:#4c1d95;line-height:1}.sectionScores{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.scoreCard{background:white;border:1px solid #e5e7eb;border-radius:16px;padding:12px}.scoreCard b{display:block;color:#4c1d95;font-size:18px}.manual{background:#fff7ed;border:1px solid #fed7aa;border-radius:16px;padding:12px;color:#9a3412;margin-top:12px}.small{font-size:13px;color:#6f6883}.footer{font-size:12px;color:#7c718f;text-align:center;margin-top:22px}.sectionLabel{font-size:12px;font-weight:1000;letter-spacing:.08em;color:#7c3aed;text-transform:uppercase;margin-bottom:5px}.divider{height:1px;background:#ebe6f3;margin:16px 0}@media(max-width:760px){.options,.sectionScores,.checklist{grid-template-columns:1fr}.hero,.section{padding:18px}.section h2{font-size:27px}}@page{size:A4;margin:8mm}@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.actions,.progressOuter,#sendStatus{display:none!important}.hero,.section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap" id="homeworkRoot">
+<div class="progressOuter"><div class="progress"><div id="bar"></div></div><div class="progressText" id="progressText">0 / 30 objective questions answered</div></div>
+<header class="hero">
+<span class="tag">B2+ DIAGNOSTIC HOMEWORK</span>
+<h1>English Signal Check ⚡</h1>
+<p>This homework is designed to show what already feels automatic and where your English becomes less stable. It checks tense control, sentence structure, vocabulary, reading, and high-B2 writing.</p>
+<p><b>Important:</b> please work without AI, grammar-checking tools, or translation tools. The goal is to show your real level.</p>
+</header>
+<section class="section"><div class="diagnostic">There are no grammar notes or answer hints on purpose. Complete the whole homework first, then press <b>CHECK RESULTS</b> at the end.</div></section>
+
+<section class="section"><div class="sectionLabel">Part 1 · Present tenses</div><h2>Present Tense Control</h2><p class="intro">Choose the form that fits the meaning most naturally.</p><div id="presentQs"></div></section>
+<section class="section"><div class="sectionLabel">Part 2 · Past tenses</div><h2>Past Timeline Control</h2><p class="intro">Pay attention to sequence, background action, duration, and earlier past events.</p><div id="pastQs"></div></section>
+<section class="section"><div class="sectionLabel">Part 3 · Future forms</div><h2>Future Meaning</h2><p class="intro">These questions mix predictions, evidence, arrangements, schedules, and actions viewed from a future point.</p><div id="futureQs"></div></section>
+<section class="section"><div class="sectionLabel">Part 4 · Structure</div><h2>Sentence Surgery</h2><p class="intro">Choose the sentence that is grammatically correct and stylistically natural.</p><div id="structureQs"></div></section>
+<section class="section"><div class="sectionLabel">Part 5 · Vocabulary</div><h2>Precision Vocabulary</h2><p class="intro">The vocabulary is deliberately challenging. Choose the word or phrase that fits the context best.</p><div id="vocabQs"></div></section>
+
+<section class="section"><div class="sectionLabel">Part 6 · Reading</div><h2>Read Between the Lines</h2>
+<div class="reading"><h3>Why Progress Sometimes Slows Down</h3>
+<p>When learners reach an upper-intermediate level, progress can become strangely difficult to notice. At beginner stages, improvement is obvious: a learner moves from saying isolated words to holding a conversation. Later, however, the changes are subtler. A person may understand almost every sentence in a film and still miss the humour, implied criticism, or cultural assumptions behind it.</p>
+<p>This is one reason some advanced learners mistakenly conclude that they have stopped improving. In reality, the nature of progress has changed. Instead of learning hundreds of basic words, they may be refining the difference between several near-synonyms, noticing how native speakers soften disagreement, or learning which grammatical form sounds more natural in a particular context.</p>
+<p>Exposure alone is not always enough. Someone can watch English-language films every evening and still repeat the same mistakes for years if they never pay attention to them. On the other hand, studying grammar in isolation can produce excellent test scores without making spontaneous conversation easier. The strongest learners tend to combine both approaches: they expose themselves to authentic English, notice patterns, test their own assumptions, and deliberately revisit areas that remain unreliable.</p>
+<p>Perhaps the biggest shift at this level is psychological. Learners need to become comfortable with partial understanding. If they stop every time they encounter an unfamiliar expression, they interrupt the very process that helps them infer meaning from context. Progress therefore depends not only on what learners know, but also on how confidently they handle what they do not yet know.</p></div>
+<div id="readingQs" style="margin-top:14px"></div></section>
+
+<section class="section"><div class="sectionLabel">Part 7 · Writing</div><h2>High-B2 Writing Challenge</h2><p class="intro">This part is not auto-graded. Your teacher will assess accuracy, range, organization, vocabulary, and how naturally you connect ideas.</p>
+<div class="writingBox"><h3>Write 180–220 words</h3>
+<p><b>Prompt:</b> Once a learner reaches a high level of English, what is the most effective way to keep improving: structured grammar study, reading, watching films/series, or using English in real-life situations?</p>
+<p>Take a clear position. You may combine methods, but explain which approach should have the biggest role and why.</p>
+<div class="checklist">
+<div class="checkItem">✓ Give at least <b>two developed reasons</b>.</div>
+<div class="checkItem">✓ Include <b>one counterargument</b>.</div>
+<div class="checkItem">✓ Use at least <b>4 linking expressions</b>.</div>
+<div class="checkItem">✓ Use a <b>conditional</b> naturally.</div>
+<div class="checkItem">✓ Include at least <b>one perfect tense</b>.</div>
+<div class="checkItem">✓ Include at least <b>one future form</b>.</div>
+</div>
+<textarea id="writing" placeholder="Write your response here..."></textarea><div class="wordCount" id="wordCount">0 words</div></div></section>
+
+<section class="section"><div class="sectionLabel">Finish</div><h2>Check & Send</h2>
+<div class="nameRow"><b>Student name:</b><input id="studentName" placeholder="Type your name" /></div>
+<input id="website" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
+<div class="actions"><button class="btn green" onclick="grade()">✓ CHECK RESULTS</button><button class="btn pink" id="sendBtn" onclick="sendResults()">📨 SEND RESULTS TO TEACHER</button><button class="btn alt" id="downloadBtn" onclick="downloadPDF()">Backup: download PDF</button></div>
+<div id="sendStatus" class="small" style="margin-top:10px"></div>
+<div id="result" class="result"><div class="scoreBig" id="scoreBig"></div><h3 id="resultTitle"></h3><p id="resultText"></p><div class="sectionScores" id="sectionScores"></div><div class="manual"><b>Writing is teacher-reviewed.</b> The objective score is useful, but it does not determine the final English level by itself.</div></div>
+</section>
+<div class="footer">The Fluency Club · B2+ Diagnostic Homework</div>
+</div>
+<iframe name="sendFrame" id="sendFrame" style="display:none"></iframe><form id="sendForm" method="POST" target="sendFrame" style="display:none"></form>
+<script>
+const ENDPOINT='https://script.google.com/macros/s/AKfycbyzfvP4ZuWA4A0lF2naJYi_Hs9XnC_EnVZS3BxOL50Rldgk5xBop1Z2rh1i_bAADUXH/exec';
+const KEY='l0Wgf2BejUSFsst5cNGfFvn689YJ-Au9';
+const HOMEWORK_ID='b2-plus-diagnostic-homework-v1';
+const LESSON='B2+ English Diagnostic Homework';
+const OPENED=Date.now();let submitInFlight=false;
+const sets={
+present:[
+['I ___ this novel for nearly three weeks, and I still have about a hundred pages left.',['read','am reading','have read','have been reading'],3],
+['I ___ what you mean, but I still think the ending was too predictable.',['am understanding','understand','have been understanding','have understood'],1],
+['This month I ___ far fewer films than usual because work has been so busy.',['watch','am watching','have watched always','had watched'],1],
+['It is the first time I ___ one of this director\'s films without subtitles.',['see','saw','have seen','had seen'],2],
+['She ___ four chapters so far today, so she is taking a break now.',['reads','has read','has been reading','is reading'],1]
+],
+past:[
+['By the time we reached the cinema, the film ___.',['already started','had already started','was already starting since an hour','has already started'],1],
+['I ___ through the final chapter when someone called me and spoiled the ending.',['read','had read','was reading','have been reading'],2],
+['He was exhausted because he ___ for the delayed flight for nearly six hours.',['waited','was waiting','had waited once','had been waiting'],3],
+['I did not realize I ___ my passport at the hotel until we were already at the station.',['left','had left','was leaving','have left'],1],
+['Before she moved abroad, she ___ English regularly for years, so daily communication felt natural.',['studied','was studying','had been studying','has been studying'],2]
+],
+future:[
+['I think people ___ even more dependent on automatic translation in the next few years.',['are becoming','will become','are going to because evidence','become'],1],
+['Look at that queue. We ___ our connection if security does not start moving faster.',['will miss probably','are going to miss','are missing every time','have missed'],1],
+['I ___ a friend for dinner on Saturday; we booked the table yesterday.',['will meet','meet','am meeting','will have met'],2],
+['The train to Edinburgh ___ at 07:45 tomorrow morning.',['will leave','is going to leave by opinion','leaves','will be leaving because timetable'],2],
+['By this time next year, I ___ enough English-language books to compare several authors properly.',['will read','will be reading','will have read','am reading'],2]
+],
+structure:[
+['Choose the most natural sentence.',['If I would have known about the delay, I left later.','If I had known about the delay, I would have left later.','If I knew about the delay yesterday, I would have left later.','If I had knew about the delay, I would leave later.'],1],
+['Choose the correct relative-clause sentence.',['The book, which I bought it last week, is already sold out.','The book that I bought it last week is already sold out.','The book I bought last week is already sold out.','The book, that I bought last week, is already sold out.'],2],
+['Choose the most natural sentence.',['Not only the film was too long, but also the ending was predictable.','Not only was the film too long, but the ending was also predictable.','Not only was too long the film, but predictable was the ending.','The film not only was too long, but also predictable the ending.'],1],
+['Choose the correct sentence.',['I am used to travel alone, so airports do not bother me.','I used to travelling alone, so airports do not bother me.','I am used to travelling alone, so airports do not bother me.','I am use to travel alone, so airports do not bother me.'],2],
+['Choose the most natural sentence.',['Hardly had we arrived when the announcement was made.','Hardly we had arrived when the announcement made.','Hardly did we arrive when had the announcement been made.','Hardly had we arrived than the announcement was made.'],0]
+],
+vocab:[
+['The documentary makes a very ___ argument, even though I do not agree with every conclusion.',['compelling','reluctant','tentative','inevitable'],0],
+['His explanation sounded possible at first, but after a few questions it became increasingly ___.',['plausible','far-fetched','straightforward','inevitable'],1],
+['I ___ an interesting expression while reading last night and wrote it down to check later.',['came across','carried out','put off','brought up with'],0],
+['It would be premature to ___ from one disappointing result.',['draw a conclusion','make an outcome','reach an evidence','take a likelihood'],0],
+['She was ___ to change her travel plans because the original booking had taken weeks to organize.',['reluctant','compelling','overwhelmingly','plausible'],0]
+],
+reading:[
+['What is the writer\'s main point in the first two paragraphs?',['Upper-intermediate learners usually stop improving.','At higher levels, progress becomes less obvious because the changes are more subtle.','Watching films is the fastest way to reach an advanced level.','Advanced learners need to learn hundreds of basic words.'],1],
+['According to the text, why can exposure alone be insufficient?',['Authentic English is usually too difficult.','Learners may continue repeating unnoticed errors.','Grammar becomes unnecessary at higher levels.','Films contain too much cultural information.'],1],
+['What does “both approaches” refer to?',['Speaking and writing.','Grammar study and authentic exposure.','Reading and travelling.','Inference and translation.'],1],
+['What attitude does the writer recommend toward unfamiliar language?',['Stop immediately and look up every expression.','Ignore anything that is not completely understood.','Accept some uncertainty and use context to infer meaning.','Avoid advanced material until everything is familiar.'],2],
+['Which statement would the writer most likely agree with?',['Strong learners combine exposure with deliberate attention to weak areas.','Once vocabulary is strong, grammar accuracy no longer matters.','Test scores are the clearest sign of real-world fluency.','Advanced learners should avoid material above their current level.'],0]
+]
+};
+const sectionNames={present:'Present',past:'Past',future:'Future',structure:'Structure',vocab:'Vocabulary',reading:'Reading'};
+function renderSet(id,key){const host=document.getElementById(id);sets[key].forEach((q,qi)=>{const box=document.createElement('div');box.className='q';box.dataset.section=key;box.dataset.answer=q[2];box.innerHTML=`<b class="qtext">${qi+1}. ${q[0]}</b><div class="options">${q[1].map((o,i)=>`<button class="opt" type="button" data-i="${i}">${o}</button>`).join('')}</div><div class="status"></div>`;box.querySelectorAll('.opt').forEach(btn=>btn.addEventListener('click',()=>{box.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');box.dataset.chosen=btn.dataset.i;box.querySelector('.status').textContent='';saveState();updateProgress()}));host.appendChild(box)})}
+renderSet('presentQs','present');renderSet('pastQs','past');renderSet('futureQs','future');renderSet('structureQs','structure');renderSet('vocabQs','vocab');renderSet('readingQs','reading');
+function allQs(){return [...document.querySelectorAll('.q')]}
+function updateProgress(){const qs=allQs(),done=qs.filter(q=>q.dataset.chosen!==undefined).length;bar.style.width=(done/qs.length*100)+'%';progressText.textContent=`${done} / ${qs.length} objective questions answered`;}
+function wordCount(){const n=writing.value.trim()?writing.value.trim().split(/\s+/).length:0;document.getElementById('wordCount').textContent=n+' words';saveState();}
+writing.addEventListener('input',wordCount);studentName.addEventListener('input',saveState);
+function grade(){let correct=0,wrong=0,unanswered=0;const sec={};Object.keys(sectionNames).forEach(k=>sec[k]={c:0,t:0,u:0});allQs().forEach(q=>{const ans=+q.dataset.answer,chosen=q.dataset.chosen===undefined?null:+q.dataset.chosen,k=q.dataset.section;sec[k].t++;q.querySelectorAll('.opt').forEach((o,i)=>{o.classList.remove('correct','wrong');if(i===ans&&chosen!==null)o.classList.add('correct');if(chosen===i&&i!==ans)o.classList.add('wrong')});const st=q.querySelector('.status');st.className='status';if(chosen===null){unanswered++;sec[k].u++;st.textContent='No answer yet';st.classList.add('skip')}else if(chosen===ans){correct++;sec[k].c++;st.textContent='✓ Correct';st.classList.add('ok')}else{wrong++;st.textContent='✗ Review this one';st.classList.add('no')}});const total=allQs().length,pct=Math.round(correct/total*100);let label=pct>=90?'Excellent 🌟':pct>=75?'Great job 👏':pct>=60?'Good progress 👍':'Keep practicing 💪';window.last={correct,wrong,unanswered,total,pct,label,sec};scoreBig.textContent=`${correct}/${total} · ${pct}%`;resultTitle.textContent=label;resultText.textContent='This score covers only the objective sections. Your writing sample is equally important for deciding what to study next.';sectionScores.innerHTML=Object.keys(sectionNames).map(k=>`<div class="scoreCard"><b>${sectionNames[k]}</b><span>${sec[k].c}/${sec[k].t}${sec[k].u?` · ${sec[k].u} unanswered`:''}</span></div>`).join('');result.classList.add('show');saveState();result.scrollIntoView({behavior:'smooth',block:'center'});return window.last}
+function saveState(){try{const answers=allQs().map(q=>q.dataset.chosen===undefined?null:+q.dataset.chosen);localStorage.setItem('b2PlusDiagnosticHW',JSON.stringify({answers,name:studentName.value,writing:writing.value}))}catch(e){}}
+function restoreState(){try{const s=JSON.parse(localStorage.getItem('b2PlusDiagnosticHW')||'null');if(!s)return;if(s.name)studentName.value=s.name;if(s.writing)writing.value=s.writing;(s.answers||[]).forEach((v,i)=>{if(v!==null&&allQs()[i]){allQs()[i].dataset.chosen=v;allQs()[i].querySelector(`[data-i="${v}"]`)?.classList.add('selected')}});wordCount();updateProgress()}catch(e){}}
+async function pdfBlob(){if(!window.last)grade();const hide=[...document.querySelectorAll('.actions,.progressOuter')];hide.forEach(x=>x.style.visibility='hidden');window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));try{const c=await html2canvas(document.body,{scale:1.18,useCORS:true,backgroundColor:'#f7f4ff',logging:false}),{jsPDF}=window.jspdf,pdf=new jsPDF('p','mm','a4'),mw=198,mh=285,ratio=c.width/mw,slice=Math.floor(mh*ratio);let y=0,p=0;while(y<c.height){const hh=Math.min(slice,c.height-y),x=document.createElement('canvas');x.width=c.width;x.height=hh;x.getContext('2d').drawImage(c,0,y,c.width,hh,0,0,c.width,hh);if(p++)pdf.addPage();pdf.addImage(x.toDataURL('image/jpeg',.88),'JPEG',6,6,mw,hh/ratio,undefined,'FAST');y+=hh}return pdf.output('blob')}finally{hide.forEach(x=>x.style.visibility='')}}
+async function downloadPDF(){const b=downloadBtn,o=b.textContent;b.disabled=true;b.textContent='Creating PDF...';try{const blob=await pdfBlob(),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='B2_Plus_English_Diagnostic_Homework.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200)}finally{b.disabled=false;b.textContent=o}}
+function nonce(){const a=new Uint32Array(4);crypto.getRandomValues(a);return [...a].map(x=>x.toString(16)).join('')}
+function toBase64(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.onerror=rej;r.readAsDataURL(blob)})}
+async function sendResults(){const name=studentName.value.trim();if(name.length<2){alert('Please enter the student name.');return}const wc=writing.value.trim()?writing.value.trim().split(/\s+/).length:0;if(wc<140){alert('Please complete the writing task before sending. Aim for 180–220 words.');return}if(website.value||submitInFlight)return;if(Date.now()-OPENED<15000){alert('Please spend a little more time on the homework before sending it.');return}submitInFlight=true;sendBtn.disabled=true;sendStatus.textContent='Preparing your results and PDF...';try{const r=window.last||grade(),pdf=await pdfBlob(),pdf64=await toBase64(pdf),form=sendForm;form.action=ENDPOINT;const secSummary=Object.keys(sectionNames).map(k=>`${sectionNames[k]} ${r.sec[k].c}/${r.sec[k].t}`).join(' | ');const payload={key:KEY,homeworkId:HOMEWORK_ID,lessonTitle:LESSON,studentName:name,score:`${r.correct}/${r.total}`,percent:String(r.pct),grade:`${r.label} | ${secSummary} | Writing ${wc} words`,wrong:String(r.wrong),unanswered:String(r.unanswered),submittedAt:String(Date.now()),nonce:nonce(),website:'',pdfBase64:pdf64,filename:'B2_Plus_English_Diagnostic_Homework.pdf',audioBase64:'',audioMimeType:'',audioFilename:''};form.innerHTML='';Object.entries(payload).forEach(([k,v])=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;form.appendChild(i)});const sentNonce=payload.nonce;const listener=e=>{if(e.data&&e.data.type==='homework-submit'&&e.data.nonce===sentNonce){window.removeEventListener('message',listener);sendStatus.textContent=e.data.status==='success'?'✓ Results sent to teacher.':'Could not send: '+e.data.message}};window.addEventListener('message',listener);form.submit();setTimeout(()=>{if(sendStatus.textContent.includes('Preparing'))sendStatus.textContent='Submission sent. If no confirmation appears, use the backup PDF button.'},6500)}catch(e){sendStatus.textContent='Could not send: '+e.message}finally{setTimeout(()=>{submitInFlight=false;sendBtn.disabled=false},1500)}}
+restoreState();updateProgress();wordCount();
+</script>
+</body>
+</html>
