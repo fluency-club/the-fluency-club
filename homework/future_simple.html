@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>C1 Future Simple — Future Forecast Homework</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--ink:#201536;--muted:#6d6580;--purple:#5b21b6;--purple2:#7c3aed;--pink:#db2777;--blue:#2563eb;--green:#15803d;--orange:#ea580c;--red:#dc2626;--bg:#f7f5ff;--card:#fff;--line:#e7ddff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#eef2ff,#faf5ff 45%,#fff7ed);min-height:100vh}.wrap{max-width:1080px;margin:auto;padding:20px}.hero,.section{background:#fff;border:1px solid #e8e3f1;border-radius:26px;box-shadow:0 18px 44px #3b1d6e16;margin:0 0 18px;padding:24px}.hero{background:linear-gradient(135deg,#1e103e,#5b21b6 55%,#be185d);color:#fff;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;right:-125px;top:-150px;background:#ffffff10}.hero>*{position:relative;z-index:1}.tag{display:inline-block;padding:7px 11px;border-radius:999px;background:#ffffff20;border:1px solid #ffffff30;font-size:12px;font-weight:900;letter-spacing:.05em}.hero h1{font-size:clamp(38px,7vw,64px);line-height:.98;margin:12px 0}.hero p{font-size:18px;line-height:1.55;max-width:820px;color:#f4efff}.progressWrap{position:sticky;top:0;z-index:20;background:#ffffffeb;backdrop-filter:blur(10px);border:1px solid #eee8f8;border-radius:18px;padding:10px 12px;margin-bottom:16px;box-shadow:0 8px 24px #3b1d6e12}.progress{height:10px;border-radius:999px;background:#ede9fe;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#2563eb,#7c3aed,#db2777);transition:.2s}.progressText{font-size:13px;font-weight:850;color:#5b21b6;margin-top:6px}.section h2{font-size:31px;color:#4c1d95;margin:0 0 8px}.sub{color:var(--muted);line-height:1.55}.vocabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:16px}.vocabCard{height:220px;border-radius:20px;overflow:hidden;position:relative;background:#1f163b;color:#fff;border:1px solid #ddd6fe}.vocabCard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72) saturate(1.05) contrast(1.03);z-index:0}.vocabOverlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,#14052a05 0%,#1d0f3666 48%,#1f1339ed 100%)}.vocabText{position:relative;z-index:2;height:100%;padding:17px;display:flex;flex-direction:column;justify-content:flex-end}.vocabWord{font-size:29px;font-weight:1000;line-height:1}.vocabRu{font-size:17px;font-weight:900;color:#fde68a;margin-top:6px}.vocabDef{font-size:13px;line-height:1.38;color:#f3e8ff;margin-top:6px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.recapCard{border-radius:18px;padding:17px;background:linear-gradient(135deg,#faf5ff,#fff);border:1px solid #ddd6fe}.recapCard.blue{background:linear-gradient(135deg,#eff6ff,#fff);border-color:#bfdbfe}.recapCard.green{background:linear-gradient(135deg,#ecfdf5,#fff);border-color:#bbf7d0}.recapCard.orange{background:linear-gradient(135deg,#fff7ed,#fff);border-color:#fed7aa}.recapCard b{font-size:20px;color:#4c1d95}.formula{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:1000;background:#22113f;color:#fff;padding:9px 11px;border-radius:11px;display:inline-block;margin:8px 0}.note{border-radius:16px;padding:14px;background:#fff7ed;border:1px solid #fed7aa;color:#8a3f0f;line-height:1.5;margin-top:12px}.q{border:1px solid #e6e0ef;border-radius:18px;padding:15px;margin:11px 0;background:#fff}.q>b{display:block;font-size:17px;line-height:1.45;color:#251646}.options{display:grid;gap:8px;margin-top:10px}.opt{border:2px solid #e7e0ef;background:#fff;border-radius:13px;padding:11px 13px;text-align:left;cursor:pointer;color:#2d2142;font-size:15px;line-height:1.4}.opt:hover{border-color:#c4b5fd;background:#faf5ff}.opt.selected{border-color:#7c3aed;background:#f3e8ff}.opt.correct{border-color:#16a34a;background:#ecfdf5;color:#14532d}.opt.wrong{border-color:#dc2626;background:#fef2f2;color:#991b1b}.feedback{min-height:20px;margin-top:7px;font-weight:850;font-size:14px}.feedback.good{color:#15803d}.feedback.bad{color:#b42318}.feedback.neutral{color:#6b7280}.typeQ{border:1px solid #e7e0ef;border-radius:18px;padding:15px;margin:11px 0;background:#fff}.typeQ label{display:block;font-weight:900;color:#2e1c52;line-height:1.45}.typeQ input{width:100%;border:2px solid #d9d2e7;border-radius:12px;padding:11px 12px;font-size:16px;margin-top:9px;color:#2d2142}.typeQ input.ok{border-color:#16a34a;background:#f0fdf4}.typeQ input.no{border-color:#dc2626;background:#fef2f2}.writeBox{width:100%;min-height:240px;border:2px solid #c4b5fd;border-radius:17px;padding:15px;font:16px/1.55 Arial,sans-serif;resize:vertical;color:#2d2142;background:#fff}.counter{font-weight:850;color:#5b21b6;margin-top:7px}.checklist{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0}.checkItem{border-radius:13px;background:#faf5ff;border:1px solid #ddd6fe;padding:10px;font-size:14px}.nameRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.nameRow input{flex:1;min-width:230px;border:2px solid #d9d2e7;border-radius:12px;padding:11px 12px;font-size:16px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:14px;padding:12px 17px;font-weight:950;cursor:pointer;color:#fff;background:#5b21b6;font-size:15px}.btn.green{background:#15803d}.btn.pink{background:#db2777}.btn.gray{background:#475467}.btn:disabled{opacity:.55;cursor:not-allowed}.result{display:none;margin-top:14px;border-radius:18px;padding:18px;background:linear-gradient(135deg,#ecfdf5,#faf5ff);border:1px solid #bbf7d0}.result.show{display:block}.bigScore{font-size:48px;font-weight:1000;color:#4c1d95}.breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.stat{background:#fff;border:1px solid #e6e0ef;border-radius:14px;padding:12px;text-align:center}.stat b{display:block;font-size:23px;color:#5b21b6}.small{font-size:13px;color:#6d6580;line-height:1.45}.sendStatus{margin-top:9px;font-size:14px;font-weight:800;color:#5b21b6}.sourceLine{font-size:11px;color:#8b8498;margin-top:10px}
+@media(max-width:760px){.vocabGrid,.grid2,.grid3,.checklist,.breakdown{grid-template-columns:1fr}.hero,.section{padding:18px}.section h2{font-size:27px}.vocabCard{height:200px}}
+@page{size:A4;margin:8mm}@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.actions,.progressWrap,#sendStatus{display:none!important}.hero,.section{box-shadow:none;break-inside:avoid}.q,.typeQ,.vocabCard,.recapCard{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap" id="homeworkRoot">
+<div class="progressWrap"><div class="progress"><div id="bar"></div></div><div class="progressText" id="progressText">0 / 27 graded answers completed</div></div>
+
+<header class="hero">
+<span class="tag">C1 HOMEWORK · FUTURE FORECAST</span>
+<h1>Will It Happen? 🔮⚡</h1>
+<p>Review the vocabulary from today’s lesson, practise <b>Future Simple: will / won’t</b>, and finish with a real-life future forecast. The objective section is automatically graded; the final writing is for teacher feedback.</p>
+</header>
+
+<section class="section">
+<h2>Lesson Recap — Forecast Vocabulary 📈</h2>
+<p class="sub">Review the meaning, Russian translation, and one useful collocation. The photos are visual memory cues — not definitions.</p>
+<div class="vocabGrid">
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1572433276335-253012bf8587?auto=format&fit=crop&w=900&q=82" alt="anticipate photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">anticipate</div><div class="vocabRu">предвидеть · ожидать заранее</div><div class="vocabDef">expect something before it happens · <b>anticipate a change / problem</b></div></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1568743966689-d37c04538535?auto=format&fit=crop&w=900&q=82" alt="likelihood photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">likelihood</div><div class="vocabRu">вероятность</div><div class="vocabDef">probability that something will happen · <b>the likelihood of success</b></div></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1768839722117-da92d4acc9ef?auto=format&fit=crop&w=900&q=82" alt="inevitable photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">inevitable</div><div class="vocabRu">неизбежный</div><div class="vocabDef">impossible to avoid · <b>an inevitable change</b></div></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=900&q=82" alt="feasible photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">feasible</div><div class="vocabRu">осуществимый · реалистичный</div><div class="vocabDef">possible and practical · <b>a feasible plan / solution</b></div></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=900&q=82" alt="tentative photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">tentative</div><div class="vocabRu">предварительный · пока не окончательный</div><div class="vocabDef">not final or completely certain · <b>a tentative date / plan</b></div></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=82" alt="commitment photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">commitment</div><div class="vocabRu">обязательство · твёрдое намерение</div><div class="vocabDef">a firm promise or responsibility · <b>make / honour a commitment</b></div></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1774050021111-8118f1e3c013?auto=format&fit=crop&w=900&q=82" alt="outcome photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">outcome</div><div class="vocabRu">результат · исход</div><div class="vocabDef">the final result of a process or situation · <b>a positive outcome</b></div></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1774141633720-2ead96ed0ed7?auto=format&fit=crop&w=900&q=82" alt="uncertainty photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">uncertainty</div><div class="vocabRu">неопределённость</div><div class="vocabDef">a state of not knowing what will happen · <b>considerable uncertainty</b></div></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=82" alt="projection photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">projection</div><div class="vocabRu">прогноз · расчётная оценка</div><div class="vocabDef">an estimate of a future result · <b>a sales / growth projection</b></div></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1747907378400-7d77a8928f8b?auto=format&fit=crop&w=900&q=82" alt="contingency photo" loading="eager" referrerpolicy="no-referrer"><div class="vocabOverlay"></div><div class="vocabText"><div class="vocabWord">contingency</div><div class="vocabRu">запасной вариант · непредвиденная ситуация</div><div class="vocabDef">a possible problem or backup arrangement · <b>a contingency plan</b></div></div></div>
+</div>
+<div class="sourceLine">Vocabulary and collocations follow today’s Future Forecast lesson. Russian translations are added for review.</div>
+</section>
+
+<section class="section">
+<h2>Future Simple Recap — will / won’t ⚡</h2>
+<div class="grid3">
+<div class="recapCard"><b>Positive</b><div class="formula">subject + will + base verb</div><p>I <b>will call</b>. She <b>will understand</b>.</p></div>
+<div class="recapCard blue"><b>Negative</b><div class="formula">subject + won’t + base verb</div><p>It <b>won’t take</b> long. We <b>won’t forget</b>.</p></div>
+<div class="recapCard green"><b>Question</b><div class="formula">Will + subject + base verb?</div><p><b>Will you send</b> it? What <b>will happen</b>?</p></div>
+</div>
+<div class="grid2" style="margin-top:13px">
+<div class="recapCard"><b>1. Prediction / opinion</b><p>I think the interview <b>will go</b> well. Prices probably <b>won’t stay</b> this low.</p></div>
+<div class="recapCard blue"><b>2. Instant decision</b><p>The phone is ringing — <b>I’ll get it.</b></p></div>
+<div class="recapCard green"><b>3. Promise / commitment</b><p>Don’t worry. <b>I won’t tell</b> anyone.</p></div>
+<div class="recapCard orange"><b>4. Offer / willingness / request / refusal</b><p><b>I’ll carry</b> that for you. <b>Will you send</b> me the link? <b>I won’t sign</b> under those conditions.</p></div>
+</div>
+<div class="note"><b>Important:</b> after future time words such as <b>when, as soon as, before, after, until, if</b>, English normally uses a present form, not <i>will</i>: <b>As soon as I know, I’ll tell you.</b> Also remember: <b>will</b> is not the automatic tense for every future plan.</div>
+</section>
+
+<section class="section" data-section="vocab">
+<h2>1. Vocabulary in Context 🔎</h2>
+<p class="sub">Choose the word that fits the meaning most precisely.</p>
+<div id="vocabQs"></div>
+</section>
+
+<section class="section" data-section="function">
+<h2>2. What Does <i>will</i> Mean Here? 🧠</h2>
+<p class="sub">C1 nuance: choose the meaning that <b>will / won’t</b> has in context — prediction, decision, promise, offer/request, or refusal.</p>
+<div id="functionQs"></div>
+</section>
+
+<section class="section" data-section="grammar">
+<h2>3. Future Simple Precision ⚡</h2>
+<p class="sub">These are deliberately tricky. Watch the difference between future time clauses, conditionals, indirect questions, and genuine Future Simple meanings.</p>
+<div id="grammarQs"></div>
+</section>
+
+<section class="section" data-section="builder">
+<h2>4. Build the Sentence 🧩</h2>
+<p class="sub">Rebuild the complete C1 sentence. You may need to change the verb form, not just rearrange the words. Punctuation at the end is optional.</p>
+<div id="builderQs"></div>
+</section>
+
+<section class="section">
+<h2>5. Real-Life Future Forecast ✍️</h2>
+<p class="sub">Write <b>90–130 words</b> about your real life over the next three months. No fictional story.</p>
+<div class="checklist">
+<div class="checkItem">🔮 Give <b>2 predictions</b> using will / won’t.</div>
+<div class="checkItem">🤝 Make <b>1 realistic commitment or promise</b>.</div>
+<div class="checkItem">📈 Use at least <b>3 vocabulary words</b> from the recap.</div>
+<div class="checkItem">🧠 Include one reason or piece of evidence for a prediction.</div>
+</div>
+<textarea id="writing" class="writeBox" placeholder="Write your future forecast here..."></textarea>
+<div class="counter" id="wordCount">0 words</div>
+</section>
+
+<section class="section">
+<h2>Finish & Send ✅</h2>
+<p class="sub">The percentage below is based on the <b>27 automatically graded questions</b>. Your writing is sent to the teacher for separate feedback.</p>
+<div class="nameRow"><b>Student name:</b><input id="studentName" placeholder="Type your name"></div>
+<input id="website" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
+<div id="result" class="result"></div>
+<div class="actions">
+<button class="btn green" onclick="gradeAll()">✓ CHECK RESULTS</button>
+<button class="btn pink" id="sendBtn" onclick="sendResults()">📨 SEND RESULTS</button>
+<button class="btn gray" id="downloadBtn" onclick="downloadPDF()">Backup: download PDF</button>
+</div>
+<div class="sendStatus" id="sendStatus"></div>
+</section>
+</div>
+<iframe name="sendFrame" id="sendFrame" style="display:none"></iframe>
+<form id="sendForm" method="POST" target="sendFrame" style="display:none"></form>
+
+<script>
+const ENDPOINT='https://script.google.com/macros/s/AKfycbyzfvP4ZuWA4A0lF2naJYi_Hs9XnC_EnVZS3BxOL50Rldgk5xBop1Z2rh1i_bAADUXH/exec';
+const KEY='l0Wgf2BejUSFsst5cNGfFvn689YJ-Au9';
+const HOMEWORK_ID='c1-future-simple-forecast-v2';
+const LESSON='C1 Future Simple — Future Forecast';
+const OPENED=Date.now();
+let submitInFlight=false;
+
+const vocabData=[
+ ['Analysts ___ stronger demand next year.',['anticipate','commitment','outcome'],0],
+ ['The date may change, so it is still ___.',['inevitable','tentative','feasible'],1],
+ ['The plan is ambitious, but it is practical and realistic. It is ___.',['feasible','tentative','inevitable'],0],
+ ['We need a backup option in case the first plan fails. We need a ___.',['projection','contingency','likelihood'],1],
+ ['The final ___ was better than anyone expected.',['outcome','uncertainty','commitment'],0],
+ ['There is still a lot of ___ about how quickly the market will change.',['projection','uncertainty','likelihood'],1],
+ ['The company’s growth ___ for next year is 12%.',['projection','contingency','outcome'],0],
+ ['Some degree of change is ___. We cannot avoid it completely.',['tentative','inevitable','feasible'],1]
+];
+const functionData=[
+ ['You had not planned to contact him, but after hearing the problem you say: “All right, I’ll call him now.”',['instant decision','prediction / opinion','promise / commitment'],0],
+ ['After missing an important deadline, someone says: “I won’t let that happen again.”',['refusal / unwillingness','promise / commitment','prediction / opinion'],1],
+ ['“Will you give me a minute to check the figures?”',['request / willingness','instant decision','prediction / opinion'],0],
+ ['“Given the uncertainty, I think the tentative date will probably move again.”',['prediction / opinion','promise / commitment','offer / willingness'],0],
+ ['You look overloaded, so I say: “I’ll handle the hotel booking.”',['offer / willingness','prediction / opinion','refusal / unwillingness'],0],
+ ['“I won’t sign the agreement under these conditions.”',['promise / commitment','refusal / unwillingness','future fact'],1]
+];
+const grammarData=[
+ ['I don’t know whether she ___ the offer, but I suspect she ___ for more time.',['will accept / will ask','accepts / asks','will accept / asks'],0],
+ ['I’ll send you the projection as soon as I ___ the final figures.',['will check','check','will have checked'],1],
+ ['Which pair correctly shows the difference between a future time clause and an indirect question?',['I’ll call you when I will be free. / Tell me when you are free tomorrow.','I’ll call you when I’m free. / Tell me when you will be free tomorrow.','I call you when I’m free. / Tell me when you will free tomorrow.'],1],
+ ['If the forecast ___ accurate, we ___ the contingency plan.',['won’t be / use','isn’t / will use','isn’t / use'],1],
+ ['I wonder if the revised schedule ___ feasible next month. Here “if” means “whether”, not a condition.',['will be','is being','will'],0],
+ ['I ___ you the outcome as soon as it ___ clear.',['will tell / is','tell / will be','will tell / will be'],0],
+ ['What do you think ___ if the current projection ___ wrong?',['will happen / is','happens / will be','will happen / will be'],0],
+ ['Which sentence uses <i>will</i> most naturally for a decision made at the moment of speaking?',['I’ll take the later flight, then.','I will usually take the later flight.','I’ll be taking the later flight every Friday.'],0]
+];
+const builderData=[
+ {p:'what / do / you / think / will / be / the / most likely / outcome',a:['what do you think will be the most likely outcome','what do you think will be the most likely outcome?']},
+ {p:'I / let / you / know / as soon as / I / have / enough information',a:["i'll let you know as soon as i have enough information","i will let you know as soon as i have enough information"]},
+ {p:'I / doubt / the / tentative / date / will / remain / unchanged',a:['i doubt the tentative date will remain unchanged']},
+ {p:'if / this / option / not / prove / feasible / we / use / a contingency plan',a:["if this option doesn't prove feasible, we'll use a contingency plan","if this option does not prove feasible, we will use a contingency plan","if this option doesn't prove feasible we'll use a contingency plan","if this option does not prove feasible we will use a contingency plan"]},
+ {p:'will / you / tell / me / whether / you / anticipate / any / problems',a:['will you tell me whether you anticipate any problems','will you tell me whether you anticipate any problems?']}
+];
+
+function renderMC(id,data,prefix){document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="q graded" data-section="${prefix}" data-answer="${q[2]}" data-chosen=""><b>${i+1}. ${q[0]}</b><div class="options">${q[1].map((o,j)=>`<button type="button" class="opt" data-i="${j}" onclick="pick(this)">${o}</button>`).join('')}</div><div class="feedback neutral"></div></div>`).join('')}
+function renderBuilders(){builderQs.innerHTML=builderData.map((q,i)=>`<div class="typeQ typed graded" data-section="builder" data-answers='${JSON.stringify(q.a).replace(/'/g,"&#39;")}'><label>${i+1}. Rebuild: <span style="color:#7c3aed">${q.p}</span></label><input placeholder="Type the full sentence" oninput="updateProgress()"><div class="feedback neutral"></div></div>`).join('')}
+function pick(btn){const q=btn.closest('.q');q.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');q.dataset.chosen=btn.dataset.i;updateProgress();saveState()}
+function norm(s){return String(s||'').toLowerCase().trim().replace(/[’]/g,"'").replace(/[.!?]+$/,'').replace(/\s+/g,' ')}
+function graded(){return [...document.querySelectorAll('.graded')]}
+function answered(el){if(el.classList.contains('q'))return el.dataset.chosen!=='';return el.querySelector('input').value.trim().length>0}
+function updateProgress(){const all=graded(),done=all.filter(answered).length;bar.style.width=(done/all.length*100)+'%';progressText.textContent=`${done} / ${all.length} graded answers completed`}
+function sectionLabel(s){return({vocab:'Vocabulary',function:'Will functions',grammar:'Grammar',builder:'Sentence building'})[s]||s}
+function gradeAll(){let correct=0,wrong=0,unanswered=0;const sec={};graded().forEach(el=>{const s=el.dataset.section;sec[s]??={c:0,t:0,u:0};sec[s].t++;const fb=el.querySelector('.feedback');if(el.classList.contains('q')){const opts=[...el.querySelectorAll('.opt')],chosen=el.dataset.chosen===''?null:+el.dataset.chosen,ans=+el.dataset.answer;opts.forEach(x=>x.classList.remove('correct','wrong'));if(chosen===null){unanswered++;sec[s].u++;fb.textContent='No answer yet';fb.className='feedback neutral';return}opts[ans].classList.add('correct');if(chosen===ans){correct++;sec[s].c++;fb.textContent='✓ Correct';fb.className='feedback good'}else{wrong++;opts[chosen].classList.add('wrong');fb.textContent='Not quite — the correct answer is highlighted.';fb.className='feedback bad'}}else{const inp=el.querySelector('input'),answers=JSON.parse(el.dataset.answers),value=norm(inp.value),ok=answers.map(norm).includes(value);inp.classList.remove('ok','no');if(!value){unanswered++;sec[s].u++;fb.textContent='No answer yet';fb.className='feedback neutral';return}inp.classList.add(ok?'ok':'no');if(ok){correct++;sec[s].c++;fb.textContent='✓ Correct';fb.className='feedback good'}else{wrong++;fb.textContent='Model: '+answers[0];fb.className='feedback bad'}}});const total=graded().length,pct=Math.round(correct/total*100),label=pct>=90?'Excellent 🌟':pct>=75?'Great job 👏':pct>=60?'Good progress 👍':'Keep practicing 💪';window.last={correct,wrong,unanswered,total,pct,label,sec};result.classList.add('show');result.innerHTML=`<div class="bigScore">${pct}%</div><h3 style="margin:0;color:#4c1d95">${label}</h3><p><b>${correct}</b> correct · <b>${wrong}</b> wrong · <b>${unanswered}</b> unanswered</p><div class="breakdown">${Object.entries(sec).map(([k,v])=>`<div class="stat"><span>${sectionLabel(k)}</span><b>${v.c}/${v.t}</b><small>${v.u?v.u+' unanswered':'complete'}</small></div>`).join('')}</div><p class="small">Writing is not included in this percentage. It will be reviewed separately.</p>`;saveState();return window.last}
+
+function countWords(){const n=writing.value.trim()?writing.value.trim().split(/\s+/).length:0;wordCount.textContent=n+' words';saveState();return n}
+writing.addEventListener('input',countWords);studentName.addEventListener('input',saveState);
+
+function saveState(){try{const data={time:Date.now(),name:studentName.value,writing:writing.value,mc:graded().filter(x=>x.classList.contains('q')).map(x=>x.dataset.chosen),typed:graded().filter(x=>x.classList.contains('typed')).map(x=>x.querySelector('input').value)};localStorage.setItem('c1FutureForecastHomeworkV2',JSON.stringify(data))}catch(e){}}
+function restoreState(){try{const s=JSON.parse(localStorage.getItem('c1FutureForecastHomeworkV2')||'null');if(!s||Date.now()-s.time>86400000)return;studentName.value=s.name||'';writing.value=s.writing||'';const m=graded().filter(x=>x.classList.contains('q'));(s.mc||[]).forEach((v,i)=>{if(v!==''&&m[i]){m[i].dataset.chosen=v;m[i].querySelector(`[data-i="${v}"]`)?.classList.add('selected')}});const t=graded().filter(x=>x.classList.contains('typed'));(s.typed||[]).forEach((v,i)=>{if(t[i])t[i].querySelector('input').value=v||''});countWords();updateProgress()}catch(e){}}
+
+async function pdfBlob(){if(!window.last)gradeAll();const hide=[...document.querySelectorAll('.actions,.progressWrap')];hide.forEach(x=>x.style.visibility='hidden');window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));try{const c=await html2canvas(document.getElementById('homeworkRoot'),{scale:1.18,useCORS:true,backgroundColor:'#f7f5ff',logging:false}),{jsPDF}=window.jspdf,pdf=new jsPDF('p','mm','a4'),mw=198,mh=285,ratio=c.width/mw,slice=Math.floor(mh*ratio);let y=0,p=0;while(y<c.height){const hh=Math.min(slice,c.height-y),x=document.createElement('canvas');x.width=c.width;x.height=hh;x.getContext('2d').drawImage(c,0,y,c.width,hh,0,0,c.width,hh);if(p++)pdf.addPage();pdf.addImage(x.toDataURL('image/jpeg',.86),'JPEG',6,6,mw,hh/ratio,undefined,'FAST');y+=hh}return pdf.output('blob')}finally{hide.forEach(x=>x.style.visibility='')}}
+async function downloadPDF(){const b=downloadBtn,o=b.textContent;b.disabled=true;b.textContent='Creating PDF...';try{const blob=await pdfBlob(),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='C1_Future_Simple_Forecast_Homework.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}finally{b.disabled=false;b.textContent=o}}
+function nonce(){const a=new Uint32Array(4);crypto.getRandomValues(a);return [...a].map(x=>x.toString(16)).join('')}
+function toBase64(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.onerror=rej;r.readAsDataURL(blob)})}
+async function sendResults(){const name=studentName.value.trim();if(name.length<2){alert('Please enter the student name.');studentName.focus();return}const words=countWords();if(words<80){alert('Please complete the writing task with at least 80 words before sending.');writing.focus();return}if(website.value||submitInFlight)return;if(Date.now()-OPENED<15000){alert('Please spend a little more time on the homework before sending it.');return}submitInFlight=true;sendBtn.disabled=true;sendStatus.textContent='Preparing your results and PDF...';try{const r=gradeAll(),pdf=await pdfBlob(),pdf64=await toBase64(pdf),form=sendForm;form.action=ENDPOINT;const breakdown=Object.entries(r.sec).map(([k,v])=>`${sectionLabel(k)} ${v.c}/${v.t}`).join(' | ');const payload={key:KEY,homeworkId:HOMEWORK_ID,lessonTitle:LESSON,studentName:name,score:`${r.correct}/${r.total}`,percent:String(r.pct),grade:r.label,wrong:String(r.wrong),unanswered:String(r.unanswered),notes:`Breakdown: ${breakdown}\n\nWriting sample (${words} words):\n${writing.value.trim()}`,submittedAt:String(Date.now()),nonce:nonce(),website:'',pdfBase64:pdf64,filename:'C1_Future_Simple_Forecast_Homework.pdf',audioBase64:'',audioMimeType:'',audioFilename:''};form.innerHTML='';Object.entries(payload).forEach(([k,v])=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;form.appendChild(i)});const sentNonce=payload.nonce;const listener=e=>{if(e.data&&e.data.type==='homework-submit'&&e.data.nonce===sentNonce){window.removeEventListener('message',listener);sendStatus.textContent=e.data.status==='success'?'✓ Results sent to teacher.':'Could not send: '+e.data.message}};window.addEventListener('message',listener);form.submit();setTimeout(()=>{if(sendStatus.textContent.includes('Preparing'))sendStatus.textContent='Submission sent. If no confirmation appears, use the backup PDF button.'},6500)}catch(e){sendStatus.textContent='Could not send: '+e.message}finally{setTimeout(()=>{submitInFlight=false;sendBtn.disabled=false},1500)}}
+
+renderMC('vocabQs',vocabData,'vocab');renderMC('functionQs',functionData,'function');renderMC('grammarQs',grammarData,'grammar');renderBuilders();restoreState();updateProgress();countWords();
+</script>
+</body>
+</html>
