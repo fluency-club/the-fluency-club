@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>B2 Present Tenses Control Room — Homework</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--ink:#182033;--muted:#667085;--violet:#6d28d9;--violet2:#4c1d95;--blue:#2563eb;--green:#15803d;--orange:#ea580c;--pink:#db2777;--red:#dc2626;--bg:#f5f7ff;--line:#e4e7ec}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at top left,#e0e7ff 0,transparent 30%),radial-gradient(circle at top right,#fce7f3 0,transparent 26%),linear-gradient(135deg,#f8fafc,#f5f3ff 50%,#fff7ed);min-height:100vh}.wrap{max-width:1040px;margin:auto;padding:24px 16px 70px}.hero,.section{background:#fff;border:1px solid #e7eaf0;border-radius:28px;box-shadow:0 18px 44px #17255414;margin-bottom:18px;padding:26px}.hero{background:linear-gradient(135deg,#111827,#312e81 48%,#7c3aed);color:#fff;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:330px;height:330px;border-radius:50%;right:-90px;top:-150px;background:#ffffff0d;border:1px solid #ffffff18}.hero>*{position:relative;z-index:2}.hero h1{font-size:clamp(38px,6vw,62px);line-height:1;margin:10px 0 12px}.hero p{font-size:18px;line-height:1.6;max-width:820px}.tag{display:inline-block;padding:7px 11px;border-radius:999px;background:#ffffff1c;border:1px solid #ffffff2e;font-size:12px;font-weight:950;letter-spacing:.06em}.progressWrap{position:sticky;top:8px;z-index:30;background:#ffffffee;backdrop-filter:blur(12px);border:1px solid #e5e7eb;border-radius:18px;padding:10px 12px;margin-bottom:18px;box-shadow:0 10px 26px #17255414}.progress{height:10px;border-radius:999px;background:#ede9fe;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#2563eb,#8b5cf6,#ec4899);transition:.25s}.progressText{font-size:13px;font-weight:850;color:#5b21b6;margin-top:7px}.section h2{font-size:31px;color:var(--violet2);margin:4px 0 8px}.sub{color:var(--muted);line-height:1.55}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.recapCard{border-radius:20px;padding:17px;border:1px solid #e5e7eb;background:#fff;box-shadow:0 9px 20px #1725540a}.recapCard.blue{background:linear-gradient(135deg,#eff6ff,#fff);border-color:#bfdbfe}.recapCard.green{background:linear-gradient(135deg,#ecfdf5,#fff);border-color:#bbf7d0}.recapCard.orange{background:linear-gradient(135deg,#fff7ed,#fff);border-color:#fed7aa}.recapCard.purple{background:linear-gradient(135deg,#f5f3ff,#fff);border-color:#ddd6fe}.recapCard h3{margin:0 0 8px;color:#312e81}.formula{display:inline-block;font-weight:950;background:#111827;color:#fff;border-radius:11px;padding:7px 10px;margin:3px 0 8px}.sentence{border-left:5px solid #8b5cf6;padding:11px 13px;background:#faf5ff;border-radius:0 14px 14px 0;line-height:1.5;margin-top:9px}.note{margin-top:14px;border-radius:16px;padding:14px;background:#eff6ff;border:1px solid #bfdbfe;color:#1e3a8a;line-height:1.5}.snapshot{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.snap{border-radius:20px;padding:18px;color:#fff;min-height:165px}.snap:first-child{background:linear-gradient(135deg,#1e3a8a,#4f46e5)}.snap:last-child{background:linear-gradient(135deg,#047857,#16a34a)}.snap .big{font-size:28px;font-weight:1000;margin-bottom:7px}.meaningGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:12px}.meaning{border:1px solid #ddd6fe;background:#faf5ff;border-radius:16px;padding:13px;line-height:1.45}.meaning b{color:#5b21b6}.vocabGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.vocabCard{height:175px;border-radius:18px;overflow:hidden;position:relative;background:#111827;box-shadow:0 9px 22px #17255418}.vocabCard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.vocabCard:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#11182712,#111827e8 72%)}.vocabText{position:absolute;z-index:2;left:12px;right:12px;bottom:11px;color:#fff}.vocabText b{display:block;font-size:19px}.vocabText em{display:block;font-style:normal;font-size:12px;color:#fef3c7;margin:3px 0}.vocabText span{font-size:11px;color:#e2e8f0}.q,.typeQ{border:1px solid #e5e7eb;border-radius:19px;padding:16px;background:#fff;margin:11px 0}.q b,.typeQ b{line-height:1.5}.options{display:grid;gap:8px;margin-top:11px}.opt{border:2px solid #e5e7eb;border-radius:14px;padding:11px 13px;background:#fff;color:#1f2937;text-align:left;font-size:16px;cursor:pointer}.opt:hover{border-color:#a78bfa;background:#faf5ff}.opt.selected{border-color:#7c3aed;background:#f3e8ff}.opt.good{border-color:#16a34a;background:#dcfce7}.opt.bad{border-color:#dc2626;background:#fee2e2}.textAns,textarea{width:100%;border:2px solid #d0d5dd;border-radius:14px;padding:11px 13px;font:inherit;color:#111827;background:#fff;margin-top:10px}.textAns.ok{border-color:#16a34a;background:#f0fdf4}.textAns.no{border-color:#dc2626;background:#fef2f2}.feedback{font-weight:800;margin-top:8px;min-height:20px}.goodText{color:#15803d}.badText{color:#b42318}.neutralText{color:#667085}.reading{font-size:17px;line-height:1.75;padding:18px;border-radius:18px;background:linear-gradient(135deg,#f8fafc,#eff6ff);border-left:6px solid #2563eb}.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:12px 0}.checkItem{background:#f9fafb;border:1px solid #e5e7eb;border-radius:13px;padding:10px;font-weight:750}.wordCount{font-size:13px;font-weight:850;color:#5b21b6;margin-top:6px}.nameRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}.nameRow input{flex:1;min-width:220px;padding:11px 13px;border:2px solid #d0d5dd;border-radius:13px;font:inherit}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.btn{border:0;border-radius:14px;padding:12px 16px;font-size:16px;font-weight:900;cursor:pointer;color:#fff;background:#5b21b6}.btn.green{background:#15803d}.btn.pink{background:#db2777}.btn.gray{background:#475467}.btn:disabled{opacity:.55;cursor:not-allowed}.result{display:none;margin-top:16px;border-radius:20px;padding:19px;background:linear-gradient(135deg,#ecfdf5,#f5f3ff);border:1px solid #d1fae5}.result.show{display:block}.bigScore{font-size:54px;font-weight:1000;color:#4c1d95}.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:12px}.stat{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:11px}.stat b{display:block;color:#4c1d95;font-size:19px}.tiny{font-size:12px;color:#667085}.teacherNote{background:#fff7ed;border:1px solid #fed7aa;border-radius:16px;padding:13px;color:#9a3412;margin-top:12px}
+@media(max-width:800px){.grid2,.grid3,.snapshot,.meaningGrid,.vocabGrid,.breakdown,.checklist{grid-template-columns:1fr}.vocabCard{height:205px}.hero,.section{padding:19px}.section h2{font-size:27px}}
+@page{size:A4;margin:8mm}@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.progressWrap,.actions,#sendStatus{display:none!important}.hero,.section{box-shadow:none;break-inside:auto}.q,.typeQ,.recapCard,.vocabCard,.snap,.meaning{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap" id="homeworkRoot">
+<div class="progressWrap"><div class="progress"><div id="bar"></div></div><div class="progressText" id="progressText">0 / 30 graded answers completed</div></div>
+<header class="hero">
+<span class="tag">B2+ HOMEWORK · PRESENT TENSES CONTROL ROOM</span>
+<h1>Routine · Live · Result 🎛️⚡</h1>
+<p>Review what we covered today: <b>Present Simple, Present Continuous, Present Perfect, stative verbs, meaning changes</b>, and the new work-and-routine vocabulary. The graded section checks accuracy; the final writing is for teacher feedback.</p>
+</header>
+
+<section class="section">
+<h2>Today’s Grammar Map 🧠</h2>
+<p class="sub">The tense is chosen by <b>meaning</b>, not by one magic signal word.</p>
+<div class="grid3">
+<div class="recapCard blue"><h3>Present Simple</h3><div class="formula">base verb / -s</div><p><b>Use:</b> routines, facts, repeated actions, schedules, and states.</p><div class="sentence">I work remotely twice a week.<br>The class starts at 6.</div></div>
+<div class="recapCard green"><h3>Present Continuous</h3><div class="formula">am / is / are + -ing</div><p><b>Use:</b> now, temporary situations, trends, changes, and personal arrangements.</p><div class="sentence">I’m working from a café this week.<br>I’m meeting a client tomorrow.</div></div>
+<div class="recapCard orange"><h3>Present Perfect</h3><div class="formula">have / has + V3</div><p><b>Use:</b> experience, recent result, unfinished time, and past actions connected to now.</p><div class="sentence">I’ve finished three projects this month.<br>I’ve already sent the email.</div></div>
+</div>
+<div class="snapshot">
+<div class="snap"><div class="big">📸 STATE = snapshot</div><p>A state is simply true: opinion, knowledge, possession, preference, understanding.</p><p><b>I know.</b> · <b>I believe.</b> · <b>I own.</b> · <b>I prefer.</b></p></div>
+<div class="snap"><div class="big">🎥 ACTION = video</div><p>An activity, process, temporary behavior, or change can be imagined unfolding.</p><p><b>I’m working.</b> · <b>I’m changing.</b> · <b>I’m considering.</b></p></div>
+</div>
+<div class="meaningGrid">
+<div class="meaning"><b>think</b><br>I <b>think</b> it’s useful = opinion/state.<br>I’m <b>thinking</b> about it = considering/action.</div>
+<div class="meaning"><b>have</b><br>I <b>have</b> two brothers = possession/relationship.<br>I’m <b>having</b> lunch = activity.</div>
+<div class="meaning"><b>see</b><br>I <b>see</b> your point = understand/state.<br>I’m <b>seeing</b> a client = meeting/arrangement.</div>
+</div>
+<div class="note"><b>State from past → now:</b> use Present Perfect Simple: <b>I’ve known her for years.</b> We do not normally say <i>I’ve been knowing her...</i> because <b>know</b> describes a state.</div>
+</section>
+
+<section class="section">
+<h2>Vocabulary Recap 📸</h2>
+<p class="sub">These are the words from today’s lesson. Review the Russian meaning and the natural collocation.</p>
+<div class="vocabGrid">
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=900&q=82" alt="planner"><div class="vocabText"><b>prioritize</b><em>расставлять приоритеты</em><span>prioritize important tasks</span></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=82" alt="workflow"><div class="vocabText"><b>streamline</b><em>упростить, сделать эффективнее</em><span>streamline a process</span></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=82" alt="notifications"><div class="vocabText"><b>distracting</b><em>отвлекающий</em><span>a distracting environment</span></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=82" alt="work"><div class="vocabText"><b>workload</b><em>рабочая нагрузка</em><span>manage a heavy workload</span></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=900&q=82" alt="calendar"><div class="vocabText"><b>consistent</b><em>последовательный, стабильный</em><span>stay consistent</span></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82" alt="long term"><div class="vocabText"><b>sustainable</b><em>устойчивый, реалистичный надолго</em><span>a sustainable routine</span></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=82" alt="productive desk"><div class="vocabText"><b>efficient</b><em>эффективный</em><span>an efficient system</span></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=82" alt="busy people"><div class="vocabText"><b>overwhelmed</b><em>перегруженный</em><span>feel overwhelmed</span></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1523240794102-9ebd0fcff0c1?auto=format&fit=crop&w=900&q=82" alt="study"><div class="vocabText"><b>worthwhile</b><em>стоящий усилий</em><span>a worthwhile effort</span></div></div>
+<div class="vocabCard"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=82" alt="team adapting"><div class="vocabText"><b>adapt</b><em>адаптироваться</em><span>adapt to change</span></div></div>
+</div>
+</section>
+
+<section class="section"><h2>1. Tense Control — Choose the Meaning ⚡</h2><p class="sub">The distractors are grammatically possible in other contexts. Choose the form that matches this context.</p><div id="tenseQs"></div></section>
+<section class="section"><h2>2. Stative Verb Lab 🔍</h2><p class="sub">Focus on the meaning of the verb: state, activity, or arrangement.</p><div id="stativeQs"></div></section>
+<section class="section"><h2>3. Vocabulary in Context 🧩</h2><p class="sub">Choose the word that sounds natural in the sentence.</p><div id="vocabQs"></div></section>
+<section class="section"><h2>4. Russian → English 🇷🇺 → 🇬🇧</h2><p class="sub">Translate the useful phrase. Small differences in articles are accepted.</p><div id="translateQs"></div></section>
+<section class="section"><h2>5. Repair the Verb Phrase 🛠️</h2><p class="sub">Type only the corrected verb phrase, not the whole sentence.</p><div id="repairQs"></div></section>
+
+<section class="section">
+<h2>6. Reading — The Routine Experiment 📖</h2>
+<div class="reading">Leo usually starts his day with the most demanding task because he knows his concentration is strongest in the morning. This month, however, he is testing a different schedule. He is taking a longer lunch break and is turning off notifications for two hours every afternoon. So far, the experiment has worked surprisingly well: he has streamlined several repetitive tasks and has become more consistent with his priorities. He still has a heavy workload, but he feels less overwhelmed because the new routine is more sustainable.</div>
+<div id="readingQs"></div>
+</section>
+
+<section class="section">
+<h2>7. Final Writing — Your Real Routine ✍️</h2>
+<p class="sub">Write <b>130–170 words</b>. Use real information — no invented story.</p>
+<div class="note"><b>Prompt:</b> Compare your normal routine with one temporary change happening in your life now. Then explain what you have improved, learned, completed, or changed recently.</div>
+<div class="checklist">
+<div class="checkItem">✓ at least 2 Present Simple sentences</div><div class="checkItem">✓ at least 2 Present Continuous sentences</div>
+<div class="checkItem">✓ at least 2 Present Perfect sentences</div><div class="checkItem">✓ at least 1 correctly used stative verb</div>
+<div class="checkItem">✓ at least 4 vocabulary words from today</div><div class="checkItem">✓ clear contrast between routine / temporary / result</div>
+</div>
+<textarea id="writing" rows="10" placeholder="Write 130–170 words..."></textarea><div class="wordCount" id="wordCount">0 words</div>
+<div class="teacherNote">This writing is not automatically graded. It will be included in the PDF for teacher feedback.</div>
+</section>
+
+<section class="section">
+<h2>Finish & Send ✅</h2>
+<div class="nameRow"><b>Student name:</b><input id="studentName" placeholder="Type your name"/></div>
+<input id="website" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off"/>
+<div id="result" class="result"></div>
+<div class="actions"><button class="btn green" onclick="grade()">✓ CHECK RESULTS</button><button class="btn pink" id="sendBtn" onclick="sendResults()">📨 SEND RESULTS</button><button class="btn gray" id="downloadBtn" onclick="downloadPDF()">Backup PDF</button></div>
+<div id="sendStatus" class="tiny" style="margin-top:10px"></div>
+</section>
+</div>
+<iframe name="sendFrame" id="sendFrame" style="display:none"></iframe><form id="sendForm" method="POST" target="sendFrame" style="display:none"></form>
+<script>
+const ENDPOINT='https://script.google.com/macros/s/AKfycbyzfvP4ZuWA4A0lF2naJYi_Hs9XnC_EnVZS3BxOL50Rldgk5xBop1Z2rh1i_bAADUXH/exec';
+const KEY='l0Wgf2BejUSFsst5cNGfFvn689YJ-Au9';
+const HOMEWORK_ID='b2-present-tenses-control-room-v1';
+const LESSON='B2+ Present Tenses Control Room Homework';
+const OPENED=Date.now();let submitInFlight=false;
+const sections={tense:'Tense control',stative:'Stative verbs',vocab:'Vocabulary',translate:'Translation',repair:'Error repair',reading:'Reading'};
+const tenseData=[
+['I usually ___ the difficult tasks first, but this week I ___ with a different order.',['prioritize / experiment','prioritize / am experimenting','am prioritizing / have experimented'],1],
+['So far this month, we ___ three unnecessary steps from the process, and it is already faster.',['remove','are removing','have removed'],2],
+['The training session ___ at 9:00 every Tuesday, so I always arrive early.',['starts','is starting','has started'],0],
+['I ___ this software before, but I ___ it for a completely different project this week.',['use / test','have used / am testing','am using / have tested'],1],
+['My workload ___ heavier at the moment, although I normally ___ it quite well.',['gets / am managing','is getting / manage','has got / am managing'],1],
+['I ___ the new system is more efficient, but I still ___ how it works in practice.',['am thinking / learn','think / am learning','have thought / learn'],1],
+['We ___ two major deadlines already this week, and the week is not over yet.',['meet','are meeting','have met'],2],
+['I ___ a client tomorrow afternoon, so I ___ the morning free for focused work.',['see / keep','am seeing / am keeping','have seen / keep'],1]
+];
+const stativeData=[
+['“I think the new routine is sustainable.” Why Present Simple?',['Think = an opinion/state here.','Think = an action happening now.','Present Simple always follows “I”.'],0],
+['“I’m thinking about changing my schedule.” Why Continuous?',['Think = a permanent opinion.','Think = the active process of considering something.','Continuous is required after “about”.'],1],
+['Which sentence describes possession rather than an activity?',['I’m having lunch with a colleague.','I have two laptops for work.','I’ve had lunch already.'],1],
+['Which sentence uses “see” to mean understand?',['I’m seeing my manager tomorrow.','I see what you mean.','I’ve seen that film before.'],1],
+['Choose the natural sentence for a state that began in the past and is still true.',['I’m knowing him since 2022.','I have known him since 2022.','I know him since 2022.'],1],
+['Why is “I’m seeing a client at 3” natural?',['See means “understand”.','See means a planned meeting/arrangement.','All stative verbs must be continuous for future time.'],1]
+];
+const vocabData=[
+['I have too many tasks today, so I need to ___ the three that matter most.',['prioritize','streamline','adapt'],0],
+['The new template removed several unnecessary steps and ___ the process.',['overwhelmed','streamlined','distracted'],1],
+['A routine that works for two days but exhausts you after a month is not very ___.',['sustainable','worthwhile','distracting'],0],
+['Constant notifications make the office extremely ___.',['consistent','distracting','efficient'],1],
+['The course was difficult, but the result made the effort feel ___.',['worthwhile','overwhelmed','streamlined'],0]
+];
+const translateData=[
+['расставлять приоритеты важным задачам',['prioritize important tasks','prioritise important tasks']],
+['упростить процесс',['streamline a process','streamline the process']],
+['тяжёлая рабочая нагрузка',['a heavy workload','heavy workload']],
+['адаптироваться к изменениям',['adapt to change','adapt to changes']]
+];
+const repairData=[
+['I’m knowing him for five years. → corrected verb phrase',['have known','i have known',"i've known"]],
+['This week I work from home because the office is closed. → corrected verb phrase',['am working',"i'm working",'i am working']],
+['I’m believing this approach is more efficient. → corrected verb phrase',['believe','i believe']],
+['She sees a client tomorrow at 10; it is already in her calendar. → corrected verb phrase',['is seeing',"she's seeing",'she is seeing']]
+];
+const readingData=[
+['Which sentence describes Leo’s normal routine?',['He is taking a longer lunch break.','He usually starts with the most demanding task.','He has streamlined repetitive tasks.'],1],
+['Why is “is testing” in Present Continuous?',['It is a temporary experiment this month.','It is a permanent fact.','It is a completed result.'],0],
+['Which phrase shows a recent result connected to now?',['usually starts','is turning off','has become more consistent'],2]
+];
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function renderMC(id,data,sec){document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="q graded" data-section="${sec}" data-answer="${q[2]}"><b>${i+1}. ${q[0]}</b><div class="options">${q[1].map((o,j)=>`<button class="opt" data-i="${j}" onclick="pick(this)">${o}</button>`).join('')}</div><div class="feedback"></div></div>`).join('')}
+function renderTyped(id,data,sec){document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="typeQ graded typed" data-section="${sec}" data-answers='${esc(JSON.stringify(q[1]))}'><b>${i+1}. ${q[0]}</b><input class="textAns" placeholder="Type your answer" oninput="updateProgress();saveState()"><div class="feedback"></div></div>`).join('')}
+function pick(btn){const q=btn.closest('.q');q.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');updateProgress();saveState()}
+function norm(s){return String(s||'').toLowerCase().trim().replace(/[’]/g,"'").replace(/[.,!?]+$/,'').replace(/^the\s+/,'').replace(/^a\s+/,'a ').replace(/\s+/g,' ')}
+function graded(){return [...document.querySelectorAll('.graded')]}
+function answered(q){if(q.classList.contains('typed'))return q.querySelector('.textAns').value.trim().length>0;return !!q.querySelector('.opt.selected')}
+function updateProgress(){const qs=graded(),done=qs.filter(answered).length;bar.style.width=(done/qs.length*100)+'%';progressText.textContent=`${done} / ${qs.length} graded answers completed`}
+function grade(){let correct=0,wrong=0,unanswered=0;const stats={};Object.keys(sections).forEach(k=>stats[k]={c:0,t:0});graded().forEach(q=>{const sec=q.dataset.section;stats[sec].t++;const fb=q.querySelector('.feedback');fb.className='feedback';if(q.classList.contains('typed')){const inp=q.querySelector('.textAns'),v=norm(inp.value),answers=JSON.parse(q.dataset.answers).map(norm);inp.classList.remove('ok','no');if(!v){unanswered++;fb.textContent='No answer yet.';fb.classList.add('neutralText');return}if(answers.includes(v)){correct++;stats[sec].c++;inp.classList.add('ok');fb.textContent='✓ Correct';fb.classList.add('goodText')}else{wrong++;inp.classList.add('no');fb.textContent='Model: '+JSON.parse(q.dataset.answers)[0];fb.classList.add('badText')}}else{const opts=[...q.querySelectorAll('.opt')],sel=q.querySelector('.opt.selected'),ans=+q.dataset.answer;opts.forEach(x=>x.classList.remove('good','bad'));if(!sel){unanswered++;fb.textContent='No answer yet.';fb.classList.add('neutralText');return}opts[ans].classList.add('good');if(opts.indexOf(sel)===ans){correct++;stats[sec].c++;fb.textContent='✓ Correct';fb.classList.add('goodText')}else{wrong++;sel.classList.add('bad');fb.textContent='Review the green answer.';fb.classList.add('badText')}}});const total=graded().length,pct=Math.round(correct/total*100),label=pct>=90?'Excellent 🌟':pct>=75?'Great job 👏':pct>=60?'Good progress 👍':'Keep practicing 💪';window.last={correct,wrong,unanswered,total,pct,label,stats};result.classList.add('show');result.innerHTML=`<div class="bigScore">${pct}%</div><h3>${label}</h3><p><b>${correct}</b> correct · <b>${wrong}</b> wrong · <b>${unanswered}</b> unanswered</p><div class="breakdown">${Object.entries(sections).map(([k,v])=>`<div class="stat"><b>${stats[k].c}/${stats[k].t}</b>${v}</div>`).join('')}</div><p class="tiny">Writing is not included in the automatic score.</p>`;saveState();result.scrollIntoView({behavior:'smooth',block:'center'})}
+function countWords(){const n=(writing.value.trim().match(/\b[\w’'-]+\b/g)||[]).length;wordCount.textContent=n+' words';saveState()}
+writing.addEventListener('input',countWords);studentName.addEventListener('input',saveState);
+function saveState(){const data={name:studentName.value,writing:writing.value,answers:graded().map(q=>q.classList.contains('typed')?q.querySelector('.textAns').value:(q.querySelector('.opt.selected')?.dataset.i??null))};localStorage.setItem('b2PresentControlHomeworkV1',JSON.stringify(data))}
+function restoreState(){try{const s=JSON.parse(localStorage.getItem('b2PresentControlHomeworkV1')||'null');if(!s)return;studentName.value=s.name||'';writing.value=s.writing||'';(s.answers||[]).forEach((v,i)=>{const q=graded()[i];if(v===null||v===undefined||!q)return;if(q.classList.contains('typed'))q.querySelector('.textAns').value=v;else q.querySelector(`[data-i="${v}"]`)?.classList.add('selected')});countWords();updateProgress()}catch(e){}}
+async function pdfBlob(){if(!window.last)grade();const hide=[...document.querySelectorAll('.actions')];hide.forEach(x=>x.style.visibility='hidden');window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));try{const c=await html2canvas(document.body,{scale:1.15,useCORS:true,backgroundColor:'#f5f7ff',logging:false}),{jsPDF}=window.jspdf,pdf=new jsPDF('p','mm','a4'),mw=198,mh=285,ratio=c.width/mw,slice=Math.floor(mh*ratio);let y=0,p=0;while(y<c.height){const hh=Math.min(slice,c.height-y),x=document.createElement('canvas');x.width=c.width;x.height=hh;x.getContext('2d').drawImage(c,0,y,c.width,hh,0,0,c.width,hh);if(p++)pdf.addPage();pdf.addImage(x.toDataURL('image/jpeg',.86),'JPEG',6,6,mw,hh/ratio,undefined,'FAST');y+=hh}return pdf.output('blob')}finally{hide.forEach(x=>x.style.visibility='')}}
+async function downloadPDF(){const b=downloadBtn,o=b.textContent;b.disabled=true;b.textContent='Creating PDF...';try{const blob=await pdfBlob(),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='B2_Present_Tenses_Control_Room_Homework.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200)}finally{b.disabled=false;b.textContent=o}}
+function nonce(){const a=new Uint32Array(4);crypto.getRandomValues(a);return [...a].map(x=>x.toString(16)).join('')}
+function toBase64(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.onerror=rej;r.readAsDataURL(blob)})}
+async function sendResults(){const name=studentName.value.trim();if(name.length<2){alert('Please enter the student name.');return}if(website.value||submitInFlight)return;if(Date.now()-OPENED<15000){alert('Please spend a little more time on the homework before sending it.');return}submitInFlight=true;sendBtn.disabled=true;sendStatus.textContent='Preparing your results...';try{grade();const pdf=await pdfBlob(),r=window.last,pdf64=await toBase64(pdf),form=sendForm;form.action=ENDPOINT;const payload={key:KEY,homeworkId:HOMEWORK_ID,lessonTitle:LESSON,studentName:name,score:`${r.correct}/${r.total}`,percent:String(r.pct),grade:r.label,wrong:String(r.wrong),unanswered:String(r.unanswered),submittedAt:String(Date.now()),nonce:nonce(),website:'',pdfBase64:pdf64,filename:'B2_Present_Tenses_Control_Room_Homework.pdf',audioBase64:'',audioMimeType:'',audioFilename:''};form.innerHTML='';Object.entries(payload).forEach(([k,v])=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;form.appendChild(i)});const sentNonce=payload.nonce;const listener=e=>{if(e.data&&e.data.type==='homework-submit'&&e.data.nonce===sentNonce){window.removeEventListener('message',listener);sendStatus.textContent=e.data.status==='success'?'✓ Results sent to teacher.':'Could not send: '+e.data.message}};window.addEventListener('message',listener);form.submit();setTimeout(()=>{if(sendStatus.textContent.includes('Preparing'))sendStatus.textContent='Submission sent. If no confirmation appears, use the backup PDF.'},6500)}catch(e){sendStatus.textContent='Could not send: '+e.message}finally{setTimeout(()=>{submitInFlight=false;sendBtn.disabled=false},1500)}}
+renderMC('tenseQs',tenseData,'tense');renderMC('stativeQs',stativeData,'stative');renderMC('vocabQs',vocabData,'vocab');renderTyped('translateQs',translateData,'translate');renderTyped('repairQs',repairData,'repair');renderMC('readingQs',readingData,'reading');restoreState();updateProgress();
+</script>
+</body>
+</html>
