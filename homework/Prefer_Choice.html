@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>B1-B2 Choice Grammar Homework</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--ink:#1f2937;--muted:#667085;--purple:#6d28d9;--purple2:#4c1d95;--pink:#db2777;--blue:#2563eb;--green:#15803d;--orange:#ea580c;--red:#dc2626;--bg:#f7f7fc}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:linear-gradient(135deg,#eef2ff,#fdf4ff 50%,#fff7ed)}
+.wrap{max-width:1050px;margin:auto;padding:20px}.hero,.section{background:#fff;border:1px solid #e5e7eb;border-radius:26px;padding:24px;margin:16px 0;box-shadow:0 16px 38px #17255412}.hero{background:linear-gradient(135deg,#312e81,#6d28d9 55%,#be185d);color:#fff}.hero h1{font-size:clamp(36px,6vw,58px);line-height:1;margin:10px 0}.hero p{font-size:18px;line-height:1.55;max-width:850px}.tag{display:inline-block;padding:7px 11px;border-radius:999px;background:#ffffff20;border:1px solid #ffffff3d;color:#fff;font-weight:900;font-size:12px;letter-spacing:.04em}.section h2{font-size:30px;color:var(--purple2);margin:0 0 10px}.sub{color:var(--muted);line-height:1.55}.progressWrap{position:sticky;top:8px;z-index:20;background:#ffffffed;backdrop-filter:blur(10px);border:1px solid #e5e7eb;border-radius:16px;padding:10px 12px;box-shadow:0 9px 25px #17255410}.progress{height:10px;background:#ede9fe;border-radius:999px;overflow:hidden}.progress>div{height:100%;width:0;background:linear-gradient(90deg,#2563eb,#8b5cf6,#ec4899);transition:.25s}.progressText{font-size:13px;font-weight:800;color:#5b21b6;margin-top:5px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.recapCard{border:1px solid #e5e7eb;border-radius:20px;padding:16px;background:#fff}.recapCard.purple{background:#faf5ff;border-color:#ddd6fe}.recapCard.blue{background:#eff6ff;border-color:#bfdbfe}.recapCard.green{background:#ecfdf5;border-color:#bbf7d0}.recapCard.orange{background:#fff7ed;border-color:#fed7aa}.formula{display:inline-block;background:#ede9fe;color:#5b21b6;font-weight:1000;padding:7px 10px;border-radius:10px;margin:5px 0}.example{background:#fff;border-left:4px solid #8b5cf6;border-radius:0 12px 12px 0;padding:10px 12px;margin-top:8px;line-height:1.45}.quickRule{margin-top:14px;background:linear-gradient(135deg,#f5f3ff,#fff7ed);border:2px dashed #c4b5fd;border-radius:18px;padding:16px;line-height:1.6}.vocabGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.vocab{border-radius:18px;padding:14px;min-height:125px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:linear-gradient(145deg,#312e81,#7c3aed)}.vocab:nth-child(3n+2){background:linear-gradient(145deg,#0f766e,#06b6d4)}.vocab:nth-child(3n){background:linear-gradient(145deg,#9a3412,#f97316)}.vocab b{font-size:20px}.vocab span{font-size:13px;margin-top:5px;opacity:.95}.vocab em{font-style:normal;font-size:12px;margin-top:4px;opacity:.85}.q{border:1px solid #e5e7eb;border-radius:18px;padding:15px;background:#fff;margin:11px 0}.q b{line-height:1.45}.options{display:grid;gap:8px;margin-top:10px}.opt{border:2px solid #e5e7eb;background:#fff;color:#1f2937;border-radius:13px;padding:11px 13px;text-align:left;font-size:16px;cursor:pointer}.opt:hover{border-color:#c4b5fd;background:#faf5ff}.opt.selected{border-color:#7c3aed;background:#f3e8ff}.opt.good{border-color:#16a34a;background:#ecfdf5}.opt.bad{border-color:#ef4444;background:#fef2f2}.feedback{font-weight:850;min-height:20px;margin-top:8px}.goodText{color:#166534}.badText{color:#b42318}.typeQ{border:1px solid #e5e7eb;border-radius:18px;padding:15px;background:#fff;margin:10px 0}.typeQ input,.writing{width:100%;border:2px solid #d1d5db;border-radius:13px;padding:12px;font:inherit;margin-top:9px}.typeQ input.ok{border-color:#16a34a;background:#ecfdf5}.typeQ input.no{border-color:#ef4444;background:#fef2f2}.writing{min-height:95px;resize:vertical}.btn{border:0;border-radius:14px;padding:11px 16px;background:#5b21b6;color:#fff;font-weight:900;cursor:pointer}.btn.green{background:#15803d}.btn.pink{background:#db2777}.btn.alt{background:#475467}.btn.orange{background:#ea580c}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.result{display:none;margin-top:16px;background:linear-gradient(135deg,#ecfdf5,#f5f3ff);border:1px solid #c4b5fd;border-radius:20px;padding:18px}.result.show{display:block}.scoreBig{font-size:44px;font-weight:1000;color:#4c1d95}.breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.stat{background:#fff;border:1px solid #e5e7eb;border-radius:15px;padding:12px;text-align:center}.stat b{font-size:22px;color:#4c1d95;display:block}.nameRow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.nameRow input{flex:1;min-width:220px;border:2px solid #d1d5db;border-radius:12px;padding:10px;font:inherit}.note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:15px;padding:12px;color:#1e3a8a;line-height:1.5}.mini{font-size:13px;color:var(--muted)}
+@media(max-width:820px){.grid2,.grid3,.breakdown{grid-template-columns:1fr}.vocabGrid{grid-template-columns:1fr 1fr}.wrap{padding:12px}.hero,.section{padding:18px}.section h2{font-size:27px}}@media(max-width:480px){.vocabGrid{grid-template-columns:1fr}}
+@page{size:A4;margin:8mm}@media print{body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}.actions,.progressWrap,#sendStatus{display:none!important}.hero,.section{box-shadow:none}.q,.typeQ,.recapCard,.vocab{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap" id="homeworkRoot">
+<div class="progressWrap"><div class="progress"><div id="bar"></div></div><div class="progressText" id="progressText">0 / 28 graded answers completed</div></div>
+
+<header class="hero"><span class="tag">B1-B2 HOMEWORK · CHOICE GRAMMAR</span><h1>Pick One… Or Neither ⚖️✨</h1><p>Review today’s grammar for choices and preferences, practise the new vocabulary, and learn one extra structure we did not get to in class: <b>whether…or</b>.</p></header>
+
+<section class="section"><h2>Lesson Recap — Choice Grammar 🧠</h2><div class="grid2">
+<div class="recapCard purple"><h3>Either…or = one of two</h3><div class="formula">either A or B</div><p>Use it when both options are possible, but you choose one.</p><div class="example">We can <b>either stay home or go out</b>.</div></div>
+<div class="recapCard blue"><h3>Neither…nor = not A, not B</h3><div class="formula">neither A nor B</div><p>Use it when both options are negative / rejected.</p><div class="example"><b>Neither the beach nor the city</b> sounds relaxing today.</div></div>
+<div class="recapCard green"><h3>Both…and = A + B</h3><div class="formula">both A and B</div><p>Use it when you want or like both options.</p><div class="example">I like <b>both quiet weekends and spontaneous trips</b>.</div></div>
+<div class="recapCard orange"><h3>Either / Neither / Both + of</h3><div class="formula">either / neither / both of + plural group</div><p>Use <b>of</b> before: <i>the / these / my / us / them</i>.</p><div class="example"><b>Neither of the hotels</b> is cheap. · <b>Both of them</b> look good.</div></div>
+<div class="recapCard purple"><h3>Would rather = this choice now</h3><div class="formula">would rather + base verb</div><p>No <b>to</b> after <i>rather</i>.</p><div class="example">I’d rather <b>stay</b> home. · I’d rather <b>fly than drive</b>.</div></div>
+<div class="recapCard blue"><h3>Prefer = general preference</h3><div class="formula">prefer A to B</div><p>Use it for what you usually like more.</p><div class="example">I prefer <b>quiet evenings to hectic nights</b>.</div></div>
+<div class="recapCard green"><h3>Agreement</h3><p><b>Positive:</b> So do I. / Me too.</p><p><b>Negative:</b> Neither do I. / Me neither.</p><div class="example">“I don’t like crowded airports.” — “<b>Neither do I.</b>”</div></div>
+<div class="recapCard orange"><h3>NEW: Whether…or</h3><div class="formula">whether A or B</div><p>Use it when there are two possibilities and the choice/result is still uncertain.</p><div class="example">I haven’t decided <b>whether to drive or fly</b>.<br><b>Whether we stay home or go out</b>, I want a low-key evening.</div></div>
+</div><div class="quickRule"><b>Fast memory trick:</b> <b>either = 1 of 2</b> · <b>neither = 0 of 2</b> · <b>both = 2 of 2</b> · <b>rather = choice now</b> · <b>prefer = general preference</b> · <b>whether = “which possibility?”</b></div></section>
+
+<section class="section"><h2>Vocabulary Recap 🌈</h2><p class="sub">These are the words from today’s lesson. Read them once before starting the exercises.</p><div class="vocabGrid">
+<div class="vocab"><b>low-key</b><span>спокойный, ненапряжённый</span><em>a low-key weekend</em></div>
+<div class="vocab"><b>packed schedule</b><span>плотный график</span><em>have a packed schedule</em></div>
+<div class="vocab"><b>unwind</b><span>расслабиться</span><em>unwind after work</em></div>
+<div class="vocab"><b>treat yourself</b><span>побаловать себя</span><em>treat yourself to dinner</em></div>
+<div class="vocab"><b>scenic</b><span>живописный</span><em>a scenic route / view</em></div>
+<div class="vocab"><b>compromise</b><span>компромисс</span><em>reach a compromise</em></div>
+<div class="vocab"><b>convenient</b><span>удобный</span><em>a convenient option</em></div>
+<div class="vocab"><b>worth it</b><span>оно того стоит</span><em>definitely worth it</em></div>
+<div class="vocab"><b>hectic</b><span>суматошный, очень занятый</span><em>a hectic week</em></div>
+<div class="vocab"><b>spur-of-the-moment</b><span>спонтанный</span><em>a spur-of-the-moment decision</em></div>
+</div></section>
+
+<section class="section"><h2>1. Choose the Structure ⚡</h2><p class="sub">Choose the option that makes the sentence natural and correct.</p><div id="grammarQs"></div></section>
+
+<section class="section"><h2>2. What Does the Sentence Mean? 🎯</h2><p class="sub">Focus on meaning, not just the grammar form.</p><div id="meaningQs"></div></section>
+
+<section class="section"><h2>3. Vocabulary Mix 🧩</h2><p class="sub">Choose the word or phrase that fits the situation best.</p><div id="vocabQs"></div></section>
+
+<section class="section"><h2>4. Russian → English 🇷🇺 → 🇬🇧</h2><p class="sub">Only four short translations. Type the most natural version you can.</p>
+<div class="typeQ" data-kind="translation"><b>1. Я бы лучше осталась дома, чем пошла в шумный ресторан.</b><input data-answers="i'd rather stay home than go to a noisy restaurant|i would rather stay home than go to a noisy restaurant" placeholder="Type your translation"><div class="feedback"></div></div>
+<div class="typeQ" data-kind="translation"><b>2. Ни один из этих вариантов мне не подходит.</b><input data-answers="neither of these options works for me|neither of these options suits me" placeholder="Type your translation"><div class="feedback"></div></div>
+<div class="typeQ" data-kind="translation"><b>3. Я ещё не решила, поехать ли нам на машине или полететь.</b><input data-answers="i haven't decided whether we should drive or fly|i haven't decided whether to drive or fly|i have not decided whether we should drive or fly" placeholder="Type your translation"><div class="feedback"></div></div>
+<div class="typeQ" data-kind="translation"><b>4. После суматошной недели я хочу расслабиться и провести спокойные выходные.</b><input data-answers="after a hectic week, i want to unwind and have a low-key weekend|after a hectic week i want to unwind and have a low-key weekend" placeholder="Type your translation"><div class="feedback"></div></div>
+<button class="btn green" onclick="checkTyped()">Check typed sentences</button>
+</section>
+
+<section class="section"><h2>5. Fix the Mistake 🔧</h2><p class="sub">Choose the corrected version.</p><div id="repairQs"></div></section>
+
+<section class="section"><h2>6. Mini Reading — The Weekend Decision ☕🚗</h2><div class="note">Maria and her husband have had a hectic week, so they want to do something relaxing. Maria would rather stay somewhere quiet, but her husband prefers city breaks to countryside trips. They considered two hotels, but neither of them was convenient because both were far from the train station. Finally, they reached a compromise: they will take a scenic drive to a small town and treat themselves to dinner. They still haven’t decided whether to stay overnight or drive home the same evening. Either option is possible, and both agree that the trip will be worth it.</div><div id="readingQs"></div></section>
+
+<section class="section"><h2>7. Two Real Sentences ✍️</h2><p class="sub">These are not automatically graded. Keep them short and real.</p><textarea class="writing" id="open1" placeholder="1. Write one true sentence about what you would rather do this weekend. Use one vocabulary word."></textarea><textarea class="writing" id="open2" placeholder="2. Write one true sentence with whether…or about a choice you have not made yet."></textarea></section>
+
+<section class="section"><h2>Finish & Send ✅</h2><div class="nameRow"><b>Student name:</b><input id="studentName" placeholder="Type your name"></div><input id="website" style="position:absolute;left:-9999px" tabindex="-1"><div id="result" class="result"></div><div class="actions"><button class="btn green" onclick="grade()">✓ CHECK RESULTS</button><button class="btn pink" id="sendBtn" onclick="sendResults()">📨 SEND RESULTS</button><button class="btn alt" id="downloadBtn" onclick="downloadPDF()">Backup: download PDF</button></div><div id="sendStatus" class="mini" style="margin-top:10px"></div></section>
+</div>
+<iframe name="sendFrame" id="sendFrame" style="display:none"></iframe><form id="sendForm" method="POST" target="sendFrame" style="display:none"></form>
+
+<script>
+const ENDPOINT="https://script.google.com/macros/s/AKfycbyzfvP4ZuWA4A0lF2naJYi_Hs9XnC_EnVZS3BxOL50Rldgk5xBop1Z2rh1i_bAADUXH/exec",KEY="l0Wgf2BejUSFsst5cNGfFvn689YJ-Au9",HOMEWORK_ID='b1-b2-choice-grammar-whether-v1',LESSON='B1-B2 Choice Grammar: Either / Neither / Prefer / Whether',OPENED=Date.now();let submitInFlight=false;
+const grammarData=[
+['We can ___ take the early train or drive after lunch.',['either','neither','both'],0],
+['___ the beach nor the city sounds relaxing today.',['Either','Neither','Both'],1],
+['I like ___ the hotel and the location.',['both','either','neither'],0],
+['I’d rather ___ at home tonight.',['to stay','stay','staying'],1],
+['I prefer quiet cafés ___ busy restaurants.',['than','to','or'],1],
+['I haven’t decided ___ to book the hotel or wait.',['whether','neither','both'],0],
+['___ of the two flights is convenient for us.',['Neither','Either or','Both of'],0],
+['I don’t enjoy hectic weekends. — “___.”',['So do I','Neither do I','Either do I'],1]
+];
+const meaningData=[
+['“Either restaurant is fine.” What does it mean?',['Both are acceptable; choose one.','I dislike both.','I want both at the same time.'],0],
+['“Neither option works for me.” What does it mean?',['Only the first works.','Both options are rejected.','Both options are perfect.'],1],
+['“I’d rather take a taxi.” What does it show?',['A general lifetime preference.','A choice in this situation.','A past habit.'],1],
+['“I prefer trains to buses.” What does it show?',['A general preference.','An instant decision.','A negative agreement.'],0],
+['“I don’t know whether to stay or leave.” What does whether show?',['Two uncertain possibilities.','Both options are impossible.','A past sequence.'],0],
+['“Both hotels are scenic.” What does both mean?',['0 of 2','1 of 2','2 of 2'],2]
+];
+const vocabData=[
+['After a very busy week, I want to ___.',['unwind','reach a compromise','have a packed schedule'],0],
+['The road along the coast has beautiful views. It is very ___.',['hectic','scenic','convenient'],1],
+['The hotel is beside the station, so it is very ___.',['convenient','low-key','spur-of-the-moment'],0],
+['We booked the trip five minutes before leaving. It was a ___ decision.',['packed schedule','spur-of-the-moment','scenic'],1],
+['The tickets were expensive, but the concert was ___.',['worth it','hectic','low-key'],0],
+['We both wanted different things, so we had to ___.',['unwind','reach a compromise','treat ourselves'],1]
+];
+const repairData=[
+['I’d rather to stay home.',['I’d rather stay home.','I’d rather staying home.','I rather to stay home.'],0],
+['I prefer flying than driving.',['I prefer flying to driving.','I prefer fly to drive.','I prefer flying or driving.'],0],
+['Neither of the hotel is convenient.',['Neither of the hotels is convenient.','Neither the hotels are convenient.','Neither of hotel is convenient.'],0],
+['I don’t know either we should go or stay.',['I don’t know whether we should go or stay.','I don’t know neither we should go nor stay.','I don’t know both we should go and stay.'],0]
+];
+const readingData=[
+['Why do Maria and her husband want a relaxing plan?',['They have had a hectic week.','They dislike travelling.','The weather is bad.'],0],
+['What does Maria prefer in this specific situation?',['A quiet place.','A crowded city.','A packed schedule.'],0],
+['Why did they reject both hotels?',['Neither was scenic.','Neither was convenient.','Both were too cheap.'],1],
+['What have they not decided yet?',['Whether to take a train or fly.','Whether to stay overnight or drive home.','Whether to eat dinner or skip it.'],1]
+];
+function renderSet(id,data,kind){document.getElementById(id).innerHTML=data.map((q,i)=>`<div class="q graded" data-kind="${kind}" data-answer="${q[2]}"><b>${i+1}. ${q[0]}</b><div class="options">${q[1].map((o,j)=>`<button class="opt" data-i="${j}" onclick="pick(this)">${o}</button>`).join('')}</div><div class="feedback"></div></div>`).join('')}
+function pick(btn){const q=btn.closest('.q');q.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');updateProgress()}
+function norm(s){return String(s||'').toLowerCase().trim().replace(/[’]/g,"'").replace(/[?.!]+$/,'').replace(/\s+/g,' ')}
+function checkTyped(){document.querySelectorAll('.typeQ').forEach(q=>{const inp=q.querySelector('input'),ans=inp.dataset.answers.split('|').map(norm),ok=ans.includes(norm(inp.value)),fb=q.querySelector('.feedback');inp.classList.remove('ok','no');inp.classList.add(ok?'ok':'no');fb.textContent=ok?'✓ Correct / natural.':'Model: '+inp.dataset.answers.split('|')[0];fb.className='feedback '+(ok?'goodText':'badText')});updateProgress()}
+function allGraded(){return [...document.querySelectorAll('.graded'),...document.querySelectorAll('.typeQ')]}
+function updateProgress(){let done=0;document.querySelectorAll('.graded').forEach(q=>{if(q.querySelector('.opt.selected'))done++});document.querySelectorAll('.typeQ input').forEach(i=>{if(i.value.trim())done++});const total=28;bar.style.width=Math.min(100,done/total*100)+'%';progressText.textContent=`${done} / ${total} graded answers completed`}
+function grade(){let correct=0,wrong=0,unanswered=0;const section={grammar:[0,0],meaning:[0,0],vocab:[0,0],repair:[0,0],reading:[0,0],typed:[0,0]};document.querySelectorAll('.graded').forEach(q=>{const opts=[...q.querySelectorAll('.opt')],sel=q.querySelector('.opt.selected'),ans=+q.dataset.answer,kind=q.dataset.kind;section[kind][1]++;opts.forEach((o,i)=>{o.classList.remove('good','bad');if(i===ans)o.classList.add('good')});const fb=q.querySelector('.feedback');if(!sel){unanswered++;fb.textContent='No answer yet.';fb.className='feedback';return}if(opts.indexOf(sel)===ans){correct++;section[kind][0]++;fb.textContent='✓ Correct';fb.className='feedback goodText'}else{wrong++;sel.classList.add('bad');fb.textContent='Correct answer is highlighted in green.';fb.className='feedback badText'}});
+document.querySelectorAll('.typeQ').forEach(q=>{const inp=q.querySelector('input'),ans=inp.dataset.answers.split('|').map(norm);section.typed[1]++;if(!inp.value.trim()){unanswered++;return}if(ans.includes(norm(inp.value))){correct++;section.typed[0]++;inp.classList.remove('no');inp.classList.add('ok')}else{wrong++;inp.classList.remove('ok');inp.classList.add('no')}});const total=28,pct=Math.round(correct/total*100),label=pct>=90?'Excellent 🌟':pct>=75?'Great job 👏':pct>=60?'Good progress 👍':'Keep practicing 💪';window.last={correct,wrong,unanswered,total,pct,label};result.innerHTML=`<div class="scoreBig">${correct} / ${total} · ${pct}%</div><h3>${label}</h3><p>${wrong} wrong · ${unanswered} unanswered</p><div class="breakdown"><div class="stat"><b>${section.grammar[0]}/${section.grammar[1]}</b>Grammar</div><div class="stat"><b>${section.meaning[0]}/${section.meaning[1]}</b>Meaning</div><div class="stat"><b>${section.vocab[0]}/${section.vocab[1]}</b>Vocabulary</div><div class="stat"><b>${section.typed[0]}/${section.typed[1]}</b>Typed</div></div><p class="mini">The two final real-life sentences are for teacher feedback and are not included in the automatic percentage.</p>`;result.classList.add('show');updateProgress();return window.last}
+async function pdfBlob(){if(!window.last)grade();const hide=[...document.querySelectorAll('.actions')];hide.forEach(x=>x.style.visibility='hidden');window.scrollTo(0,0);await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));try{const c=await html2canvas(document.body,{scale:1.15,useCORS:true,backgroundColor:'#f7f7fc',logging:false}),{jsPDF}=window.jspdf,pdf=new jsPDF('p','mm','a4'),mw=198,mh=285,ratio=c.width/mw,slice=Math.floor(mh*ratio);let y=0,p=0;while(y<c.height){const hh=Math.min(slice,c.height-y),x=document.createElement('canvas');x.width=c.width;x.height=hh;x.getContext('2d').drawImage(c,0,y,c.width,hh,0,0,c.width,hh);if(p++)pdf.addPage();pdf.addImage(x.toDataURL('image/jpeg',.86),'JPEG',6,6,mw,hh/ratio,undefined,'FAST');y+=hh}return pdf.output('blob')}finally{hide.forEach(x=>x.style.visibility='')}}
+async function downloadPDF(){const b=downloadBtn,o=b.textContent;b.disabled=true;b.textContent='Creating PDF...';try{const blob=await pdfBlob(),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='B1_B2_Choice_Grammar_Homework.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200)}finally{b.disabled=false;b.textContent=o}}
+function nonce(){const a=new Uint32Array(4);crypto.getRandomValues(a);return [...a].map(x=>x.toString(16)).join('')}function toBase64(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.onerror=rej;r.readAsDataURL(blob)})}
+async function sendResults(){const name=studentName.value.trim();if(name.length<2){alert('Please enter the student name.');return}if(website.value||submitInFlight)return;if(Date.now()-OPENED<15000){alert('Please spend a little more time on the homework before sending it.');return}submitInFlight=true;sendBtn.disabled=true;sendStatus.textContent='Preparing PDF...';try{const pdf=await pdfBlob(),r=window.last||grade(),pdf64=await toBase64(pdf),form=sendForm;form.action=ENDPOINT;const payload={key:KEY,homeworkId:HOMEWORK_ID,lessonTitle:LESSON,studentName:name,score:`${r.correct}/${r.total}`,percent:String(r.pct),grade:r.label,wrong:String(r.wrong),unanswered:String(r.unanswered),submittedAt:String(Date.now()),nonce:nonce(),website:'',pdfBase64:pdf64,filename:'B1_B2_Choice_Grammar_Homework.pdf',audioBase64:'',audioMimeType:'',audioFilename:''};form.innerHTML='';Object.entries(payload).forEach(([k,v])=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;form.appendChild(i)});const sentNonce=payload.nonce;const listener=e=>{if(e.data&&e.data.type==='homework-submit'&&e.data.nonce===sentNonce){window.removeEventListener('message',listener);sendStatus.textContent=e.data.status==='success'?'✓ Results sent to teacher.':'Could not send: '+e.data.message}};window.addEventListener('message',listener);form.submit();setTimeout(()=>{if(sendStatus.textContent.includes('Preparing'))sendStatus.textContent='Submission sent. If no confirmation appears, use the backup PDF button.'},6500)}catch(e){sendStatus.textContent='Could not send: '+e.message}finally{setTimeout(()=>{submitInFlight=false;sendBtn.disabled=false},1500)}}
+renderSet('grammarQs',grammarData,'grammar');renderSet('meaningQs',meaningData,'meaning');renderSet('vocabQs',vocabData,'vocab');renderSet('repairQs',repairData,'repair');renderSet('readingQs',readingData,'reading');document.querySelectorAll('.typeQ input,.writing,#studentName').forEach(x=>x.addEventListener('input',updateProgress));updateProgress();
+</script>
+</body>
+</html>
